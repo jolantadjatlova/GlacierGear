@@ -13,6 +13,8 @@ body {
     padding-top: 115px;
     background: url('../images/hero_gg.webp') center 60% / cover no-repeat;
     min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
 header {
@@ -59,7 +61,7 @@ header {
 }
 
 .hero {
-    min-height: 85vh;
+    min-height: 70vh;
     display: flex;
     align-items: center;
     margin-top: -115px;
