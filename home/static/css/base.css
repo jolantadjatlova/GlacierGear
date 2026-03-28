@@ -80,6 +80,7 @@ body::before {
 .hero-heading {
     font-family: 'Permanent Marker', cursive;
     color: #fff;
+    white-space: nowrap;
     line-height: 1.1;
 }
 
@@ -99,6 +100,39 @@ body::before {
 .hero-btn:hover {
     background-color: white !important;
     color: var(--navy) !important;
+}
+
+.weather-widget {
+    background-color: rgba(3, 60, 124, 0.65);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-radius: 0.4rem;
+
+    padding: 0.8rem 1rem;   
+    max-width: 240px;       
+    font-size: 0.85rem;     
+
+    backdrop-filter: blur(4px); 
+    position: relative;
+    left: 170px;     
+    top: 40px;      
+}
+
+.weather-widget p {
+    margin-bottom: 0.2rem;
+    font-size: 0.8rem;
+    line-height: 1.2; 
+    opacity: 0.9;
+}
+
+.weather-widget h6 {
+    font-size: 0.75rem;
+    opacity: 0.7;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+.weather-temp {
+    font-size: 2rem;  
+    line-height: 1.1;
 }
 .card {
     background-color: rgba(3, 60, 124, 0.7);
