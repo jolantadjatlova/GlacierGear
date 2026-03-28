@@ -60,6 +60,15 @@ header {
     line-height: 1;
 }
 
+body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.15);
+    z-index: 0;
+    pointer-events: none;
+}
+
 .hero {
     min-height: 70vh;
     display: flex;
