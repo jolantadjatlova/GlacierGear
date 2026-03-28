@@ -71,3 +71,29 @@ header {
 .hero-content {
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
 }
+
+.card {
+    background-color: rgba(3, 60, 124, 0.7);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: white;
+}
+
+.card .card-title {
+    color: white;
+    font-weight: 600;
+}
+
+.card .card-text {
+    color: rgba(255, 255, 255, 0.85);
+}
+
+.card .btn-primary {
+    background-color: transparent;
+    border-color: white;
+    color: white;
+}
+
+.card .btn-primary:hover {
+    background-color: white;
+    color: var(--navy);
+}
