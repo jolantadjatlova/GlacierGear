@@ -4,4 +4,13 @@ from django.shortcuts import render
 
 def index(request):
     """ A view to return the index page """
-    return render(request, 'home/index.html')
+    weather = {
+        'temperature': -2,
+        'description': 'Partly Cloudy',
+        'wind_speed': 8,
+        'wind_direction': 'NW',
+        'humidity': 68,
+        'temp_min': -4,
+        'temp_max': -1,
+    }
+    return render(request, 'home/index.html', {'weather': weather})
