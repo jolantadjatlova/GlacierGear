@@ -4,35 +4,29 @@
 {% block content %}
 
     <!-- Hero section -->
-    <div class="hero">
-        <div class="container h-100">
-            <div class="row h-100 align-items-center">
+    <div class="hero position-relative">
+        
+        <!-- Weather pill - top right -->
+        <div class="weather-pill">
+            <i class="bi bi-cloud-snow fs-4"></i>
+            <div class="d-flex flex-column">
+                <span class="weather-pill-temp">-2°C</span>
+                <span class="weather-pill-desc">Partly Cloudy</span>
+            </div>
+        </div>
 
-                <!-- Left spacer / image side -->
-                <div class="col-12 col-md-6"></div>
+        <div class="container">
+            <div class="row align-items-center justify-content-center">
 
                 <!-- Right content block -->
-                <div class="col-12 col-md-4 ms-auto hero-text">
-                    <h1 class="display-4 fw-bold text-white hero-heading">
+                <div class="col-12 col-md-7 col-lg-6 hero-text text-center mt-n4 ms-4">
+                    <h1 class="display-4 fw-bold text-white hero-heading text-center text-md-end">
                         Rent. Ride. Enjoy.
                     </h1>
-
-                    <div class="mt-4">
-                        <a href="#" class="btn btn-lg rounded-0 py-3 px-4 text-uppercase hero-btn">
+                    <div class="mt-3 text-start">
+                        <a href="#" class="btn btn-lg py-3 px-4 text-uppercase hero-btn">
                             Book Now
                         </a>
-                    </div>
-
-                    <!-- Weather widget -->
-                    <div class="weather-widget p-3 mt-4">
-                        <h6 class="text-white mb-1">Romme Alpin Forecast</h6>
-                        <div class="weather-temp fw-bold text-white mb-1">
-                            {{ weather.temperature }}°C
-                        </div>
-                        <p class="text-white mb-1">{{ weather.description }}</p>
-                        <p class="text-white mb-1">Today: {{ weather.temp_min }}° / {{ weather.temp_max }}°</p>
-                        <p class="text-white mb-1">Wind: {{ weather.wind_speed }} km/h {{ weather.wind_direction }}</p>
-                        <p class="text-white mb-0">Humidity: {{ weather.humidity }}%</p>
                     </div>
                 </div>
 
@@ -47,10 +41,10 @@
             <!-- Card 1: Ski Outfit Rental -->
             <div class="col-12 col-md-4">
                 <div class="card h-100">
-                    <div class="card-body">
+                    <div class="card-body d-flex flex-column">
                         <h5 class="card-title">Ski Outfit Rental</h5>
                         <p class="card-text">Jacket & trousers for all skill levels.</p>
-                        <a href="#" class="btn btn-primary">View Details</a>
+                        <a href="#" class="btn btn-card mt-auto">View Details</a>
                     </div>
                 </div>
             </div>
@@ -58,10 +52,10 @@
             <!-- Card 2: Snowboard Outfit Rental -->
             <div class="col-12 col-md-4">
                 <div class="card h-100">
-                    <div class="card-body">
+                    <div class="card-body d-flex flex-column">
                         <h5 class="card-title">Snowboard Outfit Rental</h5>
                         <p class="card-text">Warm, waterproof outfits for snowboarding.</p>
-                        <a href="#" class="btn btn-primary">View Details</a>
+                        <a href="#" class="btn btn-card mt-auto">View Details</a>
                     </div>
                 </div>
             </div>
@@ -69,10 +63,10 @@
             <!-- Card 3: How It Works -->
             <div class="col-12 col-md-4">
                 <div class="card h-100">
-                    <div class="card-body">
+                    <div class="card-body d-flex flex-column">
                         <h5 class="card-title">How It Works</h5>
                         <p class="card-text">Choose outfit → Select dates → Pick up in Borlänge.</p>
-                        <a href="#" class="btn btn-primary">Book Now</a>
+                        <a href="#" class="btn btn-card mt-auto">Book Now</a>
                     </div>
                 </div>
             </div>
