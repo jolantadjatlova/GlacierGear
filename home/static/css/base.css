@@ -22,8 +22,14 @@ header {
     backdrop-filter: blur(4px);
 }
 
+.navbar-top img {
+    padding-left: 0.75rem;
+    margin-top: 0.5rem;
+    height: 55px;
+}
 .navbar-top {
     background-color: rgba(3, 60, 124, 0.6);
+    padding-bottom: 0 !important;
 }
 
 .navbar-top a {
@@ -37,7 +43,9 @@ header {
 
 .main-nav {
     background-color: rgba(3, 60, 124, 0.6);
-    min-height: 50px;
+    min-height: 30px;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
 }
 
 .main-nav .form-control {
