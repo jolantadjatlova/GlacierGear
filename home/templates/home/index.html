@@ -4,32 +4,31 @@
 {% block content %}
 
     <!-- Hero section -->
-    <div class="hero position-relative">
-        
-        <!-- Weather pill-->
-        <div class="weather-pill">
-            <i class="bi bi-cloud-snow fs-4"></i>
-            <div class="d-flex flex-column">
-                <span class="weather-pill-temp">-2°C</span>
-                <span class="weather-pill-desc">Partly Cloudy</span>
-            </div>
-        </div>
-
+    <div class="hero">
         <div class="container">
-            <div class="row align-items-center justify-content-center">
+            <div class="row justify-content-center justify-content-md-end">
+                <div class="col-11 col-md-6 col-lg-5 text-center text-md-start">
+                    
+                    <!-- Weather pill -->
+                    <div class="weather-pill d-inline-flex mb-3">
+                        <i class="bi bi-cloud-snow fs-5"></i>
+                        <span class="weather-pill-temp ms-2">-2°C</span>
+                        <span class="weather-pill-desc ms-2">Partly Cloudy</span>
+                    </div>
 
-                <!-- Right content block -->
-                <div class="col-12 col-md-7 col-lg-6 hero-text text-center mt-n4 ms-4">
-                    <h1 class="display-4 fw-bold text-white hero-heading text-center text-md-end">
+                    <!-- Heading -->
+                    <h1 class="text-white hero-heading">
                         Rent. Ride. Enjoy.
                     </h1>
-                    <div class="mt-3 text-start">
-                        <a href="#" class="btn btn-lg py-3 px-4 text-uppercase hero-btn">
+
+                    <!-- Button -->
+                    <div class="mt-3">
+                        <a href="#" class="btn btn-lg px-4 py-3 text-uppercase hero-btn">
                             Book Now
                         </a>
                     </div>
-                </div>
 
+                </div>
             </div>
         </div>
     </div>
@@ -38,7 +37,6 @@
     <div class="container my-0">
         <div class="row g-4">
 
-            <!-- Card 1: Ski Outfit Rental -->
             <div class="col-12 col-md-4">
                 <div class="card h-100">
                     <div class="card-body d-flex flex-column">
@@ -49,7 +47,6 @@
                 </div>
             </div>
 
-            <!-- Card 2: Snowboard Outfit Rental -->
             <div class="col-12 col-md-4">
                 <div class="card h-100">
                     <div class="card-body d-flex flex-column">
@@ -60,7 +57,6 @@
                 </div>
             </div>
 
-            <!-- Card 3: How It Works -->
             <div class="col-12 col-md-4">
                 <div class="card h-100">
                     <div class="card-body d-flex flex-column">

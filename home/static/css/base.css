@@ -12,29 +12,38 @@
 body {
     font-family: 'Inter', sans-serif;
     padding-top: 115px;
-    background: url('../images/hero_gg.webp') center 60% / cover no-repeat;
+    background: url('../images/hero_gg.webp') center 60% / cover no-repeat fixed;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.22);
+    z-index: 0;
+    pointer-events: none;
 }
 
 header {
     backdrop-filter: blur(4px);
 }
 
-.navbar-top img {
-    padding-left: 0.75rem;
-    margin-top: 0.5rem;
-    height: 55px;
-}
 .navbar-top {
     background-color: rgba(3, 60, 124, 0.6);
-    padding-bottom: 0 !important;
 }
 
 .navbar-top a {
     text-decoration: none;
     line-height: 1;
+}
+
+.navbar-top img {
+    margin-left: 0.75rem;
+    margin-top: 0.5rem;
+    height: 60px;
 }
 
 .navbar-top .bi {
@@ -69,33 +78,19 @@ header {
     line-height: 1;
 }
 
-body::before {
-    content: '';
-    position: fixed;
-    inset: 0;
-    background-color: rgba(0, 0, 0, 0.22);
-    z-index: 0;
-    pointer-events: none;
-}
-
 .hero {
     min-height: 70vh;
     display: flex;
     align-items: center;
-    margin-top: -115px;
-    padding-top: 115px;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
 }
 
 .hero-heading {
     font-family: 'Permanent Marker', cursive;
+    font-size: clamp(2rem, 5vw, 3.5rem);
     line-height: 1.1;
     text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6);
-    font-size: clamp(2.5rem, 4vw, 5rem);
-}
-
-.hero-text {
-    text-shadow: none;
-    transform: translate(150px, -80px);
 }
 
 .hero-btn {
@@ -109,7 +104,28 @@ body::before {
     color: var(--navy) !important;
 }
 
-/* Shared glass style */
+.weather-pill {
+    align-items: center;
+    gap: 0.4rem;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 0.4rem;
+    padding: 0.5rem 1rem;
+    color: white;
+}
+
+.weather-pill-temp {
+    font-weight: 700;
+    font-size: 1rem;
+}
+
+.weather-pill-desc {
+    font-size: 0.8rem;
+    opacity: 0.85;
+}
+
 .card {
     background: rgba(255, 255, 255, 0.15);
     backdrop-filter: blur(10px);
@@ -139,35 +155,4 @@ body::before {
     background-color: transparent;
     border-color: var(--navy-dark);
     color: var(--navy-dark);
-}
-
-/* Weather pill */
-.weather-pill {
-    position: absolute;
-    top: 130px;
-    right: 1.5rem;
-    display: inline-flex;
-    align-items: center;
-    gap: 0.75rem;
-    background: rgba(255, 255, 255, 0.15);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    border-radius: 0.4rem;
-    padding: 0.75rem 1.25rem;
-    color: white;
-}
-
-.weather-pill .bi {
-    font-size: 1.2rem;
-}
-
-.weather-pill-temp {
-    font-weight: 700;
-    font-size: 1rem;
-}
-
-.weather-pill-desc {
-    font-size: 0.8rem;
-    opacity: 0.85;
 }
