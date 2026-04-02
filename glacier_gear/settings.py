@@ -15,7 +15,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY', '')
 
 DEBUG = 'DEVELOPMENT' in os.environ
 
-ALLOWED_HOSTS = ['glaciergear.herokuapp.com', 'localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['glaciergear-7ce99fc7bac4.herokuapp.com', 'localhost', '127.0.0.1']
 
 INSTALLED_APPS = [
     'django.contrib.admin',
