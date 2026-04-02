@@ -1,0 +1,1 @@
+web: gunicorn glacier_gear.wsgi
