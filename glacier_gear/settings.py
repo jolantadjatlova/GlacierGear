@@ -89,10 +89,7 @@ if 'DATABASE_URL' in os.environ:
     }
 else:
     DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.sqlite3',
-            'NAME': BASE_DIR / 'db.sqlite3',
-        }
+        'default': dj_database_url.parse('postgresql://neondb_owner:npg_8dOroSXsAz4V@ep-aged-wind-ag2h67rc.c-2.eu-central-1.aws.neon.tech/come_trick_chest_36370')
     }
 
 AUTH_PASSWORD_VALIDATORS = [
