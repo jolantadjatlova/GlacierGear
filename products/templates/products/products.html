@@ -7,7 +7,15 @@
 <div class="container mt-4 products-page">
     <div class="row">
         <div class="col">
-            <h2 class="mb-4 products-title">Products</h2>
+            <h2 class="mb-4 products-title">
+                {% if current_categories %}
+                    {% for category in current_categories %}
+                        {{ category.friendly_name }}
+                    {% endfor %}
+                {% else %}
+                    Products
+                {% endif %}
+            </h2>
             <hr class="products-top-divider">
         </div>
     </div>
