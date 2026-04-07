@@ -1,0 +1,378 @@
+[
+{
+  "model": "products.category",
+  "pk": 1,
+  "fields": {
+    "name": "ski_outfit",
+    "friendly_name": "Ski Outfit"
+  }
+},
+{
+  "model": "products.category",
+  "pk": 2,
+  "fields": {
+    "name": "snowboard_outfit",
+    "friendly_name": "Snowboard Outfit"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 1,
+  "fields": {
+    "category": 1,
+    "sku": "SKI-001",
+    "name": "Adult Ski Jacket & Trousers",
+    "description": "Waterproof and windproof ski jacket and trousers set. Available in sizes XS-XXL.",
+    "has_sizes": true,
+    "price_per_day": "150.00",
+    "rating": null,
+    "image_url": null,
+    "image": "vibrant_ski_jacket_and_trousers_AqPdvww.jpg"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 2,
+  "fields": {
+    "category": 1,
+    "sku": "SKI-002",
+    "name": "Women's One-Piece Ski Suit",
+    "description": "Sleek waterproof and insulated one-piece ski suit for women. Belted waist design with multiple pockets. Available in sizes XS-XXL.",
+    "has_sizes": true,
+    "price_per_day": "150.00",
+    "rating": null,
+    "image_url": null,
+    "image": "womens_one_piece_ski_suit.jpg"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 3,
+  "fields": {
+    "category": 1,
+    "sku": "SKI-003",
+    "name": "Men's Ski Jacket & Trousers",
+    "description": "Waterproof and insulated ski jacket with matching trousers. Red and black colourway with multiple zip pockets. Available in sizes XS-XXL.",
+    "has_sizes": true,
+    "price_per_day": "150.00",
+    "rating": null,
+    "image_url": null,
+    "image": "mens_ski_jacket_trousers.jpg"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 4,
+  "fields": {
+    "category": 1,
+    "sku": "SKI-004",
+    "name": "Women's One-Piece Ski Suit",
+    "description": "Vibrant red waterproof one-piece ski suit for women. Belted waist with multiple pockets. Available in sizes XS-XXL.",
+    "has_sizes": true,
+    "price_per_day": "150.00",
+    "rating": null,
+    "image_url": null,
+    "image": "womens_ski_suit_red.jpg"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 5,
+  "fields": {
+    "category": 1,
+    "sku": "SKI-005",
+    "name": "Women's Ski Jacket & Trousers",
+    "description": "Waterproof navy and blue ski jacket with matching bright blue trousers. Multiple zip pockets. Available in sizes XS-XXL.",
+    "has_sizes": true,
+    "price_per_day": "150.00",
+    "rating": null,
+    "image_url": null,
+    "image": "womens_ski_jacket_trousers_blue.jpg"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 6,
+  "fields": {
+    "category": 1,
+    "sku": "SKI-006",
+    "name": "Women's Pastel One-Piece Ski Suit",
+    "description": "Vibrant pastel colourblock one-piece ski suit. Waterproof and insulated with belted waist. Available in sizes XS-XXL.",
+    "has_sizes": true,
+    "price_per_day": "150.00",
+    "rating": null,
+    "image_url": null,
+    "image": "womens_ski_suit_pastel.jpg"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 7,
+  "fields": {
+    "category": 1,
+    "sku": "SKI-007",
+    "name": "Men's Beige Ski Jacket & Trousers",
+    "description": "Men's two-piece ski outfit in beige with insulated jacket and matching trousers.",
+    "has_sizes": true,
+    "price_per_day": "150.00",
+    "rating": null,
+    "image_url": null,
+    "image": "mens_beige_ski_jacket_and_trousers.jpg"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 8,
+  "fields": {
+    "category": 1,
+    "sku": "SKI-008",
+    "name": "Men's Olive Green Ski Jacket & Trousers",
+    "description": "Men's two-piece ski outfit in olive green with insulated jacket and matching trousers.",
+    "has_sizes": true,
+    "price_per_day": "150.00",
+    "rating": null,
+    "image_url": null,
+    "image": "mens_olive_ski_jacket_and_trousers.jpg"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 9,
+  "fields": {
+    "category": 1,
+    "sku": "SKI-009",
+    "name": "Women's Colourful Ski Jacket & Trousers",
+    "description": "Waterproof and windproof ski jacket and trousers set in a colourful design. Provides warmth, comfort, and visibility on the slopes. Available in sizes XS-XXL.",
+    "has_sizes": true,
+    "price_per_day": "150.00",
+    "rating": null,
+    "image_url": null,
+    "image": "womens_ski_jacket_trousers_colourful.jpg"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 10,
+  "fields": {
+    "category": 1,
+    "sku": "SKI-010",
+    "name": "Women's Purple & Pink Ski Jacket & Trousers",
+    "description": "Waterproof and windproof ski jacket and trousers set in a bold purple and pink design. Provides warmth, comfort, and visibility on the slopes. Available in sizes XS-XXL.",
+    "has_sizes": true,
+    "price_per_day": "150.00",
+    "rating": null,
+    "image_url": null,
+    "image": "womens_purple_pink_ski_set.jpg"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 11,
+  "fields": {
+    "category": 1,
+    "sku": "SKI-011",
+    "name": "Men's Multicolour Ski Jacket & Trousers",
+    "description": "Waterproof and windproof ski jacket and trousers set in a vibrant multicolour design. Provides warmth, comfort, and visibility on the slopes. Available in sizes XS-XXL.",
+    "has_sizes": true,
+    "price_per_day": "150.00",
+    "rating": null,
+    "image_url": null,
+    "image": "mens_multicolour_ski_set.jpg"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 12,
+  "fields": {
+    "category": 1,
+    "sku": "SKI-012",
+    "name": "Men's Retro Ski Jacket & Trousers",
+    "description": "Waterproof and windproof ski jacket and trousers set in a retro-inspired design. Provides warmth, comfort, and standout style on the slopes. Available in sizes XS-XXL.",
+    "has_sizes": true,
+    "price_per_day": "150.00",
+    "rating": null,
+    "image_url": null,
+    "image": "mens_retro_ski_set.jpg"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 13,
+  "fields": {
+    "category": 2,
+    "sku": "SNB-001",
+    "name": "Women's Light Purple Snowboard Jacket & Trousers",
+    "description": "Waterproof and windproof snowboard jacket and trousers set in a light purple design. Features a relaxed, baggy fit for comfort and mobility on the slopes. Available in sizes XS-XXL.",
+    "has_sizes": true,
+    "price_per_day": "150.00",
+    "rating": null,
+    "image_url": null,
+    "image": "womens_light_purple_snowboard_set.png"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 14,
+  "fields": {
+    "category": 2,
+    "sku": "SNB-002",
+    "name": "Women's Light Green Snowboard Jacket & Trousers",
+    "description": "Waterproof and windproof snowboard jacket and trousers set in a light green design. Features a relaxed, baggy fit for comfort and mobility on the slopes. Available in sizes XS-XXL.",
+    "has_sizes": true,
+    "price_per_day": "150.00",
+    "rating": null,
+    "image_url": null,
+    "image": "womens_light_green_snowboard_set.png"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 15,
+  "fields": {
+    "category": 2,
+    "sku": "SNB-003",
+    "name": "Women's Pink Snowboard Jacket & Trousers",
+    "description": "Waterproof and windproof snowboard jacket and trousers set in a pink colourblock design. Features a relaxed, baggy fit for comfort and mobility on the slopes. Available in sizes XS-XXL.",
+    "has_sizes": true,
+    "price_per_day": "150.00",
+    "rating": null,
+    "image_url": null,
+    "image": "womens_pink_snowboard_set.png"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 16,
+  "fields": {
+    "category": 2,
+    "sku": "SNB-004",
+    "name": "Men's Black Snowboard Jacket & Trousers",
+    "description": "Waterproof and windproof snowboard jacket and trousers set in an all-black design. Features a relaxed, baggy fit for comfort, flexibility, and modern style on the slopes. Available in sizes XS-XXL.",
+    "has_sizes": true,
+    "price_per_day": "150.00",
+    "rating": null,
+    "image_url": null,
+    "image": "mens_black_snowboard_set.png"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 17,
+  "fields": {
+    "category": 2,
+    "sku": "SNB-005",
+    "name": "Men's Camo Snowboard Jacket & Trousers",
+    "description": "Waterproof and windproof snowboard jacket and trousers set in a camo design. Features a relaxed, baggy fit for comfort, durability, and mobility on the slopes. Available in sizes XS-XXL.",
+    "has_sizes": true,
+    "price_per_day": "150.00",
+    "rating": null,
+    "image_url": null,
+    "image": "mens_camo_snowboard_set.png"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 18,
+  "fields": {
+    "category": 2,
+    "sku": "SNB-006",
+    "name": "Men's Navy Snowboard Jacket & Trousers",
+    "description": "Waterproof and windproof snowboard jacket and trousers set in a navy design. Features a relaxed, baggy fit for comfort, flexibility, and modern style on the slopes. Available in sizes XS-XXL.",
+    "has_sizes": true,
+    "price_per_day": "150.00",
+    "rating": null,
+    "image_url": null,
+    "image": "mens_navy_snowboard_set.png"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 19,
+  "fields": {
+    "category": 2,
+    "sku": "SNB-007",
+    "name": "Men’s Nova Neon Snowboard Jacket and Trousers",
+    "description": "Waterproof and wind-resistant snowboard anorak set in a bold neon design. Features a pullover jacket with a large front pocket and a relaxed fit for comfort, durability, and mobility on the slopes. Ideal for high visibility and all-day performance in winter conditions. Available in sizes XS-XXL",
+    "has_sizes": true,
+    "price_per_day": "150.00",
+    "rating": null,
+    "image_url": null,
+    "image": "mens_neon_yellow_snowboard_set.jpg"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 20,
+  "fields": {
+    "category": 2,
+    "sku": "SNB-008",
+    "name": "Women’s Colourful Anorak Snowboard Jacket & Trousers",
+    "description": "Waterproof and wind-resistant snowboard anorak jacket and trousers set in a vibrant multi-colour design. Features a relaxed fit for comfort, durability, and mobility on the slopes. Available in sizes XS–XXL.",
+    "has_sizes": true,
+    "price_per_day": "150.00",
+    "rating": null,
+    "image_url": null,
+    "image": "womens_multicolour_anorak_snowboard_set.png"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 21,
+  "fields": {
+    "category": 2,
+    "sku": "SNB-009",
+    "name": "Women’s Grey Panel Snowboard Jacket & Trousers",
+    "description": "Waterproof and wind-resistant snowboard jacket and trousers set in a modern grey design with light green panel accents. Features a relaxed fit for comfort, durability, and mobility on the slopes. Available in sizes XS–XXL.",
+    "has_sizes": true,
+    "price_per_day": "150.00",
+    "rating": null,
+    "image_url": null,
+    "image": "womens_grey_panel_snowboard_jacket_trousers.png"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 22,
+  "fields": {
+    "category": 2,
+    "sku": "SNB-010",
+    "name": "Men’s Red Anorak Snowboard Jacket & Trousers",
+    "description": "Waterproof and wind-resistant snowboard anorak jacket and trousers set in a bold red design. Features a relaxed, baggy fit for comfort, durability, and mobility on the slopes. Available in sizes XS–XXL.",
+    "has_sizes": true,
+    "price_per_day": "150.00",
+    "rating": null,
+    "image_url": null,
+    "image": "mens_red_anorak_snowboard_jacket_trousers.png"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 23,
+  "fields": {
+    "category": 2,
+    "sku": "SNB-011",
+    "name": "Men’s Earth Tone Anorak Snowboard Jacket & Trousers",
+    "description": "Waterproof and wind-resistant snowboard anorak jacket and trousers set in an earthy multi-tone design. Features a relaxed fit for comfort, durability, and mobility on the slopes. Available in sizes XS–XXL.",
+    "has_sizes": true,
+    "price_per_day": "150.00",
+    "rating": null,
+    "image_url": null,
+    "image": "mens_earth_tone_anorak_snowboard_jacket_trousers.png"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 24,
+  "fields": {
+    "category": 2,
+    "sku": "SNB-012",
+    "name": "Women’s Silver Anorak Snowboard Jacket & Trousers",
+    "description": "Waterproof and wind-resistant snowboard anorak jacket and trousers set in a sleek silver design. Features a relaxed fit for comfort, durability, and mobility on the slopes. Available in sizes XS–XXL.",
+    "has_sizes": true,
+    "price_per_day": "150.00",
+    "rating": null,
+    "image_url": null,
+    "image": "womens_silver_anorak_snowboard_jacket_trousers.png"
+  }
+}
+]
