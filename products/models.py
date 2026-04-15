@@ -24,6 +24,7 @@ class Product(models.Model):
 
     GARMENT_TYPE_CHOICES = [
         ('full_set', 'Full Set'),
+        ('ski_suit', 'Ski Suit'),
         ('jacket', 'Jacket'),
         ('trousers', 'Trousers'),
         ('accessory', 'Accessory'),
