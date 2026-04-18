@@ -40,8 +40,8 @@
     "fields": {
       "category": 1,
       "sku": "SKI-002",
-      "name": "Women's One-Piece Ski Suit",
-      "description": "Sleek waterproof and insulated one-piece ski suit for women. Belted waist design with multiple pockets. Available in sizes XS-XXL.",
+      "name": "Women's Ski Suit",
+      "description": "Sleek waterproof and insulated ski suit for women. Belted waist design with multiple pockets. Available in sizes XS-XXL.",
       "has_sizes": true,
       "sport": "ski",
       "garment_type": "ski_suit",
@@ -78,8 +78,8 @@
     "fields": {
       "category": 1,
       "sku": "SKI-004",
-      "name": "Women's One-Piece Ski Suit",
-      "description": "Vibrant red waterproof one-piece ski suit for women. Belted waist with multiple pockets. Available in sizes XS-XXL.",
+      "name": "Women's Red Ski Suit",
+      "description": "Vibrant red waterproof ski suit for women. Belted waist with multiple pockets. Available in sizes XS-XXL.",
       "has_sizes": true,
       "sport": "ski",
       "garment_type": "ski_suit",
@@ -116,8 +116,8 @@
     "fields": {
       "category": 1,
       "sku": "SKI-006",
-      "name": "Women's Pastel One-Piece Ski Suit",
-      "description": "Vibrant pastel colourblock one-piece ski suit. Waterproof and insulated with belted waist. Available in sizes XS-XXL.",
+      "name": "Women's Pastel Ski Suit",
+      "description": "Vibrant pastel colourblock ski suit. Waterproof and insulated with belted waist. Available in sizes XS-XXL.",
       "has_sizes": true,
       "sport": "ski",
       "garment_type": "ski_suit",
@@ -364,7 +364,7 @@
       "category": 2,
       "sku": "SNB-007",
       "name": "Men's Nova Neon Snowboard Jacket and Trousers",
-      "description": "Waterproof and wind-resistant snowboard anorak set in a bold neon design. Features a pullover jacket with a large front pocket and a relaxed fit for comfort, durability, and mobility on the slopes. Ideal for high visibility and all-day performance in winter conditions. Available in sizes XS-XXL.",
+      "description": "Waterproof and wind-resistant snowboard anorak set in a bold neon design. Features a pullover jacket with a large front pocket and a relaxed fit for comfort, durability, and mobility on the slopes. Available in sizes XS-XXL.",
       "has_sizes": true,
       "sport": "snowboard",
       "garment_type": "full_set",
@@ -469,6 +469,234 @@
       "rating": null,
       "image_url": null,
       "image": "womens_silver_anorak_snowboard_jacket_trousers.png"
+    }
+  },
+  {
+    "model": "products.product",
+    "pk": 25,
+    "fields": {
+      "category": 1,
+      "sku": "SKI-013",
+      "name": "Men's Black Ski Trousers",
+      "description": "Waterproof and windproof ski trousers in black. Reinforced knees and seat with multiple pockets. Available in sizes XS-XXL.",
+      "has_sizes": true,
+      "sport": "ski",
+      "garment_type": "trousers",
+      "gender": "men",
+      "color": "Black",
+      "price_per_day": "75.00",
+      "rating": null,
+      "image_url": null,
+      "image": "mens_black_ski_trousers.png"
+    }
+  },
+  {
+    "model": "products.product",
+    "pk": 26,
+    "fields": {
+      "category": 1,
+      "sku": "SKI-014",
+      "name": "Women's Black Ski Trousers",
+      "description": "Waterproof and windproof ski trousers in black. Slim fit with reinforced knees and multiple pockets. Available in sizes XS-XXL.",
+      "has_sizes": true,
+      "sport": "ski",
+      "garment_type": "trousers",
+      "gender": "women",
+      "color": "Black",
+      "price_per_day": "75.00",
+      "rating": null,
+      "image_url": null,
+      "image": "womens_black_ski_trousers.png"
+    }
+  },
+  {
+    "model": "products.product",
+    "pk": 27,
+    "fields": {
+      "category": 1,
+      "sku": "SKI-015",
+      "name": "Women's Navy Ski Trousers",
+      "description": "Waterproof and windproof ski trousers in navy. Slim fit with reinforced knees and multiple pockets. Available in sizes XS-XXL.",
+      "has_sizes": true,
+      "sport": "ski",
+      "garment_type": "trousers",
+      "gender": "women",
+      "color": "Navy",
+      "price_per_day": "75.00",
+      "rating": null,
+      "image_url": null,
+      "image": "womens_navy_ski_trousers.png"
+    }
+  },
+  {
+    "model": "products.product",
+    "pk": 28,
+    "fields": {
+      "category": 1,
+      "sku": "SKI-016",
+      "name": "Men's Red Ski Trousers",
+      "description": "Waterproof and windproof ski trousers in red. Reinforced knees and seat with multiple pockets. Available in sizes XS-XXL.",
+      "has_sizes": true,
+      "sport": "ski",
+      "garment_type": "trousers",
+      "gender": "men",
+      "color": "Red",
+      "price_per_day": "75.00",
+      "rating": null,
+      "image_url": null,
+      "image": "mens_red_ski_trousers.png"
+    }
+  },
+  {
+    "model": "products.product",
+    "pk": 29,
+    "fields": {
+      "category": 2,
+      "sku": "SNB-013",
+      "name": "Unisex Snowboard Trousers",
+      "description": "Waterproof and windproof snowboard trousers in black. Relaxed baggy fit with reinforced knees and multiple cargo pockets. Available in sizes XS-XXL.",
+      "has_sizes": true,
+      "sport": "snowboard",
+      "garment_type": "trousers",
+      "gender": "unisex",
+      "color": "Black",
+      "price_per_day": "75.00",
+      "rating": null,
+      "image_url": null,
+      "image": "snowboard_trousers_unisex.png"
+    }
+  },
+  {
+    "model": "products.product",
+    "pk": 30,
+    "fields": {
+      "category": 2,
+      "sku": "SNB-014",
+      "name": "Unisex Off-White Snowboard Trousers",
+      "description": "Waterproof and windproof snowboard trousers in off-white. Relaxed baggy fit with reinforced knees and multiple cargo pockets. Available in sizes XS-XXL.",
+      "has_sizes": true,
+      "sport": "snowboard",
+      "garment_type": "trousers",
+      "gender": "unisex",
+      "color": "Off-White/Cream",
+      "price_per_day": "75.00",
+      "rating": null,
+      "image_url": null,
+      "image": "unisex_snowboard_trousers_2.png"
+    }
+  },
+  {
+    "model": "products.product",
+    "pk": 31,
+    "fields": {
+      "category": 1,
+      "sku": "SKI-017",
+      "name": "Men's Orange & Navy Ski Jacket",
+      "description": "Waterproof and insulated ski jacket in bold orange and navy colourblock design. Multiple zip pockets and adjustable hood. Available in sizes XS-XXL.",
+      "has_sizes": true,
+      "sport": "ski",
+      "garment_type": "jacket",
+      "gender": "men",
+      "color": "Orange/Navy/White",
+      "price_per_day": "100.00",
+      "rating": null,
+      "image_url": null,
+      "image": "mens_ski_jacket.png"
+    }
+  },
+  {
+    "model": "products.product",
+    "pk": 32,
+    "fields": {
+      "category": 1,
+      "sku": "SKI-018",
+      "name": "Men's Black & Blue Ski Jacket",
+      "description": "Waterproof and insulated ski jacket in black and blue colourblock design with neon yellow zip accents. Multiple pockets and adjustable hood. Available in sizes XS-XXL.",
+      "has_sizes": true,
+      "sport": "ski",
+      "garment_type": "jacket",
+      "gender": "men",
+      "color": "Black/Blue/Yellow",
+      "price_per_day": "100.00",
+      "rating": null,
+      "image_url": null,
+      "image": "mens_ski_jacket2.png"
+    }
+  },
+  {
+    "model": "products.product",
+    "pk": 33,
+    "fields": {
+      "category": 1,
+      "sku": "SKI-019",
+      "name": "Women's Purple & Teal Ski Jacket",
+      "description": "Waterproof and insulated ski jacket in purple and teal colourblock design. Multiple zip pockets and adjustable hood. Available in sizes XS-XXL.",
+      "has_sizes": true,
+      "sport": "ski",
+      "garment_type": "jacket",
+      "gender": "women",
+      "color": "Purple/Teal",
+      "price_per_day": "100.00",
+      "rating": null,
+      "image_url": null,
+      "image": "womens_ski_jacket.png"
+    }
+  },
+  {
+    "model": "products.product",
+    "pk": 34,
+    "fields": {
+      "category": 1,
+      "sku": "SKI-020",
+      "name": "Women's Teal & Pink Ski Jacket",
+      "description": "Waterproof and insulated ski jacket in teal and pink colourblock design. Fleece-lined collar with multiple zip pockets. Available in sizes XS-XXL.",
+      "has_sizes": true,
+      "sport": "ski",
+      "garment_type": "jacket",
+      "gender": "women",
+      "color": "Teal/Pink/White",
+      "price_per_day": "100.00",
+      "rating": null,
+      "image_url": null,
+      "image": "womens_ski_jacket2.png"
+    }
+  },
+  {
+    "model": "products.product",
+    "pk": 35,
+    "fields": {
+      "category": 2,
+      "sku": "SNB-015",
+      "name": "Unisex Khaki Snowboard Jacket",
+      "description": "Waterproof and wind-resistant snowboard anorak in khaki. Pullover style with large front pocket and relaxed fit for comfort and mobility. Available in sizes XS-XXL.",
+      "has_sizes": true,
+      "sport": "snowboard",
+      "garment_type": "jacket",
+      "gender": "unisex",
+      "color": "Khaki/Olive",
+      "price_per_day": "100.00",
+      "rating": null,
+      "image_url": null,
+      "image": "snowboard_jacket_unisex2.png"
+    }
+  },
+  {
+    "model": "products.product",
+    "pk": 36,
+    "fields": {
+      "category": 2,
+      "sku": "SNB-016",
+      "name": "Unisex Off-White Snowboard Jacket",
+      "description": "Waterproof and wind-resistant snowboard anorak in off-white with reflective panel detail. Pullover style with relaxed fit for comfort and mobility. Available in sizes XS-XXL.",
+      "has_sizes": true,
+      "sport": "snowboard",
+      "garment_type": "jacket",
+      "gender": "unisex",
+      "color": "Off-White/Cream",
+      "price_per_day": "100.00",
+      "rating": null,
+      "image_url": null,
+      "image": "unisex_snowboard_jacket.png"
     }
   },
   {
@@ -1739,13 +1967,656 @@
       "size": "XXL",
       "stock": 1
     }
+  },
+  {
+    "model": "products.productsize",
+    "pk": 142,
+    "fields": {
+      "product": 25,
+      "size": "XS",
+      "stock": 2
+    }
+  },
+  {
+    "model": "products.productsize",
+    "pk": 143,
+    "fields": {
+      "product": 25,
+      "size": "S",
+      "stock": 3
+    }
+  },
+  {
+    "model": "products.productsize",
+    "pk": 144,
+    "fields": {
+      "product": 25,
+      "size": "M",
+      "stock": 4
+    }
+  },
+  {
+    "model": "products.productsize",
+    "pk": 145,
+    "fields": {
+      "product": 25,
+      "size": "L",
+      "stock": 3
+    }
+  },
+  {
+    "model": "products.productsize",
+    "pk": 146,
+    "fields": {
+      "product": 25,
+      "size": "XL",
+      "stock": 2
+    }
+  },
+  {
+    "model": "products.productsize",
+    "pk": 147,
+    "fields": {
+      "product": 25,
+      "size": "XXL",
+      "stock": 1
+    }
+  },
+  {
+    "model": "products.productsize",
+    "pk": 148,
+    "fields": {
+      "product": 26,
+      "size": "XS",
+      "stock": 2
+    }
+  },
+  {
+    "model": "products.productsize",
+    "pk": 149,
+    "fields": {
+      "product": 26,
+      "size": "S",
+      "stock": 3
+    }
+  },
+  {
+    "model": "products.productsize",
+    "pk": 150,
+    "fields": {
+      "product": 26,
+      "size": "M",
+      "stock": 4
+    }
+  },
+  {
+    "model": "products.productsize",
+    "pk": 151,
+    "fields": {
+      "product": 26,
+      "size": "L",
+      "stock": 3
+    }
+  },
+  {
+    "model": "products.productsize",
+    "pk": 152,
+    "fields": {
+      "product": 26,
+      "size": "XL",
+      "stock": 2
+    }
+  },
+  {
+    "model": "products.productsize",
+    "pk": 153,
+    "fields": {
+      "product": 26,
+      "size": "XXL",
+      "stock": 1
+    }
+  },
+  {
+    "model": "products.productsize",
+    "pk": 154,
+    "fields": {
+      "product": 27,
+      "size": "XS",
+      "stock": 2
+    }
+  },
+  {
+    "model": "products.productsize",
+    "pk": 155,
+    "fields": {
+      "product": 27,
+      "size": "S",
+      "stock": 3
+    }
+  },
+  {
+    "model": "products.productsize",
+    "pk": 156,
+    "fields": {
+      "product": 27,
+      "size": "M",
+      "stock": 4
+    }
+  },
+  {
+    "model": "products.productsize",
+    "pk": 157,
+    "fields": {
+      "product": 27,
+      "size": "L",
+      "stock": 3
+    }
+  },
+  {
+    "model": "products.productsize",
+    "pk": 158,
+    "fields": {
+      "product": 27,
+      "size": "XL",
+      "stock": 2
+    }
+  },
+  {
+    "model": "products.productsize",
+    "pk": 159,
+    "fields": {
+      "product": 27,
+      "size": "XXL",
+      "stock": 1
+    }
+  },
+  {
+    "model": "products.productsize",
+    "pk": 160,
+    "fields": {
+      "product": 28,
+      "size": "XS",
+      "stock": 2
+    }
+  },
+  {
+    "model": "products.productsize",
+    "pk": 161,
+    "fields": {
+      "product": 28,
+      "size": "S",
+      "stock": 3
+    }
+  },
+  {
+    "model": "products.productsize",
+    "pk": 162,
+    "fields": {
+      "product": 28,
+      "size": "M",
+      "stock": 4
+    }
+  },
+  {
+    "model": "products.productsize",
+    "pk": 163,
+    "fields": {
+      "product": 28,
+      "size": "L",
+      "stock": 3
+    }
+  },
+  {
+    "model": "products.productsize",
+    "pk": 164,
+    "fields": {
+      "product": 28,
+      "size": "XL",
+      "stock": 2
+    }
+  },
+  {
+    "model": "products.productsize",
+    "pk": 165,
+    "fields": {
+      "product": 28,
+      "size": "XXL",
+      "stock": 1
+    }
+  },
+  {
+    "model": "products.productsize",
+    "pk": 166,
+    "fields": {
+      "product": 29,
+      "size": "XS",
+      "stock": 2
+    }
+  },
+  {
+    "model": "products.productsize",
+    "pk": 167,
+    "fields": {
+      "product": 29,
+      "size": "S",
+      "stock": 3
+    }
+  },
+  {
+    "model": "products.productsize",
+    "pk": 168,
+    "fields": {
+      "product": 29,
+      "size": "M",
+      "stock": 4
+    }
+  },
+  {
+    "model": "products.productsize",
+    "pk": 169,
+    "fields": {
+      "product": 29,
+      "size": "L",
+      "stock": 3
+    }
+  },
+  {
+    "model": "products.productsize",
+    "pk": 170,
+    "fields": {
+      "product": 29,
+      "size": "XL",
+      "stock": 2
+    }
+  },
+  {
+    "model": "products.productsize",
+    "pk": 171,
+    "fields": {
+      "product": 29,
+      "size": "XXL",
+      "stock": 1
+    }
+  },
+  {
+    "model": "products.productsize",
+    "pk": 172,
+    "fields": {
+      "product": 30,
+      "size": "XS",
+      "stock": 2
+    }
+  },
+  {
+    "model": "products.productsize",
+    "pk": 173,
+    "fields": {
+      "product": 30,
+      "size": "S",
+      "stock": 3
+    }
+  },
+  {
+    "model": "products.productsize",
+    "pk": 174,
+    "fields": {
+      "product": 30,
+      "size": "M",
+      "stock": 4
+    }
+  },
+  {
+    "model": "products.productsize",
+    "pk": 175,
+    "fields": {
+      "product": 30,
+      "size": "L",
+      "stock": 3
+    }
+  },
+  {
+    "model": "products.productsize",
+    "pk": 176,
+    "fields": {
+      "product": 30,
+      "size": "XL",
+      "stock": 2
+    }
+  },
+  {
+    "model": "products.productsize",
+    "pk": 177,
+    "fields": {
+      "product": 30,
+      "size": "XXL",
+      "stock": 1
+    }
+  },
+  {
+    "model": "products.productsize",
+    "pk": 178,
+    "fields": {
+      "product": 31,
+      "size": "XS",
+      "stock": 2
+    }
+  },
+  {
+    "model": "products.productsize",
+    "pk": 179,
+    "fields": {
+      "product": 31,
+      "size": "S",
+      "stock": 3
+    }
+  },
+  {
+    "model": "products.productsize",
+    "pk": 180,
+    "fields": {
+      "product": 31,
+      "size": "M",
+      "stock": 4
+    }
+  },
+  {
+    "model": "products.productsize",
+    "pk": 181,
+    "fields": {
+      "product": 31,
+      "size": "L",
+      "stock": 3
+    }
+  },
+  {
+    "model": "products.productsize",
+    "pk": 182,
+    "fields": {
+      "product": 31,
+      "size": "XL",
+      "stock": 2
+    }
+  },
+  {
+    "model": "products.productsize",
+    "pk": 183,
+    "fields": {
+      "product": 31,
+      "size": "XXL",
+      "stock": 1
+    }
+  },
+  {
+    "model": "products.productsize",
+    "pk": 184,
+    "fields": {
+      "product": 32,
+      "size": "XS",
+      "stock": 2
+    }
+  },
+  {
+    "model": "products.productsize",
+    "pk": 185,
+    "fields": {
+      "product": 32,
+      "size": "S",
+      "stock": 3
+    }
+  },
+  {
+    "model": "products.productsize",
+    "pk": 186,
+    "fields": {
+      "product": 32,
+      "size": "M",
+      "stock": 4
+    }
+  },
+  {
+    "model": "products.productsize",
+    "pk": 187,
+    "fields": {
+      "product": 32,
+      "size": "L",
+      "stock": 3
+    }
+  },
+  {
+    "model": "products.productsize",
+    "pk": 188,
+    "fields": {
+      "product": 32,
+      "size": "XL",
+      "stock": 2
+    }
+  },
+  {
+    "model": "products.productsize",
+    "pk": 189,
+    "fields": {
+      "product": 32,
+      "size": "XXL",
+      "stock": 1
+    }
+  },
+  {
+    "model": "products.productsize",
+    "pk": 190,
+    "fields": {
+      "product": 33,
+      "size": "XS",
+      "stock": 2
+    }
+  },
+  {
+    "model": "products.productsize",
+    "pk": 191,
+    "fields": {
+      "product": 33,
+      "size": "S",
+      "stock": 3
+    }
+  },
+  {
+    "model": "products.productsize",
+    "pk": 192,
+    "fields": {
+      "product": 33,
+      "size": "M",
+      "stock": 4
+    }
+  },
+  {
+    "model": "products.productsize",
+    "pk": 193,
+    "fields": {
+      "product": 33,
+      "size": "L",
+      "stock": 3
+    }
+  },
+  {
+    "model": "products.productsize",
+    "pk": 194,
+    "fields": {
+      "product": 33,
+      "size": "XL",
+      "stock": 2
+    }
+  },
+  {
+    "model": "products.productsize",
+    "pk": 195,
+    "fields": {
+      "product": 33,
+      "size": "XXL",
+      "stock": 1
+    }
+  },
+  {
+    "model": "products.productsize",
+    "pk": 196,
+    "fields": {
+      "product": 34,
+      "size": "XS",
+      "stock": 2
+    }
+  },
+  {
+    "model": "products.productsize",
+    "pk": 197,
+    "fields": {
+      "product": 34,
+      "size": "S",
+      "stock": 3
+    }
+  },
+  {
+    "model": "products.productsize",
+    "pk": 198,
+    "fields": {
+      "product": 34,
+      "size": "M",
+      "stock": 4
+    }
+  },
+  {
+    "model": "products.productsize",
+    "pk": 199,
+    "fields": {
+      "product": 34,
+      "size": "L",
+      "stock": 3
+    }
+  },
+  {
+    "model": "products.productsize",
+    "pk": 200,
+    "fields": {
+      "product": 34,
+      "size": "XL",
+      "stock": 2
+    }
+  },
+  {
+    "model": "products.productsize",
+    "pk": 201,
+    "fields": {
+      "product": 34,
+      "size": "XXL",
+      "stock": 1
+    }
+  },
+  {
+    "model": "products.productsize",
+    "pk": 202,
+    "fields": {
+      "product": 35,
+      "size": "XS",
+      "stock": 2
+    }
+  },
+  {
+    "model": "products.productsize",
+    "pk": 203,
+    "fields": {
+      "product": 35,
+      "size": "S",
+      "stock": 3
+    }
+  },
+  {
+    "model": "products.productsize",
+    "pk": 204,
+    "fields": {
+      "product": 35,
+      "size": "M",
+      "stock": 4
+    }
+  },
+  {
+    "model": "products.productsize",
+    "pk": 205,
+    "fields": {
+      "product": 35,
+      "size": "L",
+      "stock": 3
+    }
+  },
+  {
+    "model": "products.productsize",
+    "pk": 206,
+    "fields": {
+      "product": 35,
+      "size": "XL",
+      "stock": 2
+    }
+  },
+  {
+    "model": "products.productsize",
+    "pk": 207,
+    "fields": {
+      "product": 35,
+      "size": "XXL",
+      "stock": 1
+    }
+  },
+  {
+    "model": "products.productsize",
+    "pk": 208,
+    "fields": {
+      "product": 36,
+      "size": "XS",
+      "stock": 2
+    }
+  },
+  {
+    "model": "products.productsize",
+    "pk": 209,
+    "fields": {
+      "product": 36,
+      "size": "S",
+      "stock": 3
+    }
+  },
+  {
+    "model": "products.productsize",
+    "pk": 210,
+    "fields": {
+      "product": 36,
+      "size": "M",
+      "stock": 4
+    }
+  },
+  {
+    "model": "products.productsize",
+    "pk": 211,
+    "fields": {
+      "product": 36,
+      "size": "L",
+      "stock": 3
+    }
+  },
+  {
+    "model": "products.productsize",
+    "pk": 212,
+    "fields": {
+      "product": 36,
+      "size": "XL",
+      "stock": 2
+    }
+  },
+  {
+    "model": "products.productsize",
+    "pk": 213,
+    "fields": {
+      "product": 36,
+      "size": "XXL",
+      "stock": 1
+    }
   }
 ]
-
-
-
-
-
 
 
 
