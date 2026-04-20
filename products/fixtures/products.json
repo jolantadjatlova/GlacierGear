@@ -723,7 +723,7 @@
       "price_per_day": "50.00",
       "rating": null,
       "image_url": null,
-      "image": "goggles_black_rainbow.jpg"
+      "image": "goggles_black_rainbow.png"
     }
   },
   {
@@ -742,7 +742,7 @@
       "price_per_day": "50.00",
       "rating": null,
       "image_url": null,
-      "image": "goggles_black_dark.jpg"
+      "image": "goggles_black_dark.png"
     }
   },
   {
@@ -761,7 +761,7 @@
       "price_per_day": "50.00",
       "rating": null,
       "image_url": null,
-      "image": "goggles_pink.jpg"
+      "image": "goggles_pink.png"
     }
   },
   {
@@ -780,7 +780,7 @@
       "price_per_day": "50.00",
       "rating": null,
       "image_url": null,
-      "image": "goggles_red_orange.jpg"
+      "image": "goggles_red_orange.png"
     }
   },
   {
@@ -799,7 +799,7 @@
       "price_per_day": "50.00",
       "rating": null,
       "image_url": null,
-      "image": "goggles_teal_green.jpg"
+      "image": "goggles_teal_green.png"
     }
   },
   {
@@ -818,7 +818,7 @@
       "price_per_day": "50.00",
       "rating": null,
       "image_url": null,
-      "image": "goggles_purple.jpg"
+      "image": "goggles_purple.png"
     }
   },
   {
@@ -837,7 +837,7 @@
       "price_per_day": "50.00",
       "rating": null,
       "image_url": null,
-      "image": "goggles_grey_silver.jpg"
+      "image": "goggles_grey_silver.png"
     }
   },
   {
@@ -856,7 +856,7 @@
       "price_per_day": "50.00",
       "rating": null,
       "image_url": null,
-      "image": "goggles_white_pink.jpg"
+      "image": "goggles_white_pink.png"
     }
   },
   {
@@ -2849,5 +2849,3 @@
     }
   }
 ]
-
-
