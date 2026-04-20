@@ -16,6 +16,14 @@
     }
   },
   {
+    "model": "products.category",
+    "pk": 3,
+    "fields": {
+      "name": "accessories",
+      "friendly_name": "Accessories"
+    }
+  },
+  {
     "model": "products.product",
     "pk": 1,
     "fields": {
@@ -697,6 +705,158 @@
       "rating": null,
       "image_url": null,
       "image": "unisex_snowboard_jacket.png"
+    }
+  },
+  {
+    "model": "products.product",
+    "pk": 37,
+    "fields": {
+      "category": 3,
+      "sku": "ACC-001",
+      "name": "Ski Goggles - Black Rainbow",
+      "description": "High-performance ski goggles with black frame and rainbow mirror lens. UV protection and anti-fog coating. One size fits all.",
+      "has_sizes": true,
+      "sport": null,
+      "garment_type": "accessory",
+      "gender": "unisex",
+      "color": "Black/Rainbow",
+      "price_per_day": "50.00",
+      "rating": null,
+      "image_url": null,
+      "image": "goggles_black_rainbow.jpg"
+    }
+  },
+  {
+    "model": "products.product",
+    "pk": 38,
+    "fields": {
+      "category": 3,
+      "sku": "ACC-002",
+      "name": "Ski Goggles - Black Dark Lens",
+      "description": "High-performance ski goggles with black frame and dark tinted lens. Ideal for bright sunny days on the slopes. UV protection and anti-fog coating. One size fits all.",
+      "has_sizes": true,
+      "sport": null,
+      "garment_type": "accessory",
+      "gender": "unisex",
+      "color": "Black",
+      "price_per_day": "50.00",
+      "rating": null,
+      "image_url": null,
+      "image": "goggles_black_dark.jpg"
+    }
+  },
+  {
+    "model": "products.product",
+    "pk": 39,
+    "fields": {
+      "category": 3,
+      "sku": "ACC-003",
+      "name": "Ski Goggles - Pink",
+      "description": "Stylish ski goggles with pink frame and pink mirror lens. UV protection and anti-fog coating. One size fits all.",
+      "has_sizes": true,
+      "sport": null,
+      "garment_type": "accessory",
+      "gender": "unisex",
+      "color": "Pink",
+      "price_per_day": "50.00",
+      "rating": null,
+      "image_url": null,
+      "image": "goggles_pink.jpg"
+    }
+  },
+  {
+    "model": "products.product",
+    "pk": 40,
+    "fields": {
+      "category": 3,
+      "sku": "ACC-004",
+      "name": "Ski Goggles - Red Orange",
+      "description": "Bold ski goggles with red frame and red/orange mirror lens. UV protection and anti-fog coating. One size fits all.",
+      "has_sizes": true,
+      "sport": null,
+      "garment_type": "accessory",
+      "gender": "unisex",
+      "color": "Red/Orange",
+      "price_per_day": "50.00",
+      "rating": null,
+      "image_url": null,
+      "image": "goggles_red_orange.jpg"
+    }
+  },
+  {
+    "model": "products.product",
+    "pk": 41,
+    "fields": {
+      "category": 3,
+      "sku": "ACC-005",
+      "name": "Ski Goggles - Teal Green",
+      "description": "Vibrant ski goggles with teal frame and green mirror lens. UV protection and anti-fog coating. One size fits all.",
+      "has_sizes": true,
+      "sport": null,
+      "garment_type": "accessory",
+      "gender": "unisex",
+      "color": "Teal/Green",
+      "price_per_day": "50.00",
+      "rating": null,
+      "image_url": null,
+      "image": "goggles_teal_green.jpg"
+    }
+  },
+  {
+    "model": "products.product",
+    "pk": 42,
+    "fields": {
+      "category": 3,
+      "sku": "ACC-006",
+      "name": "Ski Goggles - Purple",
+      "description": "Stylish ski goggles with purple frame and purple mirror lens. UV protection and anti-fog coating. One size fits all.",
+      "has_sizes": true,
+      "sport": null,
+      "garment_type": "accessory",
+      "gender": "unisex",
+      "color": "Purple",
+      "price_per_day": "50.00",
+      "rating": null,
+      "image_url": null,
+      "image": "goggles_purple.jpg"
+    }
+  },
+  {
+    "model": "products.product",
+    "pk": 43,
+    "fields": {
+      "category": 3,
+      "sku": "ACC-007",
+      "name": "Ski Goggles - Grey Silver",
+      "description": "Sleek ski goggles with grey frame and silver mirror lens. UV protection and anti-fog coating. One size fits all.",
+      "has_sizes": true,
+      "sport": null,
+      "garment_type": "accessory",
+      "gender": "unisex",
+      "color": "Grey/Silver",
+      "price_per_day": "50.00",
+      "rating": null,
+      "image_url": null,
+      "image": "goggles_grey_silver.jpg"
+    }
+  },
+  {
+    "model": "products.product",
+    "pk": 44,
+    "fields": {
+      "category": 3,
+      "sku": "ACC-008",
+      "name": "Ski Goggles - White Pink",
+      "description": "Elegant ski goggles with white frame and pink mirror lens. UV protection and anti-fog coating. One size fits all.",
+      "has_sizes": true,
+      "sport": null,
+      "garment_type": "accessory",
+      "gender": "unisex",
+      "color": "White/Pink",
+      "price_per_day": "50.00",
+      "rating": null,
+      "image_url": null,
+      "image": "goggles_white_pink.jpg"
     }
   },
   {
@@ -2615,8 +2775,79 @@
       "size": "XXL",
       "stock": 1
     }
+  },
+  {
+    "model": "products.productsize",
+    "pk": 214,
+    "fields": {
+      "product": 37,
+      "size": "One Size",
+      "stock": 10
+    }
+  },
+  {
+    "model": "products.productsize",
+    "pk": 215,
+    "fields": {
+      "product": 38,
+      "size": "One Size",
+      "stock": 10
+    }
+  },
+  {
+    "model": "products.productsize",
+    "pk": 216,
+    "fields": {
+      "product": 39,
+      "size": "One Size",
+      "stock": 10
+    }
+  },
+  {
+    "model": "products.productsize",
+    "pk": 217,
+    "fields": {
+      "product": 40,
+      "size": "One Size",
+      "stock": 10
+    }
+  },
+  {
+    "model": "products.productsize",
+    "pk": 218,
+    "fields": {
+      "product": 41,
+      "size": "One Size",
+      "stock": 10
+    }
+  },
+  {
+    "model": "products.productsize",
+    "pk": 219,
+    "fields": {
+      "product": 42,
+      "size": "One Size",
+      "stock": 10
+    }
+  },
+  {
+    "model": "products.productsize",
+    "pk": 220,
+    "fields": {
+      "product": 43,
+      "size": "One Size",
+      "stock": 10
+    }
+  },
+  {
+    "model": "products.productsize",
+    "pk": 221,
+    "fields": {
+      "product": 44,
+      "size": "One Size",
+      "stock": 10
+    }
   }
 ]
-
 
 
