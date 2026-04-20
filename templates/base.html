@@ -2,152 +2,175 @@
 
 <!doctype html>
 <html lang="en">
-<head>
+  <head>
     {% block meta %}
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    {% endblock %}
-
-    {% block extra_meta %}
-    {% endblock %}
-
-    {% block corecss %}
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
-    <link rel="stylesheet" href="{% static 'css/base.css' %}">
-    {% endblock %}
-
-    {% block extra_css %}
-    {% endblock %}
-
-    {% block corejs %}
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    {% endblock %} {% block extra_meta %} {% endblock %} {% block corecss %}
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css"
+    />
+    <link rel="stylesheet" href="{% static 'css/base.css' %}" />
+    {% endblock %} {% block extra_css %} {% endblock %} {% block corejs %}
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    {% endblock %}
-
-    {% block extra_js %}
-    {% endblock %}
+    {% endblock %} {% block extra_js %} {% endblock %}
 
     <title>GlacierGear {% block extra_title %}{% endblock %}</title>
-</head>
+  </head>
 
-<body>
-
+  <body>
     <header class="container-fluid fixed-top p-0">
-
-        <!-- Top row: logo | search | icons -->
-        <div class="row navbar-top align-items-center py-2 px-3 d-none d-lg-flex">
-            <div class="col-3">
-                <a href="/">
-                    <img src="{% static 'images/glaciergear_logo.png' %}"
-                         alt="GlacierGear" height="50">
-                </a>
-            </div>
-            <div class="col-6">
-                <form class="d-flex" method="GET" action="#">
-                    <input class="form-control me-2"
-                           type="search"
-                           name="q"
-                           placeholder="Search our site">
-                    <button class="btn btn-outline-light" type="submit">
-                        <i class="bi bi-search"></i>
-                    </button>
-                </form>
-            </div>
-            <div class="col-3 text-end">
-                <a class="text-white me-3" href="#">
-                    <i class="bi bi-person fs-5"></i>
-                </a>
-                <a class="text-white me-3" href="#">
-                    <i class="bi bi-cart3 fs-5"></i>
-                </a>
-                <a class="btn btn-sm btn-outline-light" href="#">
-                    Book now
-                </a>
-            </div>
+      <!-- Top row: logo | search | icons -->
+      <div class="row navbar-top align-items-center py-2 px-3 d-none d-lg-flex">
+        <div class="col-3">
+          <a href="/">
+            <img
+              src="{% static 'images/glaciergear_logo.png' %}"
+              alt="GlacierGear"
+              height="50"
+            />
+          </a>
         </div>
-
-        <!-- Bottom row: nav links -->
-        <nav class="navbar navbar-expand-lg navbar-dark main-nav px-3">
-
-            <!-- Mobile: logo + toggler -->
-            <a class="navbar-brand d-lg-none" href="/">
-                <img src="{% static 'images/glaciergear_logo.png' %}"
-                     alt="GlacierGear" height="45">
-            </a>
-
-            <button class="navbar-toggler border-0" type="button"
-                    data-bs-toggle="collapse"
-                    data-bs-target="#mainNav"
-                    aria-controls="mainNav"
-                    aria-expanded="false"
-                    aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
+        <div class="col-6">
+          <form class="d-flex" method="GET" action="#">
+            <input
+              class="form-control me-2"
+              type="search"
+              name="q"
+              placeholder="Search our site"
+            />
+            <button class="btn btn-outline-light" type="submit">
+              <i class="bi bi-search"></i>
             </button>
+          </form>
+        </div>
+        <div class="col-3 text-end">
+          <a class="text-white me-3" href="#">
+            <i class="bi bi-person fs-5"></i>
+          </a>
+          <a class="text-white me-3" href="#">
+            <i class="bi bi-cart3 fs-5"></i>
+          </a>
+          <a class="btn btn-sm btn-outline-light" href="#"> Book now </a>
+        </div>
+      </div>
 
-            <div class="collapse navbar-collapse" id="mainNav">
-                <ul class="navbar-nav mx-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="/">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'products' %}?category=ski_outfit">Ski Outfits</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'products' %}?category=snowboard_outfit">Snowboard Outfits</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Pricing</a>
-                    </li>
-                </ul>
+      <!-- Bottom row: nav links -->
+      <nav class="navbar navbar-expand-lg navbar-dark main-nav px-3">
+        <!-- Mobile: logo + toggler -->
+        <a class="navbar-brand d-lg-none" href="/">
+          <img
+            src="{% static 'images/glaciergear_logo.png' %}"
+            alt="GlacierGear"
+            height="45"
+          />
+        </a>
 
-                <!-- Mobile only icons inside collapse -->
-                <ul class="navbar-nav ms-auto d-lg-none">
-                    <li class="nav-item">
-                        <form class="d-flex my-2" method="GET" action="#">
-                            <input class="form-control me-2"
-                                   type="search"
-                                   name="q"
-                                   placeholder="Search...">
-                            <button class="btn btn-outline-light" type="submit">
-                                <i class="bi bi-search"></i>
-                            </button>
-                        </form>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-white" href="#">
-                            <i class="bi bi-person fs-5"></i> My Account
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-white" href="#">
-                            <i class="bi bi-cart3 fs-5"></i> Cart
-                        </a>
-                    </li>
-                </ul>
-            </div>
-        </nav>
+        <button
+          class="navbar-toggler border-0"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#mainNav"
+          aria-controls="mainNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
 
+        <div class="collapse navbar-collapse" id="mainNav">
+          <ul class="navbar-nav mx-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="/">Home</a>
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link"
+                href="{% url 'products' %}?category=ski_outfit"
+                >Ski Outfits</a
+              >
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link"
+                href="{% url 'products' %}?category=snowboard_outfit"
+                >Snowboard Outfits</a
+              >
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link"
+                href="{% url 'products' %}?category=accessories"
+                >Accessories</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Pricing</a>
+            </li>
+          </ul>
+
+          <!-- Mobile only icons inside collapse -->
+          <ul class="navbar-nav ms-auto d-lg-none">
+            <li class="nav-item">
+              <form class="d-flex my-2" method="GET" action="#">
+                <input
+                  class="form-control me-2"
+                  type="search"
+                  name="q"
+                  placeholder="Search..."
+                />
+                <button class="btn btn-outline-light" type="submit">
+                  <i class="bi bi-search"></i>
+                </button>
+              </form>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-white" href="#">
+                <i class="bi bi-person fs-5"></i> My Account
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-white" href="#">
+                <i class="bi bi-cart3 fs-5"></i> Cart
+              </a>
+            </li>
+          </ul>
+        </div>
+      </nav>
     </header>
 
     {% if messages %}
-    <div class="toast-container position-fixed top-0 end-0 p-3"
-         style="z-index: 9999; margin-top: 70px;">
-        {% for message in messages %}
-        <div class="toast align-items-center text-white border-0
-            {% if message.tags == 'error' %}bg-danger
-            {% elif message.tags == 'warning' %}bg-warning
-            {% elif message.tags == 'success' %}bg-success
-            {% else %}bg-info{% endif %}"
-            role="alert" aria-live="assertive" aria-atomic="true">
-            <div class="d-flex">
-                <div class="toast-body">{{ message }}</div>
-                <button type="button" class="btn-close btn-close-white me-2 m-auto"
-                        data-bs-dismiss="toast" aria-label="Close">
-                </button>
-            </div>
+    <div
+      class="toast-container position-fixed top-0 end-0 p-3"
+      style="z-index: 9999; margin-top: 70px"
+    >
+      {% for message in messages %}
+      <div
+        class="toast align-items-center text-white border-0 {% if message.tags == 'error' %}bg-danger {% elif message.tags == 'warning' %}bg-warning {% elif message.tags == 'success' %}bg-success {% else %}bg-info{% endif %}"
+        role="alert"
+        aria-live="assertive"
+        aria-atomic="true"
+      >
+        <div class="d-flex">
+          <div class="toast-body">{{ message }}</div>
+          <button
+            type="button"
+            class="btn-close btn-close-white me-2 m-auto"
+            data-bs-dismiss="toast"
+            aria-label="Close"
+          ></button>
         </div>
-        {% endfor %}
+      </div>
+      {% endfor %}
     </div>
     {% endif %}
 
@@ -156,28 +179,26 @@
 
     {% block content %}
     {% endblock %}
-
     <footer class="site-footer mt-auto">
-        <div class="container text-center py-0">
-            <a href="https://instagram.com" target="_blank" class="text-white me-3">
-                <i class="bi bi-instagram fs-5"></i>
-            </a>
-            <a href="https://facebook.com" target="_blank" class="text-white">
-                <i class="bi bi-facebook fs-5"></i>
-            </a>
-        </div>
+      <div class="container text-center py-0">
+        <a href="https://instagram.com" target="_blank" class="text-white me-3">
+          <i class="bi bi-instagram fs-5"></i>
+        </a>
+        <a href="https://facebook.com" target="_blank" class="text-white">
+          <i class="bi bi-facebook fs-5"></i>
+        </a>
+      </div>
     </footer>
 
     {% block postloadjs %}
     <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            var toasts = document.querySelectorAll('.toast');
-            toasts.forEach(function (el) {
-                new bootstrap.Toast(el).show();
-            });
+      document.addEventListener("DOMContentLoaded", function () {
+        var toasts = document.querySelectorAll(".toast");
+        toasts.forEach(function (el) {
+          new bootstrap.Toast(el).show();
         });
+      });
     </script>
     {% endblock %}
-
-</body>
+  </body>
 </html>
