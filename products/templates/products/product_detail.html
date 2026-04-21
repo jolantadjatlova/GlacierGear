@@ -1,0 +1,193 @@
+{% extends "base.html" %}
+{% load static %}
+ 
+{% block extra_title %}| {{ product.name }}{% endblock %}
+ 
+{% block content %}
+<div class="overlay"></div>
+ 
+<div class="container py-5 product-detail-page">
+    <div class="row g-5">
+ 
+        <!-- Product Image -->
+        <div class="col-12 col-md-6">
+            <div class="product-detail-image-wrap">
+                {% if product.image %}
+                    <img src="{{ product.image.url }}"
+                         alt="{{ product.name }}"
+                         class="product-detail-image">
+                {% else %}
+                    <img src="{% static 'images/noimage.png' %}"
+                         alt="No image available"
+                         class="product-detail-image">
+                {% endif %}
+            </div>
+        </div>
+ 
+        <!-- Product Info -->
+        <div class="col-12 col-md-6">
+ 
+            <!-- Breadcrumb -->
+            <nav aria-label="breadcrumb" class="mb-3">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item">
+                        <a href="{% url 'products' %}" class="text-decoration-none">Products</a>
+                    </li>
+                    {% if product.category %}
+                    <li class="breadcrumb-item">
+                        <a href="{% url 'products' %}?category={{ product.category.name }}"
+                           class="text-decoration-none">{{ product.category.friendly_name }}</a>
+                    </li>
+                    {% endif %}
+                    <li class="breadcrumb-item active">{{ product.name }}</li>
+                </ol>
+            </nav>
+ 
+            <h1 class="h2 fw-bold mb-2 detail-product-name">{{ product.name }}</h1>
+ 
+            <!-- Badges -->
+            <div class="mb-3">
+                {% if product.sport %}
+                <span class="badge bg-secondary me-1">{{ product.get_sport_display }}</span>
+                {% endif %}
+                {% if product.gender %}
+                <span class="badge bg-secondary me-1">{{ product.get_gender_display }}</span>
+                {% endif %}
+                {% if product.garment_type %}
+                <span class="badge bg-secondary me-1">{{ product.get_garment_type_display }}</span>
+                {% endif %}
+                {% if product.color %}
+                <span class="badge bg-light text-dark border me-1">{{ product.color }}</span>
+                {% endif %}
+            </div>
+ 
+            <p class="text-muted mb-4">{{ product.description }}</p>
+ 
+            <!-- Price -->
+            <div class="mb-4">
+                <span class="fs-3 fw-bold text-dark">SEK {{ product.price_per_day }}</span>
+                <span class="text-muted fs-6">/ day</span>
+            </div>
+ 
+            <hr>
+ 
+            <!-- Booking Form -->
+            <form action="#" method="POST" id="booking-form">
+                {% csrf_token %}
+ 
+                <!-- Rental Dates -->
+                <div class="mb-4">
+                    <label class="form-label fw-semibold">RENTAL DATES</label>
+                    <div class="row g-2">
+                        <div class="col-6">
+                            <label for="start_date" class="form-label small text-muted">Start date</label>
+                            <input type="date"
+                                   class="form-control"
+                                   id="start_date"
+                                   name="start_date"
+                                   required>
+                        </div>
+                        <div class="col-6">
+                            <label for="end_date" class="form-label small text-muted">End date</label>
+                            <input type="date"
+                                   class="form-control"
+                                   id="end_date"
+                                   name="end_date"
+                                   required>
+                        </div>
+                    </div>
+                </div>
+ 
+                <!-- Size Selection -->
+                {% if product.has_sizes %}
+                <div class="mb-4">
+                    <label class="form-label fw-semibold">SELECT SIZE</label>
+                    <div class="d-flex flex-wrap gap-2">
+                        {% for size in product.sizes.all %}
+                        <div class="form-check form-check-inline m-0">
+                            <input class="btn-check"
+                                   type="radio"
+                                   name="product_size"
+                                   id="size_{{ size.size }}"
+                                   value="{{ size.size }}"
+                                   {% if size.stock == 0 %}disabled{% endif %}
+                                   {% if forloop.first and size.stock > 0 %}checked{% endif %}>
+                            <label class="btn btn-outline-dark btn-sm {% if size.stock == 0 %}disabled opacity-50{% endif %}"
+                                   for="size_{{ size.size }}">
+                                {{ size.size }}
+                                {% if size.stock == 0 %}
+                                <small class="d-block" style="font-size: 0.6rem;">Sold out</small>
+                                {% endif %}
+                            </label>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+                {% endif %}
+ 
+                <!-- Quantity -->
+                <div class="mb-4">
+                    <label class="form-label fw-semibold">QUANTITY</label>
+                    <div class="input-group" style="width: 140px;">
+                        <button class="btn btn-outline-secondary" type="button" id="qty-minus">
+                            <i class="bi bi-dash"></i>
+                        </button>
+                        <input type="number"
+                               class="form-control text-center"
+                               id="quantity"
+                               name="quantity"
+                               value="1"
+                               min="1"
+                               max="10">
+                        <button class="btn btn-outline-secondary" type="button" id="qty-plus">
+                            <i class="bi bi-plus"></i>
+                        </button>
+                    </div>
+                </div>
+ 
+                <!-- Submit -->
+                <div class="d-grid gap-2">
+                    <button type="submit" class="btn btn-dark btn-lg">
+                        <i class="bi bi-bag-plus me-2"></i>Add to Booking Cart
+                    </button>
+                    <a href="{% url 'products' %}" class="btn btn-outline-secondary">
+                        <i class="bi bi-arrow-left me-2"></i>Keep Shopping
+                    </a>
+                </div>
+ 
+            </form>
+ 
+        </div>
+    </div>
+</div>
+{% endblock %}
+ 
+{% block postloadjs %}
+{{ block.super }}
+<script>
+    // Quantity +/- buttons
+    document.getElementById('qty-minus').addEventListener('click', function() {
+        var qty = document.getElementById('quantity');
+        if (parseInt(qty.value) > 1) qty.value = parseInt(qty.value) - 1;
+    });
+ 
+    document.getElementById('qty-plus').addEventListener('click', function() {
+        var qty = document.getElementById('quantity');
+        if (parseInt(qty.value) < 10) qty.value = parseInt(qty.value) + 1;
+    });
+ 
+    // End date must be after start date
+    document.getElementById('start_date').addEventListener('change', function() {
+        var startDate = this.value;
+        var endDateInput = document.getElementById('end_date');
+        endDateInput.min = startDate;
+        if (endDateInput.value && endDateInput.value <= startDate) {
+            endDateInput.value = '';
+        }
+    });
+ 
+    // Prevent booking in the past
+    var today = new Date().toISOString().split('T')[0];
+    document.getElementById('start_date').min = today;
+</script>
+{% endblock %}
