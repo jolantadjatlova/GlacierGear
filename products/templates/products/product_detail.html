@@ -72,8 +72,10 @@
             <hr>
  
             <!-- Booking Form -->
-            <form action="#" method="POST" id="booking-form">
+            <form action="{% url 'add_to_bag' product.id %}" method="POST" id="booking-form">
                 {% csrf_token %}
+
+                <input type="hidden" name="redirect_url" value="{{ request.path }}">
  
                 <!-- Rental Dates -->
                 <div class="mb-4">

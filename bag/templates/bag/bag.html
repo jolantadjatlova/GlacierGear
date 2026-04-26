@@ -1,0 +1,236 @@
+{% extends "base.html" %}
+{% load static %}
+{% load bag_tools %}
+ 
+{% block extra_title %}| My Booking Cart{% endblock %}
+ 
+{% block content %}
+<div class="overlay"></div>
+<div class="container mb-2 booking-cart-page">
+    <div class="row">
+        <div class="col">
+            <hr>
+            <h2 class="mb-4 products-title">My Booking Cart</h2>
+            <hr>
+        </div>
+    </div>
+ 
+    <div class="row">
+        <div class="col">
+            {% if bag_items %}
+ 
+            <!-- Desktop table view -->
+            <div class="table-responsive rounded d-none d-md-block">
+                <table class="table table-sm table-borderless">
+                    <thead>
+                        <tr>
+                            <th scope="col">Item</th>
+                            <th scope="col"></th>
+                            <th scope="col">Rental Dates</th>
+                            <th scope="col">Days</th>
+                            <th scope="col">Price/Day</th>
+                            <th scope="col">Qty</th>
+                            <th scope="col">Total</th>
+                            <th scope="col"></th>
+                        </tr>
+                    </thead>
+                    {% for item in bag_items %}
+                    <tr>
+                        <!-- Image -->
+                        <td class="p-3 w-25">
+                            {% if item.product.image %}
+                            <a href="{% url 'product_detail' item.product.id %}">
+                                <img src="{{ item.product.image.url }}"
+                                     alt="{{ item.product.name }}"
+                                     class="img-fluid rounded"
+                                     style="max-height: 100px; object-fit: contain;">
+                            </a>
+                            {% endif %}
+                        </td>
+                        <!-- Product info -->
+                        <td class="py-3">
+                            <p class="my-0 fw-bold">{{ item.product.name }}</p>
+                            <p class="my-0 text-muted small">Size: {{ item.size|upper }}</p>
+                            <p class="my-0 text-muted small">SKU: {{ item.product.sku|upper }}</p>
+                        </td>
+                        <!-- Rental dates -->
+                        <td class="py-3">
+                            <p class="my-0 small">{{ item.start_date }}</p>
+                            <p class="my-0 small text-muted">to</p>
+                            <p class="my-0 small">{{ item.end_date }}</p>
+                        </td>
+                        <!-- Days -->
+                        <td class="py-3">
+                            <p class="my-0">{{ item.rental_days }}</p>
+                        </td>
+                        <!-- Price per day -->
+                        <td class="py-3">
+                            <p class="my-0">SEK {{ item.product.price_per_day }}</p>
+                        </td>
+                        <!-- Quantity form -->
+                        <td class="py-3 w-25">
+                            <form class="form update-form" method="POST"
+                                  action="{% url 'adjust_bag' item.item_id %}">
+                                {% csrf_token %}
+                                <input type="hidden" name="product_size" value="{{ item.size }}">
+                                <div class="input-group input-group-sm" style="width: 120px;">
+                                    <button class="btn btn-outline-secondary btn-sm decrement-qty"
+                                            type="button"
+                                            data-item_id="{{ item.item_id }}">
+                                        <i class="bi bi-dash"></i>
+                                    </button>
+                                    <input type="number"
+                                           class="form-control form-control-sm text-center qty_input"
+                                           name="quantity"
+                                           value="{{ item.quantity }}"
+                                           min="1" max="10"
+                                           data-item_id="{{ item.item_id }}">
+                                    <button class="btn btn-outline-secondary btn-sm increment-qty"
+                                            type="button"
+                                            data-item_id="{{ item.item_id }}">
+                                        <i class="bi bi-plus"></i>
+                                    </button>
+                                </div>
+                                <a class="update-link text-info small mt-1 d-inline-block"
+                                   style="cursor: pointer;">Update</a>
+                            </form>
+                        </td>
+                        <!-- Line total -->
+                        <td class="py-3">
+                            <p class="my-0">SEK {{ item.line_total }}</p>
+                        </td>
+                        <!-- Remove -->
+                        <td class="py-3">
+                            <a class="remove-item text-danger"
+                               id="remove_{{ item.item_id }}"
+                               data-product_size="{{ item.size }}"
+                               style="cursor: pointer;">
+                                <i class="bi bi-trash"></i>
+                            </a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                    <!-- Order summary -->
+                    <tr>
+                        <td colspan="8" class="pt-4 text-end">
+                            <h6 class="text-muted">Rental Total: <strong>SEK {{ total }}</strong></h6>
+                            <h4 class="mt-2">Total: <strong>SEK {{ total }}</strong></h4>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="8" class="text-end pb-4">
+                            <a href="{% url 'products' %}" class="btn btn-outline-secondary me-2">
+                                <i class="bi bi-arrow-left me-1"></i>Keep Shopping
+                            </a>
+                            <a href="#" class="btn btn-dark">
+                                Proceed to Checkout <i class="bi bi-arrow-right ms-1"></i>
+                            </a>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+ 
+            <!-- Mobile view -->
+            <div class="d-block d-md-none">
+                <!-- Summary at top on mobile -->
+                <div class="text-end mb-3">
+                    <h6>Total: <strong>SEK {{ total }}</strong></h6>
+                    <a href="#" class="btn btn-dark btn-sm w-100 mb-2">
+                        Proceed to Checkout <i class="bi bi-arrow-right ms-1"></i>
+                    </a>
+                    <a href="{% url 'products' %}" class="btn btn-outline-secondary btn-sm w-100">
+                        <i class="bi bi-arrow-left me-1"></i>Keep Shopping
+                    </a>
+                </div>
+                <hr>
+                {% for item in bag_items %}
+                <div class="row mb-3">
+                    <div class="col-4">
+                        {% if item.product.image %}
+                        <img src="{{ item.product.image.url }}"
+                             alt="{{ item.product.name }}"
+                             class="img-fluid rounded">
+                        {% endif %}
+                    </div>
+                    <div class="col-8">
+                        <p class="my-0 fw-bold small">{{ item.product.name }}</p>
+                        <p class="my-0 text-muted small">Size: {{ item.size|upper }}</p>
+                        <p class="my-0 small">{{ item.start_date }} → {{ item.end_date }}</p>
+                        <p class="my-0 small">{{ item.rental_days }} days × SEK {{ item.product.price_per_day }}</p>
+                        <p class="my-0 fw-bold">SEK {{ item.line_total }}</p>
+                        <a class="remove-item text-danger small"
+                           id="remove_{{ item.item_id }}"
+                           data-product_size="{{ item.size }}"
+                           style="cursor: pointer;">
+                            <i class="bi bi-trash me-1"></i>Remove
+                        </a>
+                    </div>
+                </div>
+                <hr>
+                {% endfor %}
+            </div>
+ 
+            {% else %}
+            <!-- Empty cart -->
+            <div class="text-center py-5">
+                <i class="bi bi-bag fs-1 text-muted"></i>
+                <p class="lead my-4">Your booking cart is empty.</p>
+                <a href="{% url 'products' %}" class="btn btn-dark btn-lg">
+                    <i class="bi bi-arrow-left me-2"></i>Browse Products
+                </a>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}
+ 
+{% block postloadjs %}
+{{ block.super }}
+<script>
+    // Update quantity on click
+    document.querySelectorAll('.update-link').forEach(function(link) {
+        link.addEventListener('click', function(e) {
+            var form = this.previousElementSibling;
+            form.submit();
+        });
+    });
+ 
+    // Remove item and reload on click
+    document.querySelectorAll('.remove-item').forEach(function(btn) {
+        btn.addEventListener('click', function(e) {
+            var csrfToken = '{{ csrf_token }}';
+            var itemId = this.id.split('remove_')[1];
+            var size = this.dataset.product_size;
+            var url = '/bag/remove/' + itemId + '/';
+            var data = new FormData();
+            data.append('csrfmiddlewaretoken', csrfToken);
+            data.append('product_size', size);
+ 
+            fetch(url, {
+                method: 'POST',
+                body: data,
+            }).then(function() {
+                location.reload();
+            });
+        });
+    });
+ 
+    // Increment/decrement quantity buttons
+    document.querySelectorAll('.increment-qty').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+            var itemId = this.dataset.item_id;
+            var input = document.querySelector('.qty_input[data-item_id="' + itemId + '"]');
+            if (parseInt(input.value) < 10) input.value = parseInt(input.value) + 1;
+        });
+    });
+ 
+    document.querySelectorAll('.decrement-qty').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+            var itemId = this.dataset.item_id;
+            var input = document.querySelector('.qty_input[data-item_id="' + itemId + '"]');
+            if (parseInt(input.value) > 1) input.value = parseInt(input.value) - 1;
+        });
+    });
+</script>
+{% endblock %}
