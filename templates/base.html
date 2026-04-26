@@ -85,21 +85,49 @@
  
         <div class="collapse navbar-collapse" id="mainNav">
           <ul class="navbar-nav mx-auto">
+ 
             <li class="nav-item">
               <a class="nav-link" href="/">Home</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="{% url 'products' %}?category=ski_outfit">Ski Outfits</a>
+ 
+            <!-- Ski Outfits dropdown -->
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="skiDropdown"
+                 data-bs-toggle="dropdown" aria-expanded="false">
+                Ski Outfits
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="skiDropdown">
+                <li><a class="dropdown-item" href="{% url 'products' %}?category=ski_outfit&garment_type=full_set">Full Sets</a></li>
+                <li><a class="dropdown-item" href="{% url 'products' %}?category=ski_outfit&garment_type=ski_suit">Ski Suits</a></li>
+                <li><a class="dropdown-item" href="{% url 'products' %}?category=ski_outfit&garment_type=jacket">Jackets</a></li>
+                <li><a class="dropdown-item" href="{% url 'products' %}?category=ski_outfit&garment_type=trousers">Trousers</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item" href="{% url 'products' %}?category=ski_outfit">All Ski</a></li>
+              </ul>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="{% url 'products' %}?category=snowboard_outfit">Snowboard Outfits</a>
+ 
+            <!-- Snowboard Outfits dropdown -->
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="snowboardDropdown"
+                 data-bs-toggle="dropdown" aria-expanded="false">
+                Snowboard Outfits
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="snowboardDropdown">
+                <li><a class="dropdown-item" href="{% url 'products' %}?category=snowboard_outfit&garment_type=full_set">Full Sets</a></li>
+                <li><a class="dropdown-item" href="{% url 'products' %}?category=snowboard_outfit&garment_type=jacket">Jackets</a></li>
+                <li><a class="dropdown-item" href="{% url 'products' %}?category=snowboard_outfit&garment_type=trousers">Trousers</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item" href="{% url 'products' %}?category=snowboard_outfit">All Snowboard</a></li>
+              </ul>
             </li>
+ 
             <li class="nav-item">
               <a class="nav-link" href="{% url 'products' %}?category=accessories">Accessories</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#">Pricing</a>
             </li>
+ 
           </ul>
  
           <!-- Mobile only icons inside collapse -->
