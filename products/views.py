@@ -79,10 +79,10 @@ def all_products(request):
             gender = request.GET['gender'].split(',')
             products = products.filter(gender__in=gender)
 
-        # COLOR FILTER
+        # COLOUR FILTER
         if 'color' in request.GET:
             color = request.GET['color'].split(',')
-            products = products.filter(color__in=color)
+            products = products.filter(color__icontains=color[0])
 
         # SEARCH
         if 'q' in request.GET:

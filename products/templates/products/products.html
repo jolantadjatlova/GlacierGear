@@ -20,6 +20,72 @@
         </div>
     </div>
 
+    <!-- Sort and Filter bar -->
+    <div class="row align-items-center mb-4 g-2">
+        <div class="col-12 col-md-auto">
+            <small class="text-muted">{{ products|length }} Products</small>
+        </div>
+
+        <!-- Gender filter -->
+        <div class="col-6 col-md-auto">
+            <select class="form-select form-select-sm" id="gender-filter">
+                <option value="">All Genders</option>
+                <option value="men" {% if 'men' in current_gender|default:'' %}selected{% endif %}>Men</option>
+                <option value="women" {% if 'women' in current_gender|default:'' %}selected{% endif %}>Women</option>
+                <option value="unisex" {% if 'unisex' in current_gender|default:'' %}selected{% endif %}>Unisex</option>
+            </select>
+        </div>
+
+        <!-- Garment type filter -->
+        <div class="col-6 col-md-auto">
+            <select class="form-select form-select-sm" id="type-filter">
+                <option value="">All Types</option>
+                <option value="full_set" {% if 'full_set' in current_garment_type|default:'' %}selected{% endif %}>Full Set</option>
+                <option value="ski_suit" {% if 'ski_suit' in current_garment_type|default:'' %}selected{% endif %}>Ski Suit</option>
+                <option value="jacket" {% if 'jacket' in current_garment_type|default:'' %}selected{% endif %}>Jacket</option>
+                <option value="trousers" {% if 'trousers' in current_garment_type|default:'' %}selected{% endif %}>Trousers</option>
+                <option value="accessory" {% if 'accessory' in current_garment_type|default:'' %}selected{% endif %}>Accessory</option>
+            </select>
+        </div>
+
+        <!-- Colour filter -->
+        <div class="col-6 col-md-auto">
+            <select class="form-select form-select-sm" id="color-filter">
+                <option value="">All Colours</option>
+                <option value="Beige" {% if 'Beige' in current_color|default:'' %}selected{% endif %}>Beige</option>
+                <option value="Black" {% if 'Black' in current_color|default:'' %}selected{% endif %}>Black</option>
+                <option value="Blue" {% if 'Blue' in current_color|default:'' %}selected{% endif %}>Blue</option>
+                <option value="Brown" {% if 'Brown' in current_color|default:'' %}selected{% endif %}>Brown</option>
+                <option value="Camo" {% if 'Camo' in current_color|default:'' %}selected{% endif %}>Camo</option>
+                <option value="Green" {% if 'Green' in current_color|default:'' %}selected{% endif %}>Green</option>
+                <option value="Grey" {% if 'Grey' in current_color|default:'' %}selected{% endif %}>Grey</option>
+                <option value="Khaki" {% if 'Khaki' in current_color|default:'' %}selected{% endif %}>Khaki</option>
+                <option value="Multicolour" {% if 'Multicolour' in current_color|default:'' %}selected{% endif %}>Multicolour</option>
+                <option value="Navy" {% if 'Navy' in current_color|default:'' %}selected{% endif %}>Navy</option>
+                <option value="Orange" {% if 'Orange' in current_color|default:'' %}selected{% endif %}>Orange</option>
+                <option value="Pink" {% if 'Pink' in current_color|default:'' %}selected{% endif %}>Pink</option>
+                <option value="Purple" {% if 'Purple' in current_color|default:'' %}selected{% endif %}>Purple</option>
+                <option value="Red" {% if 'Red' in current_color|default:'' %}selected{% endif %}>Red</option>
+                <option value="Silver" {% if 'Silver' in current_color|default:'' %}selected{% endif %}>Silver</option>
+                <option value="Teal" {% if 'Teal' in current_color|default:'' %}selected{% endif %}>Teal</option>
+                <option value="White" {% if 'White' in current_color|default:'' %}selected{% endif %}>White</option>
+                <option value="Yellow" {% if 'Yellow' in current_color|default:'' %}selected{% endif %}>Yellow</option>
+            </select>
+        </div>
+
+        <!-- Sort dropdown -->
+        <div class="col-6 col-md-auto ms-md-auto">
+            <select class="form-select form-select-sm" id="sort-selector">
+                <option value="reset" {% if current_sorting == 'None_None' %}selected{% endif %}>Sort by...</option>
+                <option value="price_asc" {% if current_sorting == 'price_asc' %}selected{% endif %}>Price: Low to High</option>
+                <option value="price_desc" {% if current_sorting == 'price_desc' %}selected{% endif %}>Price: High to Low</option>
+                <option value="name_asc" {% if current_sorting == 'name_asc' %}selected{% endif %}>Name (A-Z)</option>
+                <option value="name_desc" {% if current_sorting == 'name_desc' %}selected{% endif %}>Name (Z-A)</option>
+                <option value="rating_desc" {% if current_sorting == 'rating_desc' %}selected{% endif %}>Rating</option>
+            </select>
+        </div>
+    </div>
+
     <div class="row">
         {% for product in products %}
         <div class="col-sm-6 col-md-4 col-lg-3 mb-4">
@@ -63,4 +129,61 @@
         {% endfor %}
     </div>
 </div>
+{% endblock %}
+
+{% block postloadjs %}
+{{ block.super }}
+<script>
+    // Sort selector
+    document.getElementById('sort-selector').addEventListener('change', function() {
+        var currentUrl = new URL(window.location);
+        var selectedVal = this.value;
+        if (selectedVal != 'reset') {
+            var sort = selectedVal.split('_')[0];
+            var direction = selectedVal.split('_')[1];
+            currentUrl.searchParams.set('sort', sort);
+            currentUrl.searchParams.set('direction', direction);
+        } else {
+            currentUrl.searchParams.delete('sort');
+            currentUrl.searchParams.delete('direction');
+        }
+        window.location.replace(currentUrl);
+    });
+
+    // Gender filter
+    document.getElementById('gender-filter').addEventListener('change', function() {
+        var currentUrl = new URL(window.location);
+        var selectedVal = this.value;
+        if (selectedVal != '') {
+            currentUrl.searchParams.set('gender', selectedVal);
+        } else {
+            currentUrl.searchParams.delete('gender');
+        }
+        window.location.replace(currentUrl);
+    });
+
+    // Garment type filter
+    document.getElementById('type-filter').addEventListener('change', function() {
+        var currentUrl = new URL(window.location);
+        var selectedVal = this.value;
+        if (selectedVal != '') {
+            currentUrl.searchParams.set('garment_type', selectedVal);
+        } else {
+            currentUrl.searchParams.delete('garment_type');
+        }
+        window.location.replace(currentUrl);
+    });
+
+    // Colour filter
+    document.getElementById('color-filter').addEventListener('change', function() {
+        var currentUrl = new URL(window.location);
+        var selectedVal = this.value;
+        if (selectedVal != '') {
+            currentUrl.searchParams.set('color', selectedVal);
+        } else {
+            currentUrl.searchParams.delete('color');
+        }
+        window.location.replace(currentUrl);
+    });
+</script>
 {% endblock %}
