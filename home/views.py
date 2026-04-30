@@ -14,3 +14,8 @@ def index(request):
         'temp_max': -1,
     }
     return render(request, 'home/index.html', {'weather': weather})
+
+
+def how_it_works(request):
+    """ A view to return the how it works page """
+    return render(request, 'home/how_it_works.html')

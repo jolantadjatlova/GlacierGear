@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="overlay"></div>
+<div class="container mt-5" style="position:relative; z-index:2;">
+    <h2 class="mb-4" style="color: var(--navy-dark);">How It Works</h2>
+    <div class="row g-4">
+        <div class="col-12 col-md-6 col-lg-3">
+            <h5>1. Browse & Choose</h5>
+            <p>Browse our ski and snowboard outfits and pick what suits you.</p>
+        </div>
+        <div class="col-12 col-md-6 col-lg-3">
+            <h5>2. Select Dates</h5>
+            <p>Choose your rental start and end dates at checkout.</p>
+        </div>
+        <div class="col-12 col-md-6 col-lg-3">
+            <h5>3. Pay Securely</h5>
+            <p>Complete your booking with our secure Stripe payment.</p>
+        </div>
+        <div class="col-12 col-md-6 col-lg-3">
+            <h5>4. Pick Up & Return</h5>
+            <p>Collect your gear at GlacierGear Store in Borlänge and return when done.</p>
+        </div>
+    </div>
+    <a href="{% url 'products' %}" class="btn btn-primary mt-4">Browse Gear</a>
+</div>
+{% endblock %}
