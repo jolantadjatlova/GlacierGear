@@ -23,8 +23,8 @@
 
                     <!-- Button -->
                     <div class="mt-3">
-                        <a href="#" class="btn btn-lg px-4 py-3 text-uppercase hero-btn">
-                            Book Now
+                        <a href="{% url 'products' %}" class="btn btn-lg px-4 py-3 text-uppercase hero-btn">
+                            View All Products
                         </a>
                     </div>
 
@@ -38,31 +38,40 @@
         <div class="row g-4">
 
             <div class="col-12 col-md-4">
-                <div class="card h-100">
-                    <div class="card-body d-flex flex-column">
-                        <h5 class="card-title">Ski Outfit Rental</h5>
-                        <p class="card-text">Jacket & trousers for all skill levels.</p>
-                        <a href="#" class="btn btn-card mt-auto">View Outfits</a>
+                <div class="home-card">
+                    <div class="home-card-body">
+                        <h5 class="home-card-title">Ski Outfit Rental</h5>
+                        <p class="home-card-text">Rent top-quality ski clothing and outfits for all levels.</p>
+                        <a href="{% url 'products' %}?category=ski_outfit" class="btn btn-home-card">View Ski Outfits</a>
+                    </div>
+                    <div class="home-card-image">
+                        <img src="{% static 'images/ski_card.png' %}" alt="Ski Outfit Rental">
                     </div>
                 </div>
             </div>
 
             <div class="col-12 col-md-4">
-                <div class="card h-100">
-                    <div class="card-body d-flex flex-column">
-                        <h5 class="card-title">Snowboard Outfit Rental</h5>
-                        <p class="card-text">Warm, waterproof outfits for snowboarding.</p>
-                        <a href="#" class="btn btn-card mt-auto">View Outfits</a>
+                <div class="home-card">
+                    <div class="home-card-body">
+                        <h5 class="home-card-title">Snowboard Outfit Rental</h5>
+                        <p class="home-card-text">Snowboard outfits and gear for your mountain adventure.</p>
+                        <a href="{% url 'products' %}?category=snowboard_outfit" class="btn btn-home-card">View Snowboard Outfits</a>
+                    </div>
+                    <div class="home-card-image">
+                        <img src="{% static 'images/snowboard_card.png' %}" alt="Snowboard Outfit Rental">
                     </div>
                 </div>
             </div>
 
             <div class="col-12 col-md-4">
-                <div class="card h-100">
-                    <div class="card-body d-flex flex-column">
-                        <h5 class="card-title">How It Works</h5>
-                        <p class="card-text">Choose outfit → Select dates → Pick up in Borlänge.</p>
-                        <a href="#" class="btn btn-card mt-auto">Book Now</a>
+                <div class="home-card">
+                    <div class="home-card-body">
+                        <h5 class="home-card-title">How It Works</h5>
+                        <p class="home-card-text">Simple & fast online booking. Get ready for the slopes!</p>
+                        <a href="{% url 'how_it_works' %}" class="btn btn-home-card">Learn More</a>
+                    </div>
+                    <div class="home-card-image home-card-image-icon">
+                        <i class="bi bi-clipboard2-check" style="font-size: 3rem; color: white;"></i>
                     </div>
                 </div>
             </div>
