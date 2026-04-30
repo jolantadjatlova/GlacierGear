@@ -16,6 +16,7 @@ def all_products(request):
     garment_type = None
     gender = None
     color = None
+    size = None
     sort = None
     direction = None
 
@@ -79,16 +80,30 @@ def all_products(request):
             gender = request.GET['gender'].split(',')
             products = products.filter(gender__in=gender)
 
-        # COLOUR FILTER
+        # COLOUR FILTER (multi-select)
         if 'color' in request.GET:
-            color = request.GET['color'].split(',')
-            products = products.filter(color__icontains=color[0])
+            colors = request.GET.getlist('color')
+            if colors:
+                color = colors
+                color_query = Q()
+                for c in colors:
+                    color_query |= Q(color__icontains=c)
+                products = products.filter(color_query)
+
+        # SIZE FILTER
+        if 'size' in request.GET:
+            size = request.GET['size']
+            if size:
+                products = products.filter(sizes__size=size).distinct()
 
         # SEARCH
         if 'q' in request.GET:
             query = request.GET['q']
             if not query:
-                messages.error(request, "You didn't enter any search criteria!")
+                messages.error(
+                    request,
+                    "You didn't enter any search criteria!"
+                )
                 return redirect(reverse('products'))
 
             queries = Q(name__icontains=query) | Q(description__icontains=query)
@@ -104,6 +119,7 @@ def all_products(request):
         'current_garment_type': garment_type,
         'current_gender': gender,
         'current_color': color,
+        'current_size': size,
         'current_sorting': current_sorting,
     }
 

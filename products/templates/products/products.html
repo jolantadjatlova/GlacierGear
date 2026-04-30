@@ -48,29 +48,110 @@
             </select>
         </div>
 
-        <!-- Colour filter -->
+        <!-- Size filter -->
         <div class="col-6 col-md-auto">
-            <select class="form-select form-select-sm" id="color-filter">
-                <option value="">All Colours</option>
-                <option value="Beige" {% if 'Beige' in current_color|default:'' %}selected{% endif %}>Beige</option>
-                <option value="Black" {% if 'Black' in current_color|default:'' %}selected{% endif %}>Black</option>
-                <option value="Blue" {% if 'Blue' in current_color|default:'' %}selected{% endif %}>Blue</option>
-                <option value="Brown" {% if 'Brown' in current_color|default:'' %}selected{% endif %}>Brown</option>
-                <option value="Camo" {% if 'Camo' in current_color|default:'' %}selected{% endif %}>Camo</option>
-                <option value="Green" {% if 'Green' in current_color|default:'' %}selected{% endif %}>Green</option>
-                <option value="Grey" {% if 'Grey' in current_color|default:'' %}selected{% endif %}>Grey</option>
-                <option value="Khaki" {% if 'Khaki' in current_color|default:'' %}selected{% endif %}>Khaki</option>
-                <option value="Multicolour" {% if 'Multicolour' in current_color|default:'' %}selected{% endif %}>Multicolour</option>
-                <option value="Navy" {% if 'Navy' in current_color|default:'' %}selected{% endif %}>Navy</option>
-                <option value="Orange" {% if 'Orange' in current_color|default:'' %}selected{% endif %}>Orange</option>
-                <option value="Pink" {% if 'Pink' in current_color|default:'' %}selected{% endif %}>Pink</option>
-                <option value="Purple" {% if 'Purple' in current_color|default:'' %}selected{% endif %}>Purple</option>
-                <option value="Red" {% if 'Red' in current_color|default:'' %}selected{% endif %}>Red</option>
-                <option value="Silver" {% if 'Silver' in current_color|default:'' %}selected{% endif %}>Silver</option>
-                <option value="Teal" {% if 'Teal' in current_color|default:'' %}selected{% endif %}>Teal</option>
-                <option value="White" {% if 'White' in current_color|default:'' %}selected{% endif %}>White</option>
-                <option value="Yellow" {% if 'Yellow' in current_color|default:'' %}selected{% endif %}>Yellow</option>
+            <select class="form-select form-select-sm" id="size-filter">
+                <option value="">All Sizes</option>
+                <option value="XS" {% if current_size == 'XS' %}selected{% endif %}>XS</option>
+                <option value="S" {% if current_size == 'S' %}selected{% endif %}>S</option>
+                <option value="M" {% if current_size == 'M' %}selected{% endif %}>M</option>
+                <option value="L" {% if current_size == 'L' %}selected{% endif %}>L</option>
+                <option value="XL" {% if current_size == 'XL' %}selected{% endif %}>XL</option>
+                <option value="XXL" {% if current_size == 'XXL' %}selected{% endif %}>XXL</option>
+                <option value="One Size" {% if current_size == 'One Size' %}selected{% endif %}>One Size</option>
             </select>
+        </div>
+
+        <!-- Colour multi-select dropdown -->
+        <div class="col-6 col-md-auto position-relative">
+            <div class="colour-dropdown">
+                <button class="form-select form-select-sm text-start colour-dropdown-btn"
+                        type="button" id="colourDropdownBtn">
+                    {% if current_color %}
+                        {{ current_color|length }} Colour{{ current_color|length|pluralize }} selected
+                    {% else %}
+                        All Colours
+                    {% endif %}
+                </button>
+                <div class="colour-dropdown-menu shadow p-2" id="colourDropdownMenu">
+                    <div class="form-check">
+                        <input class="form-check-input colour-checkbox" type="checkbox" value="Beige" id="colour-Beige" {% if current_color and 'Beige' in current_color %}checked{% endif %}>
+                        <label class="form-check-label" for="colour-Beige">Beige</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input colour-checkbox" type="checkbox" value="Black" id="colour-Black" {% if current_color and 'Black' in current_color %}checked{% endif %}>
+                        <label class="form-check-label" for="colour-Black">Black</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input colour-checkbox" type="checkbox" value="Blue" id="colour-Blue" {% if current_color and 'Blue' in current_color %}checked{% endif %}>
+                        <label class="form-check-label" for="colour-Blue">Blue</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input colour-checkbox" type="checkbox" value="Brown" id="colour-Brown" {% if current_color and 'Brown' in current_color %}checked{% endif %}>
+                        <label class="form-check-label" for="colour-Brown">Brown</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input colour-checkbox" type="checkbox" value="Camo" id="colour-Camo" {% if current_color and 'Camo' in current_color %}checked{% endif %}>
+                        <label class="form-check-label" for="colour-Camo">Camo</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input colour-checkbox" type="checkbox" value="Green" id="colour-Green" {% if current_color and 'Green' in current_color %}checked{% endif %}>
+                        <label class="form-check-label" for="colour-Green">Green</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input colour-checkbox" type="checkbox" value="Grey" id="colour-Grey" {% if current_color and 'Grey' in current_color %}checked{% endif %}>
+                        <label class="form-check-label" for="colour-Grey">Grey</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input colour-checkbox" type="checkbox" value="Khaki" id="colour-Khaki" {% if current_color and 'Khaki' in current_color %}checked{% endif %}>
+                        <label class="form-check-label" for="colour-Khaki">Khaki</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input colour-checkbox" type="checkbox" value="Multicolour" id="colour-Multicolour" {% if current_color and 'Multicolour' in current_color %}checked{% endif %}>
+                        <label class="form-check-label" for="colour-Multicolour">Multicolour</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input colour-checkbox" type="checkbox" value="Navy" id="colour-Navy" {% if current_color and 'Navy' in current_color %}checked{% endif %}>
+                        <label class="form-check-label" for="colour-Navy">Navy</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input colour-checkbox" type="checkbox" value="Orange" id="colour-Orange" {% if current_color and 'Orange' in current_color %}checked{% endif %}>
+                        <label class="form-check-label" for="colour-Orange">Orange</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input colour-checkbox" type="checkbox" value="Pink" id="colour-Pink" {% if current_color and 'Pink' in current_color %}checked{% endif %}>
+                        <label class="form-check-label" for="colour-Pink">Pink</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input colour-checkbox" type="checkbox" value="Purple" id="colour-Purple" {% if current_color and 'Purple' in current_color %}checked{% endif %}>
+                        <label class="form-check-label" for="colour-Purple">Purple</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input colour-checkbox" type="checkbox" value="Red" id="colour-Red" {% if current_color and 'Red' in current_color %}checked{% endif %}>
+                        <label class="form-check-label" for="colour-Red">Red</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input colour-checkbox" type="checkbox" value="Silver" id="colour-Silver" {% if current_color and 'Silver' in current_color %}checked{% endif %}>
+                        <label class="form-check-label" for="colour-Silver">Silver</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input colour-checkbox" type="checkbox" value="Teal" id="colour-Teal" {% if current_color and 'Teal' in current_color %}checked{% endif %}>
+                        <label class="form-check-label" for="colour-Teal">Teal</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input colour-checkbox" type="checkbox" value="White" id="colour-White" {% if current_color and 'White' in current_color %}checked{% endif %}>
+                        <label class="form-check-label" for="colour-White">White</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input colour-checkbox" type="checkbox" value="Yellow" id="colour-Yellow" {% if current_color and 'Yellow' in current_color %}checked{% endif %}>
+                        <label class="form-check-label" for="colour-Yellow">Yellow</label>
+                    </div>
+                    <div class="mt-2 d-flex gap-2">
+                        <button class="btn btn-sm btn-primary w-100" id="applyColours">Apply</button>
+                        <button class="btn btn-sm btn-outline-secondary w-100" id="clearColours">Clear</button>
+                    </div>
+                </div>
+            </div>
         </div>
 
         <!-- Sort dropdown -->
@@ -174,15 +255,46 @@
         window.location.replace(currentUrl);
     });
 
-    // Colour filter
-    document.getElementById('color-filter').addEventListener('change', function() {
+    // Size filter
+    document.getElementById('size-filter').addEventListener('change', function() {
         var currentUrl = new URL(window.location);
         var selectedVal = this.value;
         if (selectedVal != '') {
-            currentUrl.searchParams.set('color', selectedVal);
+            currentUrl.searchParams.set('size', selectedVal);
         } else {
-            currentUrl.searchParams.delete('color');
+            currentUrl.searchParams.delete('size');
         }
+        window.location.replace(currentUrl);
+    });
+
+    // Colour multi-select dropdown
+    var btn = document.getElementById('colourDropdownBtn');
+    var menu = document.getElementById('colourDropdownMenu');
+
+    btn.addEventListener('click', function(e) {
+        e.stopPropagation();
+        menu.classList.toggle('show');
+    });
+
+    document.addEventListener('click', function(e) {
+        if (!menu.contains(e.target) && e.target !== btn) {
+            menu.classList.remove('show');
+        }
+    });
+
+    document.getElementById('applyColours').addEventListener('click', function() {
+        var currentUrl = new URL(window.location);
+        var checked = document.querySelectorAll('.colour-checkbox:checked');
+        currentUrl.searchParams.delete('color');
+        checked.forEach(function(cb) {
+            currentUrl.searchParams.append('color', cb.value);
+        });
+        window.location.replace(currentUrl);
+    });
+
+    document.getElementById('clearColours').addEventListener('click', function() {
+        var currentUrl = new URL(window.location);
+        currentUrl.searchParams.delete('color');
         window.location.replace(currentUrl);
     });
 </script>
