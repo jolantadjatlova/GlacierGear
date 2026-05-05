@@ -1,4 +1,4 @@
-{% extends "base.html" %}
+html{% extends "base.html" %}
 {% load static %}
 
 {% block content %}
@@ -70,8 +70,8 @@
                         <p class="home-card-text">Simple & fast online booking. Get ready for the slopes!</p>
                         <a href="{% url 'how_it_works' %}" class="btn btn-home-card">Learn More</a>
                     </div>
-                    <div class="home-card-image home-card-image-icon">
-                        <i class="bi bi-clipboard2-check" style="font-size: 3rem; color: white;"></i>
+                    <div class="home-card-image">
+                        <img src="{% static 'images/how_it_works_card.png' %}" alt="How It Works">
                     </div>
                 </div>
             </div>

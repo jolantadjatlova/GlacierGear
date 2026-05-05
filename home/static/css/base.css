@@ -165,9 +165,9 @@ header {
     -webkit-backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 255, 255, 0.3);
     border-radius: 8px;
-    padding: 1rem;
+    padding: 1.5rem;
     color: white;
-    min-height: 130px;
+    min-height: 160px;
 }
 
 .home-card-body {
@@ -177,15 +177,15 @@ header {
 
 .home-card-title {
     font-weight: 700;
-    font-size: 0.95rem;
+    font-size: 1.1rem;
     text-transform: uppercase;
-    margin-bottom: 0.4rem;
-    color: white;
+    margin-bottom: 0.5rem;
+    color: var(--navy-dark);
 }
 
 .home-card-text {
-    font-size: 0.82rem;
-    color: rgba(255, 255, 255, 0.85);
+    font-size: 0.9rem;
+    color: var(--navy-dark);
     margin-bottom: 0.75rem;
 }
 
@@ -204,9 +204,9 @@ header {
 }
 
 .home-card-image {
-    width: 100px;
-    min-width: 100px;
-    height: 100px;
+    width: 120px;
+    min-width: 120px;
+    height: 120px;
     display: flex;
     align-items: center;
     justify-content: center;
