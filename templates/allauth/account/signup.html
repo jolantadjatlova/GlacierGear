@@ -1,21 +1,51 @@
-{% extends "account/base.html" %}
-
+{% extends "base.html" %}
 {% load i18n %}
 
-{% block head_title %}{% trans "Signup" %}{% endblock %}
+{% block extra_title %}Register{% endblock %}
 
 {% block content %}
-<h1>{% trans "Sign Up" %}</h1>
-
-<p>{% blocktrans %}Already have an account? Then please <a href="{{ login_url }}">sign in</a>.{% endblocktrans %}</p>
-
-<form class="signup" id="signup_form" method="post" action="{% url 'account_signup' %}">
-  {% csrf_token %}
-  {{ form.as_p }}
-  {% if redirect_field_value %}
-  <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
-  {% endif %}
-  <button type="submit">{% trans "Sign Up" %} &raquo;</button>
-</form>
-
+<div class="overlay"></div>
+<div class="container" style="position: relative; z-index: 2;">
+    <div class="row justify-content-center mt-5">
+        <div class="col-12 col-md-6 col-lg-4">
+            <div class="card p-4">
+                <div class="card-body">
+                    <h2 class="card-title text-center mb-1">Create Account</h2>
+                    <p class="text-center mb-4" style="color: var(--navy-dark); font-size: 0.9rem;">
+                        Join GlacierGear to start booking
+                    </p>
+                    <hr>
+                    <form class="signup" id="signup_form" method="post" action="{% url 'account_signup' %}">
+                        {% csrf_token %}
+                        {% for field in form %}
+                        <div class="mb-3">
+                            <label for="{{ field.id_for_label }}" class="form-label fw-semibold" style="color: var(--navy-dark); font-size: 0.85rem;">
+                                {{ field.label }}
+                            </label>
+                            <input type="{{ field.field.widget.input_type }}"
+                                   name="{{ field.html_name }}"
+                                   id="{{ field.id_for_label }}"
+                                   class="form-control {% if field.errors %}is-invalid{% endif %}"
+                                   {% if field.value %}value="{{ field.value }}"{% endif %}
+                                   placeholder="{{ field.label }}">
+                            {% for error in field.errors %}
+                            <div class="invalid-feedback">{{ error }}</div>
+                            {% endfor %}
+                        </div>
+                        {% endfor %}
+                        {% if redirect_field_value %}
+                        <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+                        {% endif %}
+                        <button class="btn btn-card w-100 mt-2" type="submit">Create Account</button>
+                    </form>
+                    <hr>
+                    <p class="text-center mt-3 mb-0" style="color: var(--navy-dark); font-size: 0.9rem;">
+                        Already have an account?
+                        <a href="{% url 'account_login' %}" style="color: var(--navy);">Sign in</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 {% endblock %}
