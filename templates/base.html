@@ -1,5 +1,5 @@
 {% load static %}
- 
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -8,32 +8,32 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     {% endblock %}
- 
+
     {% block extra_meta %}
     {% endblock %}
- 
+
     {% block corecss %}
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css" />
     <link rel="stylesheet" href="{% static 'css/base.css' %}" />
     {% endblock %}
- 
+
     {% block extra_css %}
     {% endblock %}
- 
+
     {% block corejs %}
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     {% endblock %}
- 
+
     {% block extra_js %}
     {% endblock %}
- 
+
     <title>GlacierGear {% block extra_title %}{% endblock %}</title>
   </head>
- 
+
   <body>
     <header class="container-fluid fixed-top p-0">
- 
+
       <!-- Top row: logo | search | icons -->
       <div class="row navbar-top align-items-center py-2 px-3 d-none d-lg-flex">
         <div class="col-3">
@@ -62,7 +62,7 @@
                 {% if request.user.is_superuser %}
                 <li><a class="dropdown-item" href="#">Product Management</a></li>
                 {% endif %}
-                <li><a class="dropdown-item" href="#">My Bookings</a></li>
+                <li><a class="dropdown-item" href="{% url 'profile' %}">My Bookings</a></li>
                 <li><a class="dropdown-item" href="{% url 'account_logout' %}">Logout</a></li>
               {% else %}
                 <li><a class="dropdown-item" href="{% url 'account_signup' %}">Register</a></li>
@@ -84,15 +84,15 @@
           <a class="btn btn-sm btn-outline-light" href="{% url 'products' %}">Book now</a>
         </div>
       </div>
- 
+
       <!-- Bottom row: nav links -->
       <nav class="navbar navbar-expand-lg navbar-dark main-nav px-3">
- 
+
         <!-- Mobile: logo + toggler -->
         <a class="navbar-brand d-lg-none" href="/">
           <img src="{% static 'images/glaciergear_logo.png' %}" alt="GlacierGear" height="45" />
         </a>
- 
+
         <button class="navbar-toggler border-0" type="button"
                 data-bs-toggle="collapse"
                 data-bs-target="#mainNav"
@@ -101,14 +101,14 @@
                 aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
- 
+
         <div class="collapse navbar-collapse" id="mainNav">
           <ul class="navbar-nav mx-auto">
- 
+
             <li class="nav-item">
               <a class="nav-link" href="/">Home</a>
             </li>
- 
+
             <!-- Ski Outfits dropdown -->
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="skiDropdown"
@@ -124,7 +124,7 @@
                 <li><a class="dropdown-item" href="{% url 'products' %}?category=ski_outfit">All Ski</a></li>
               </ul>
             </li>
- 
+
             <!-- Snowboard Outfits dropdown -->
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="snowboardDropdown"
@@ -139,13 +139,19 @@
                 <li><a class="dropdown-item" href="{% url 'products' %}?category=snowboard_outfit">All Snowboard</a></li>
               </ul>
             </li>
- 
+
             <li class="nav-item">
               <a class="nav-link" href="{% url 'products' %}?category=accessories">Accessories</a>
             </li>
- 
+
+            {% if request.user.is_authenticated %}
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'profile' %}">My Bookings</a>
+            </li>
+            {% endif %}
+
           </ul>
- 
+
           <!-- Mobile only icons inside collapse -->
           <ul class="navbar-nav ms-auto d-lg-none">
             <li class="nav-item">
@@ -168,7 +174,7 @@
                   {% if request.user.is_superuser %}
                   <li><a class="dropdown-item" href="#">Product Management</a></li>
                   {% endif %}
-                  <li><a class="dropdown-item" href="#">My Bookings</a></li>
+                  <li><a class="dropdown-item" href="{% url 'profile' %}">My Bookings</a></li>
                   <li><a class="dropdown-item" href="{% url 'account_logout' %}">Logout</a></li>
                 {% else %}
                   <li><a class="dropdown-item" href="{% url 'account_signup' %}">Register</a></li>
@@ -190,9 +196,9 @@
           </ul>
         </div>
       </nav>
- 
+
     </header>
- 
+
     {% if messages %}
     <div class="message-container position-fixed top-0 end-0 p-3" style="z-index: 9999; margin-top: 70px;">
       {% for message in messages %}
@@ -210,13 +216,13 @@
       {% endfor %}
     </div>
     {% endif %}
- 
+
     {% block page_header %}
     {% endblock %}
- 
+
     {% block content %}
     {% endblock %}
- 
+
     <footer class="site-footer mt-auto">
       <div class="container text-center py-0">
         <a href="https://instagram.com" target="_blank" class="text-white me-3">
@@ -227,7 +233,7 @@
         </a>
       </div>
     </footer>
- 
+
     {% block postloadjs %}
     <script>
       document.addEventListener("DOMContentLoaded", function () {
@@ -239,6 +245,6 @@
       });
     </script>
     {% endblock %}
- 
+
   </body>
 </html>
