@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block extra_title %}Terms & Conditions{% endblock %}
+
+{% block content %}
+<div class="overlay"></div>
+<div class="container mt-5" style="position: relative; z-index: 2;">
+    <div class="row justify-content-center">
+        <div class="col-12 col-md-8">
+            <h2 class="mb-4" style="color: var(--navy-dark);">Terms & Conditions</h2>
+            <p class="text-muted small">Last updated: May 2026</p>
+            <hr>
+
+            <h5 style="color: var(--navy-dark);">1. Rental Agreement</h5>
+            <p style="color: var(--navy-dark);">By completing a booking with GlacierGear, you agree to rent the selected equipment for the specified dates. All rentals are subject to availability.</p>
+
+            <h5 style="color: var(--navy-dark);">2. Collection & Return</h5>
+            <p style="color: var(--navy-dark);">Equipment must be collected and returned to our store at Sveagatan 12, 781 70 Borlänge, Sweden during opening hours. Late returns may incur additional charges.</p>
+
+            <h5 style="color: var(--navy-dark);">3. Equipment Care</h5>
+            <p style="color: var(--navy-dark);">Renters are responsible for the equipment during the rental period. Any damage beyond normal wear and tear may result in additional charges.</p>
+
+            <h5 style="color: var(--navy-dark);">4. Cancellations</h5>
+            <p style="color: var(--navy-dark);">Cancellations made more than 48 hours before the rental start date will receive a full refund. Cancellations within 48 hours are non-refundable.</p>
+
+            <h5 style="color: var(--navy-dark);">5. Payments</h5>
+            <p style="color: var(--navy-dark);">All payments are processed securely via Stripe. GlacierGear does not store your payment card details.</p>
+
+            <h5 style="color: var(--navy-dark);">6. Liability</h5>
+            <p style="color: var(--navy-dark);">GlacierGear is not liable for any injuries or accidents that occur while using rented equipment. Renters are advised to take out appropriate insurance.</p>
+
+            <h5 style="color: var(--navy-dark);">7. Contact</h5>
+            <p style="color: var(--navy-dark);">For any queries regarding these terms, please contact us at info@glaciergear.se</p>
+
+            <hr>
+            <a href="/" class="btn btn-card mb-4">Back to Home</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

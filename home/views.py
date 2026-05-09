@@ -19,3 +19,6 @@ def index(request):
 def how_it_works(request):
     """ A view to return the how it works page """
     return render(request, 'home/how_it_works.html')
+
+def terms(request):
+    return render(request, 'home/terms.html')

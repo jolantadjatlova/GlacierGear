@@ -17,7 +17,6 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css" />
     <link rel="stylesheet" href="{% static 'css/base.css' %}" />
     <link rel="icon" type="image/png" href="{% static 'images/favicon.png' %}">
-    
     {% endblock %}
 
     {% block extra_css %}
@@ -226,7 +225,18 @@
     {% endblock %}
 
     <footer class="site-footer mt-auto">
-      <div class="container text-center py-0">
+  <div class="container py-0">
+    <div class="row text-center align-items-center">
+
+      <!-- Left: Contact -->
+      <div class="col-12 col-md-4 mb-2 mb-md-0">
+        <small class="text-white d-block">Contact Us</small>
+        <small class="text-white">info@glaciergear.se</small>
+      </div>
+
+      <!-- Middle: Social icons -->
+      <div class="col-12 col-md-4 mb-2 mb-md-0">
+        <small class="text-white d-block mb-1">Follow Us</small>
         <a href="https://instagram.com" target="_blank" class="text-white me-3">
           <i class="bi bi-instagram fs-5"></i>
         </a>
@@ -234,7 +244,16 @@
           <i class="bi bi-facebook fs-5"></i>
         </a>
       </div>
-    </footer>
+
+      <!-- Right: T&C + Copyright -->
+      <div class="col-12 col-md-4">
+        <a href="{% url 'terms' %}" class="text-white small d-block">Terms & Conditions</a>
+        <small class="text-white">&copy; 2026 GlacierGear. All rights reserved.</small>
+      </div>
+
+    </div>
+  </div>
+</footer>
 
     {% block postloadjs %}
     <script>
