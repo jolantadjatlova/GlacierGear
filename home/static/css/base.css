@@ -395,6 +395,58 @@ header {
     font-size: 0.9rem;
 }
 
+/* PICKUP LOCATION SECTION */
+.pickup-location-section {
+    background-color: white;
+    position: relative;
+    z-index: 2;
+    padding: 4rem 0;
+}
+
+.pickup-title {
+    color: var(--navy-dark);
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.pickup-subtitle {
+    color: var(--grey);
+    margin-bottom: 1rem;
+}
+
+.pickup-divider {
+    border-color: var(--blue-light);
+    margin-bottom: 1.5rem;
+}
+
+.pickup-details {
+    color: var(--navy-dark);
+    font-size: 0.95rem;
+}
+
+.pickup-details i {
+    color: var(--navy);
+}
+
+.btn-pickup-directions {
+    background-color: var(--navy);
+    color: white;
+    border: none;
+    padding: 0.6rem 1.5rem;
+    font-weight: 600;
+}
+
+.btn-pickup-directions:hover {
+    background-color: var(--navy-dark);
+    color: white;
+}
+
+.pickup-map {
+    height: 400px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
 /* MEDIA QUERIES */
 @media (min-width: 1200px) {
     .container {

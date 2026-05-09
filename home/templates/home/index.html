@@ -1,6 +1,10 @@
 {% extends "base.html" %}
 {% load static %}
 
+{% block extra_css %}
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+{% endblock %}
+
 {% block content %}
 
     <!-- Hero section -->
@@ -79,4 +83,68 @@
         </div>
     </div>
 
+    <!-- Pickup Location section -->
+    <div class="pickup-location-section">
+        <div class="container">
+            <div class="row align-items-center g-4">
+
+                <!--address details -->
+                <div class="col-12 col-lg-5">
+                    <h2 class="pickup-title">
+                        <i class="bi bi-geo-alt-fill me-2"></i>Pickup Location
+                    </h2>
+                    <p class="pickup-subtitle">
+                        Collect your rental gear from our GlacierGear store before heading to the slopes.
+                    </p>
+                    <hr class="pickup-divider">
+                    <ul class="list-unstyled pickup-details">
+                        <li class="mb-3">
+                            <i class="bi bi-building me-2"></i>
+                            <strong>GlacierGear Store</strong><br>
+                            <span class="ms-4">Sveagatan 12, 781 70 Borlänge, Sweden</span>
+                        </li>
+                        <li class="mb-3">
+                            <i class="bi bi-clock me-2"></i>
+                            <strong>Opening Hours</strong><br>
+                            <span class="ms-4">Monday – Friday: 8:00 – 18:00</span><br>
+                            <span class="ms-4">Saturday – Sunday: 8:00 – 16:00</span>
+                        </li>
+                        <li class="mb-3">
+                            <i class="bi bi-telephone me-2"></i>
+                            <strong>Phone:</strong> +46 70 123 45 67
+                        </li>
+                        <li class="mb-3">
+                            <i class="bi bi-envelope me-2"></i>
+                            <strong>Email:</strong> info@glaciergear.se
+                        </li>
+                    </ul>
+                    <a href="https://www.google.com/maps/dir/?api=1&destination=Borlänge,Sweden" 
+                       target="_blank" class="btn btn-pickup-directions">
+                        <i class="bi bi-map me-2"></i>Get Directions
+                    </a>
+                </div>
+
+                <!--map -->
+                <div class="col-12 col-lg-7">
+                    <div id="map" class="pickup-map"></div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
+
+{% block postloadjs %}
+{{ block.super }}
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script>
+    var map = L.map('map').setView([60.4858, 15.4369], 13);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '© OpenStreetMap contributors'
+    }).addTo(map);
+    L.marker([60.4858, 15.4369]).addTo(map)
+        .bindPopup('<strong>GlacierGear Store</strong><br>Sveagatan 12, Borlänge')
+        .openPopup();
+</script>
 {% endblock %}
