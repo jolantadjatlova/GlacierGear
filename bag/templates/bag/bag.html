@@ -1,9 +1,9 @@
 {% extends "base.html" %}
 {% load static %}
 {% load bag_tools %}
- 
+
 {% block extra_title %}| My Booking Cart{% endblock %}
- 
+
 {% block content %}
 <div class="overlay"></div>
 <div class="container mb-2 booking-cart-page">
@@ -14,11 +14,11 @@
             <hr>
         </div>
     </div>
- 
+
     <div class="row">
         <div class="col">
             {% if bag_items %}
- 
+
             <!-- Desktop table view -->
             <div class="table-responsive rounded d-none d-md-block">
                 <table class="table table-sm table-borderless">
@@ -55,13 +55,13 @@
                         </td>
                         <!-- Rental dates -->
                         <td class="py-3">
-                            <p class="my-0 small">{{ item.start_date }}</p>
+                            <p class="my-0 small">{{ rental_start_date }}</p>
                             <p class="my-0 small text-muted">to</p>
-                            <p class="my-0 small">{{ item.end_date }}</p>
+                            <p class="my-0 small">{{ rental_end_date }}</p>
                         </td>
                         <!-- Days -->
                         <td class="py-3">
-                            <p class="my-0">{{ item.rental_days }}</p>
+                            <p class="my-0">{{ rental_days }}</p>
                         </td>
                         <!-- Price per day -->
                         <td class="py-3">
@@ -122,20 +122,20 @@
                             <a href="{% url 'products' %}" class="btn btn-outline-secondary me-2">
                                 <i class="bi bi-arrow-left me-1"></i>Keep Shopping
                             </a>
-                            <a href="#" class="btn btn-dark">
+                            <a href="{% url 'checkout' %}" class="btn btn-dark">
                                 Proceed to Checkout <i class="bi bi-arrow-right ms-1"></i>
                             </a>
                         </td>
                     </tr>
                 </table>
             </div>
- 
+
             <!-- Mobile view -->
             <div class="d-block d-md-none">
                 <!-- Summary at top on mobile -->
                 <div class="text-end mb-3">
                     <h6>Total: <strong>SEK {{ total }}</strong></h6>
-                    <a href="#" class="btn btn-dark btn-sm w-100 mb-2">
+                    <a href="{% url 'checkout' %}" class="btn btn-dark btn-sm w-100 mb-2">
                         Proceed to Checkout <i class="bi bi-arrow-right ms-1"></i>
                     </a>
                     <a href="{% url 'products' %}" class="btn btn-outline-secondary btn-sm w-100">
@@ -155,8 +155,8 @@
                     <div class="col-8">
                         <p class="my-0 fw-bold small">{{ item.product.name }}</p>
                         <p class="my-0 text-muted small">Size: {{ item.size|upper }}</p>
-                        <p class="my-0 small">{{ item.start_date }} → {{ item.end_date }}</p>
-                        <p class="my-0 small">{{ item.rental_days }} days × SEK {{ item.product.price_per_day }}</p>
+                        <p class="my-0 small">{{ rental_start_date }} → {{ rental_end_date }}</p>
+                        <p class="my-0 small">{{ rental_days }} days × SEK {{ item.product.price_per_day }}</p>
                         <p class="my-0 fw-bold">SEK {{ item.line_total }}</p>
                         <a class="remove-item text-danger small"
                            id="remove_{{ item.item_id }}"
@@ -169,7 +169,7 @@
                 <hr>
                 {% endfor %}
             </div>
- 
+
             {% else %}
             <!-- Empty cart -->
             <div class="text-center py-5">
@@ -184,18 +184,18 @@
     </div>
 </div>
 {% endblock %}
- 
+
 {% block postloadjs %}
 {{ block.super }}
 <script>
     // Update quantity on click
     document.querySelectorAll('.update-link').forEach(function(link) {
-    link.addEventListener('click', function(e) {
-        var form = this.closest('td').querySelector('.update-form');
-        form.submit();
+        link.addEventListener('click', function(e) {
+            var form = this.closest('td').querySelector('.update-form');
+            form.submit();
+        });
     });
-});
- 
+
     // Remove item and reload on click
     document.querySelectorAll('.remove-item').forEach(function(btn) {
         btn.addEventListener('click', function(e) {
@@ -206,7 +206,7 @@
             var data = new FormData();
             data.append('csrfmiddlewaretoken', csrfToken);
             data.append('product_size', size);
- 
+
             fetch(url, {
                 method: 'POST',
                 body: data,
@@ -215,7 +215,7 @@
             });
         });
     });
- 
+
     // Increment/decrement quantity buttons
     document.querySelectorAll('.increment-qty').forEach(function(btn) {
         btn.addEventListener('click', function() {
@@ -224,7 +224,7 @@
             if (parseInt(input.value) < 10) input.value = parseInt(input.value) + 1;
         });
     });
- 
+
     document.querySelectorAll('.decrement-qty').forEach(function(btn) {
         btn.addEventListener('click', function() {
             var itemId = this.dataset.item_id;
