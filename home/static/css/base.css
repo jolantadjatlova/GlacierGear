@@ -16,7 +16,7 @@ html {
 body {
     font-family: 'Inter', sans-serif;
     padding-top: 115px;
-    background: url('../images/hero_gg.webp') center 60% / cover no-repeat fixed;
+    background: url('../images/hero_gg.webp') center 60% / cover no-repeat;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -108,7 +108,7 @@ header {
 
 /* HERO */
 .hero {
-    min-height: 70vh;
+    min-height: 65vh;
     display: flex;
     align-items: center;
     padding-top: 2rem;
