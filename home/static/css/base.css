@@ -223,7 +223,7 @@ header {
     border-radius: 8px;
 }
 
-/* GENERIC CARD */
+/* CARD */
 .card {
     background: rgba(255, 255, 255, 0.15);
     backdrop-filter: blur(10px);
@@ -241,20 +241,7 @@ header {
     color: var(--navy-dark);
 }
 
-.btn-card {
-    background-color: rgba(3, 60, 124, 0.7);
-    border: 1px solid white;
-    color: white;
-    font-weight: 500;
-    align-self: flex-start;
-}
-
-.btn-card:hover {
-    background-color: transparent;
-    border-color: var(--navy-dark);
-    color: var(--navy-dark);
-}
-
+/* OVERLAY - white background for content pages */
 .overlay {
     height: 100%;
     width: 100%;
@@ -267,7 +254,16 @@ header {
 
 .overlay ~ * {
     position: relative;
-    z-index: 1;
+    z-index: 2;
+}
+
+/* CHECKOUT AND PROFILE PAGES */
+.overlay ~ .container .card {
+    background: white;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    border: 1px solid #dee2e6;
+    color: var(--navy-dark);
 }
 
 /* PRODUCTS PAGE */
