@@ -1,11 +1,10 @@
 import uuid
 from django.db import models
 from django.db.models import Sum
-from django.conf import settings
-from products.models import Product, ProductSize
+from products.models import Product
 from profiles.models import UserProfile
- 
- 
+
+
 class Booking(models.Model):
     """
     A booking model for rental orders.
@@ -39,13 +38,13 @@ class Booking(models.Model):
         null=False, blank=False, default='')
     stripe_pid = models.CharField(
         max_length=254, null=False, blank=False, default='')
- 
+
     def _generate_booking_number(self):
         """
         Generate a random unique booking number using UUID
         """
         return uuid.uuid4().hex.upper()
- 
+
     def update_total(self):
         """
         Update grand total each time a line item is added
@@ -54,7 +53,7 @@ class Booking(models.Model):
             Sum('lineitem_total'))['lineitem_total__sum'] or 0
         self.grand_total = self.booking_total
         self.save()
- 
+
     def save(self, *args, **kwargs):
         """
         Override save method to set booking number
@@ -63,11 +62,11 @@ class Booking(models.Model):
         if not self.booking_number:
             self.booking_number = self._generate_booking_number()
         super().save(*args, **kwargs)
- 
+
     def __str__(self):
         return self.booking_number
- 
- 
+
+
 class BookingLineItem(models.Model):
     """
     A line item for each product in a booking.
@@ -87,7 +86,7 @@ class BookingLineItem(models.Model):
     lineitem_total = models.DecimalField(
         max_digits=10, decimal_places=2,
         null=False, blank=False, editable=False)
- 
+
     def save(self, *args, **kwargs):
         """
         Override save method to set lineitem total:
@@ -99,10 +98,9 @@ class BookingLineItem(models.Model):
             self.booking.rental_days
         )
         super().save(*args, **kwargs)
- 
+
     def __str__(self):
         return (
             f'Product {self.product.name} on booking '
             f'{self.booking.booking_number}'
         )
- 
