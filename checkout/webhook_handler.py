@@ -2,21 +2,21 @@ from django.http import HttpResponse
 from django.core.mail import send_mail
 from django.template.loader import render_to_string
 from django.conf import settings
-
+ 
 from .models import Booking, BookingLineItem
-from products.models import Product
+from products.models import Product, ProductSize
 from profiles.models import UserProfile
-
+ 
 import json
 import time
-
-
+ 
+ 
 class StripeWH_Handler:
     """Handle Stripe webhooks"""
-
+ 
     def __init__(self, request):
         self.request = request
-
+ 
     def _send_confirmation_email(self, booking):
         """Send the user a confirmation email"""
         cust_email = booking.email
@@ -33,13 +33,32 @@ class StripeWH_Handler:
             settings.DEFAULT_FROM_EMAIL,
             [cust_email]
         )
-
+ 
+    def _decrement_stock(self, booking):
+        """
+        Decrement stock for each line item in a booking.
+        Called after payment is confirmed to reduce available stock.
+        Uses max(0, stock - quantity) to prevent negative stock.
+        """
+        for line_item in booking.lineitems.all():
+            if line_item.size:
+                try:
+                    product_size = ProductSize.objects.get(
+                        product=line_item.product,
+                        size=line_item.size
+                    )
+                    product_size.stock = max(
+                        0, product_size.stock - line_item.quantity)
+                    product_size.save()
+                except ProductSize.DoesNotExist:
+                    pass
+ 
     def handle_event(self, event):
         """Handle a generic/unknown/unexpected webhook event"""
         return HttpResponse(
             content=f'Unhandled webhook received: {event["type"]}',
             status=200)
-
+ 
     def handle_payment_intent_succeeded(self, event):
         """Handle the payment_intent.succeeded webhook from Stripe"""
         intent = event.data.object
@@ -47,13 +66,13 @@ class StripeWH_Handler:
         bag = intent.metadata.bag
         rental_start_date = intent.metadata.rental_start_date
         rental_end_date = intent.metadata.rental_end_date
-
+ 
         # Get billing details
         import stripe
         charge = stripe.Charge.retrieve(intent.latest_charge)
         billing_details = charge.billing_details
         grand_total = round(charge.amount / 100, 2)
-
+ 
         # Update profile if authenticated
         profile = None
         username = intent.metadata.username
@@ -62,8 +81,8 @@ class StripeWH_Handler:
                 profile = UserProfile.objects.get(user__username=username)
             except UserProfile.DoesNotExist:
                 profile = None
-
-        # Check if booking already exists
+ 
+        # Check if booking already exists (created by checkout view)
         booking_exists = False
         attempt = 1
         while attempt <= 5:
@@ -80,8 +99,9 @@ class StripeWH_Handler:
             except Booking.DoesNotExist:
                 attempt += 1
                 time.sleep(1)
-
+ 
         if booking_exists:
+            # Stock already decremented by checkout_success view
             self._send_confirmation_email(booking)
             return HttpResponse(
                 content=(
@@ -89,19 +109,21 @@ class StripeWH_Handler:
                     '| SUCCESS: Verified booking already in database'),
                 status=200)
         else:
+            # Booking not created by view - create it here and decrement stock
             booking = None
             try:
-                # Calculate rental days
                 from datetime import datetime
-                start = datetime.strptime(rental_start_date, '%Y-%m-%d').date()
-                end = datetime.strptime(rental_end_date, '%Y-%m-%d').date()
+                start = datetime.strptime(
+                    rental_start_date, '%Y-%m-%d').date()
+                end = datetime.strptime(
+                    rental_end_date, '%Y-%m-%d').date()
                 rental_days = (end - start).days
-
+ 
                 booking = Booking.objects.create(
                     full_name=billing_details.name,
                     user_profile=profile,
                     email=billing_details.email,
-                    phone_number=intent.metadata.get('phone_number', ''),
+                    phone_number=billing_details.phone or '',
                     rental_start_date=start,
                     rental_end_date=end,
                     rental_days=rental_days,
@@ -111,28 +133,41 @@ class StripeWH_Handler:
                 )
                 for item_id, item_data in json.loads(bag).items():
                     product = Product.objects.get(id=item_id)
-                    for size, quantity in item_data['items_by_size'].items():
+                    if isinstance(item_data, dict):
+                        for size, quantity in item_data[
+                                'items_by_size'].items():
+                            booking_line_item = BookingLineItem(
+                                booking=booking,
+                                product=product,
+                                quantity=quantity,
+                                size=size,
+                            )
+                            booking_line_item.save()
+                    else:
                         booking_line_item = BookingLineItem(
                             booking=booking,
                             product=product,
-                            quantity=quantity,
-                            size=size,
+                            quantity=item_data,
                         )
                         booking_line_item.save()
+ 
+                # Decrement stock since checkout_success view didn't run
+                self._decrement_stock(booking)
+ 
             except Exception as e:
                 if booking:
                     booking.delete()
                 return HttpResponse(
                     content=f'Webhook received: {event["type"]} | ERROR: {e}',
                     status=500)
-
+ 
         self._send_confirmation_email(booking)
         return HttpResponse(
             content=(
                 f'Webhook received: {event["type"]} '
                 '| SUCCESS: Created booking in webhook'),
             status=200)
-
+ 
     def handle_payment_intent_payment_failed(self, event):
         """Handle the payment_intent.payment_failed webhook from Stripe"""
         return HttpResponse(
