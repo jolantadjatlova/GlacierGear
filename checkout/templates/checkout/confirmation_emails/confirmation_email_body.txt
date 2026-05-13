@@ -1,0 +1,38 @@
+Hello {{ booking.full_name }},
+ 
+Thank you for your booking with GlacierGear! Your rental has been confirmed.
+ 
+Here are your booking details:
+ 
+Booking Number: {{ booking.booking_number }}
+Booking Date: {{ booking.date }}
+ 
+Rental Period:
+  From: {{ booking.rental_start_date }}
+  To:   {{ booking.rental_end_date }}
+  Duration: {{ booking.rental_days }} day(s)
+ 
+Items Booked:
+{% for item in booking.lineitems.all %}
+  - {{ item.product.name }}{% if item.size %} (Size: {{ item.size|upper }}){% endif %}
+    Quantity: {{ item.quantity }}
+    SEK {{ item.product.price_per_day }} x {{ item.quantity }} x {{ booking.rental_days }} days = SEK {{ item.lineitem_total }}
+{% endfor %}
+ 
+Order Total: SEK {{ booking.grand_total }}
+ 
+Pickup Location:
+  GlacierGear Store
+  Sveagatan 12, 781 70 Borlänge, Sweden
+ 
+  Opening Hours:
+  Monday - Friday: 08:00 - 18:00
+  Saturday - Sunday: 08:00 - 16:00
+ 
+Please bring this booking number and a valid ID when collecting your gear.
+ 
+If you have any questions, please contact us at {{ contact_email }}
+ 
+See you on the slopes!
+The GlacierGear Team
+ 

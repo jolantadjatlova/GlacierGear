@@ -1,0 +1,1 @@
+GlacierGear Booking Confirmation - {{ booking.booking_number }}
