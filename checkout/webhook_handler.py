@@ -2,21 +2,21 @@ from django.http import HttpResponse
 from django.core.mail import send_mail
 from django.template.loader import render_to_string
 from django.conf import settings
- 
+
 from .models import Booking, BookingLineItem
 from products.models import Product, ProductSize
 from profiles.models import UserProfile
- 
+
 import json
 import time
- 
- 
+
+
 class StripeWH_Handler:
     """Handle Stripe webhooks"""
- 
+
     def __init__(self, request):
         self.request = request
- 
+
     def _send_confirmation_email(self, booking):
         """Send the user a confirmation email"""
         cust_email = booking.email
@@ -33,7 +33,7 @@ class StripeWH_Handler:
             settings.DEFAULT_FROM_EMAIL,
             [cust_email]
         )
- 
+
     def _decrement_stock(self, booking):
         """
         Decrement stock for each line item in a booking.
@@ -52,13 +52,13 @@ class StripeWH_Handler:
                     product_size.save()
                 except ProductSize.DoesNotExist:
                     pass
- 
+
     def handle_event(self, event):
         """Handle a generic/unknown/unexpected webhook event"""
         return HttpResponse(
             content=f'Unhandled webhook received: {event["type"]}',
             status=200)
- 
+
     def handle_payment_intent_succeeded(self, event):
         """Handle the payment_intent.succeeded webhook from Stripe"""
         intent = event.data.object
@@ -66,13 +66,13 @@ class StripeWH_Handler:
         bag = intent.metadata.bag
         rental_start_date = intent.metadata.rental_start_date
         rental_end_date = intent.metadata.rental_end_date
- 
+
         # Get billing details
         import stripe
         charge = stripe.Charge.retrieve(intent.latest_charge)
         billing_details = charge.billing_details
         grand_total = round(charge.amount / 100, 2)
- 
+
         # Update profile if authenticated
         profile = None
         username = intent.metadata.username
@@ -81,7 +81,7 @@ class StripeWH_Handler:
                 profile = UserProfile.objects.get(user__username=username)
             except UserProfile.DoesNotExist:
                 profile = None
- 
+
         # Check if booking already exists (created by checkout view)
         booking_exists = False
         attempt = 1
@@ -99,7 +99,7 @@ class StripeWH_Handler:
             except Booking.DoesNotExist:
                 attempt += 1
                 time.sleep(1)
- 
+
         if booking_exists:
             # Stock already decremented by checkout_success view
             self._send_confirmation_email(booking)
@@ -118,7 +118,7 @@ class StripeWH_Handler:
                 end = datetime.strptime(
                     rental_end_date, '%Y-%m-%d').date()
                 rental_days = (end - start).days
- 
+
                 booking = Booking.objects.create(
                     full_name=billing_details.name,
                     user_profile=profile,
@@ -150,24 +150,24 @@ class StripeWH_Handler:
                             quantity=item_data,
                         )
                         booking_line_item.save()
- 
+
                 # Decrement stock since checkout_success view didn't run
                 self._decrement_stock(booking)
- 
+
             except Exception as e:
                 if booking:
                     booking.delete()
                 return HttpResponse(
                     content=f'Webhook received: {event["type"]} | ERROR: {e}',
                     status=500)
- 
+
         self._send_confirmation_email(booking)
         return HttpResponse(
             content=(
                 f'Webhook received: {event["type"]} '
                 '| SUCCESS: Created booking in webhook'),
             status=200)
- 
+
     def handle_payment_intent_payment_failed(self, event):
         """Handle the payment_intent.payment_failed webhook from Stripe"""
         return HttpResponse(
