@@ -1,31 +1,48 @@
-{% extends "account/base.html" %}
-
+{% extends "base.html" %}
 {% load i18n %}
 {% load account %}
-
-{% block head_title %}{% trans "Confirm E-mail Address" %}{% endblock %}
-
-
+ 
+{% block extra_title %}Confirm Email Address{% endblock %}
+ 
 {% block content %}
-<h1>{% trans "Confirm E-mail Address" %}</h1>
-
-{% if confirmation %}
-
-{% user_display confirmation.email_address.user as user_display %}
-
-<p>{% blocktrans with confirmation.email_address.email as email %}Please confirm that <a href="mailto:{{ email }}">{{ email }}</a> is an e-mail address for user {{ user_display }}.{% endblocktrans %}</p>
-
-<form method="post" action="{% url 'account_confirm_email' confirmation.key %}">
-{% csrf_token %}
-    <button type="submit">{% trans 'Confirm' %}</button>
-</form>
-
-{% else %}
-
-{% url 'account_email' as email_url %}
-
-<p>{% blocktrans %}This e-mail confirmation link expired or is invalid. Please <a href="{{ email_url }}">issue a new e-mail confirmation request</a>.{% endblocktrans %}</p>
-
-{% endif %}
-
+<div class="overlay"></div>
+<div class="container" style="position: relative; z-index: 2;">
+    <div class="row justify-content-center mt-5">
+        <div class="col-12 col-md-6 col-lg-4">
+            <div class="card p-4">
+                <div class="card-body text-center">
+                    <i class="bi bi-envelope-check" style="font-size: 3rem; color: var(--navy-dark);"></i>
+                    <h2 class="card-title text-center mt-3 mb-1">Confirm Email Address</h2>
+                    <hr>
+                    {% if confirmation %}
+                    {% user_display confirmation.email_address.user as user_display %}
+                    <p style="color: var(--navy-dark); font-size: 0.9rem;">
+                        Please confirm that
+                        <a href="mailto:{{ confirmation.email_address.email }}" style="color: var(--navy);">
+                            {{ confirmation.email_address.email }}
+                        </a>
+                        is an email address for user <strong>{{ user_display }}</strong>.
+                    </p>
+                    <form method="post" action="{% url 'account_confirm_email' confirmation.key %}">
+                        {% csrf_token %}
+                        <button class="btn btn-card w-100 mt-2" type="submit">Confirm</button>
+                    </form>
+                    {% else %}
+                    <p style="color: var(--navy-dark); font-size: 0.9rem;">
+                        This email confirmation link has expired or is invalid.
+                    </p>
+                    {% url 'account_email' as email_url %}
+                    <a href="{{ email_url }}" class="btn btn-card w-100 mt-2">
+                        Request New Confirmation
+                    </a>
+                    {% endif %}
+                    <hr>
+                    <a href="{% url 'home' %}" style="color: var(--navy); font-size: 0.9rem;">
+                        <i class="bi bi-arrow-left me-1"></i>Back to Home
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 {% endblock %}

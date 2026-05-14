@@ -1,11 +1,27 @@
-{% extends "account/base.html" %}
-
+{% extends "base.html" %}
 {% load i18n %}
-
-{% block head_title %}{% trans "Sign Up Closed" %}{% endblock %}
-
+ 
+{% block extra_title %}Sign Up Closed{% endblock %}
+ 
 {% block content %}
-<h1>{% trans "Sign Up Closed" %}</h1>
-
-<p>{% trans "We are sorry, but the sign up is currently closed." %}</p>
+<div class="overlay"></div>
+<div class="container" style="position: relative; z-index: 2;">
+    <div class="row justify-content-center mt-5">
+        <div class="col-12 col-md-6 col-lg-4">
+            <div class="card p-4">
+                <div class="card-body text-center">
+                    <i class="bi bi-lock" style="font-size: 3rem; color: var(--navy-dark);"></i>
+                    <h2 class="card-title text-center mt-3 mb-1">Sign Up Closed</h2>
+                    <p class="text-center mb-4" style="color: var(--navy-dark); font-size: 0.9rem;">
+                        We are sorry, but sign ups are currently closed. Please check back later.
+                    </p>
+                    <hr>
+                    <a href="{% url 'home' %}" class="btn btn-card w-100 mt-2">
+                        Back to Home
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 {% endblock %}
