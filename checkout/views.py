@@ -8,6 +8,7 @@ from .forms import BookingForm
 from .models import Booking, BookingLineItem
 from products.models import Product, ProductSize
 from profiles.models import UserProfile
+from profiles.forms import UserProfileForm
 from bag.contexts import bag_contents
  
 import stripe
@@ -22,6 +23,7 @@ def cache_checkout_data(request):
         stripe.PaymentIntent.modify(pid, metadata={
             'bag': json.dumps(request.session.get('bag', {})),
             'username': request.user,
+            'save_info': request.POST.get('save_info'),
             'rental_start_date': request.session.get('rental_start_date', ''),
             'rental_end_date': request.session.get('rental_end_date', ''),
         })
@@ -90,6 +92,9 @@ def checkout(request):
             # Update booking total after all line items saved
             booking.update_total()
  
+            # Store save_info in session for checkout_success view
+            request.session['save_info'] = 'save-info' in request.POST
+ 
             return redirect(reverse('checkout_success',
                                     args=[booking.booking_number]))
         else:
@@ -148,14 +153,25 @@ def checkout_success(request, booking_number):
     """
     Handle successful checkouts and decrement stock for each line item.
     """
+    save_info = request.session.get('save_info')
     booking = get_object_or_404(Booking, booking_number=booking_number)
  
-    # Link profile
+    # Link profile and optionally save info
     if request.user.is_authenticated:
         try:
             profile = UserProfile.objects.get(user=request.user)
             booking.user_profile = profile
             booking.save()
+ 
+            # Save user info if requested
+            if save_info:
+                profile_data = {
+                    'default_phone_number': booking.phone_number,
+                }
+                user_profile_form = UserProfileForm(
+                    profile_data, instance=profile)
+                if user_profile_form.is_valid():
+                    user_profile_form.save()
         except UserProfile.DoesNotExist:
             pass
  
@@ -184,6 +200,8 @@ def checkout_success(request, booking_number):
         del request.session['rental_start_date']
     if 'rental_end_date' in request.session:
         del request.session['rental_end_date']
+    if 'save_info' in request.session:
+        del request.session['save_info']
  
     template = 'checkout/checkout_success.html'
     context = {
