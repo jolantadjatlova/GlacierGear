@@ -1,8 +1,8 @@
 {% extends "base.html" %}
 {% load static %}
-
+ 
 {% block extra_title %}My Profile{% endblock %}
-
+ 
 {% block content %}
 <div class="overlay"></div>
 <div class="container mt-4" style="position: relative; z-index: 2;">
@@ -13,7 +13,7 @@
         </div>
     </div>
     <div class="row g-4">
-
+ 
         <!-- Left: profile info -->
         <div class="col-12 col-lg-4">
             <div class="card p-4">
@@ -44,20 +44,61 @@
                 </div>
             </div>
         </div>
-
-        <!-- Right: booking history (placeholder until checkout built) -->
+ 
+        <!-- Right: booking history -->
         <div class="col-12 col-lg-8">
             <div class="card p-4">
                 <div class="card-body">
                     <h5 class="card-title">My Bookings</h5>
                     <hr>
+                    {% if bookings %}
+                    <div style="max-height: 416px; overflow-y: auto;">
+                        <table class="table table-sm table-borderless">
+                            <thead>
+                                <tr>
+                                    <th>Booking #</th>
+                                    <th>Date</th>
+                                    <th>Items</th>
+                                    <th>Total</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for booking in bookings %}
+                                <tr>
+                                    <td>
+                                        <a href="{% url 'booking_history' booking.booking_number %}"
+                                           title="{{ booking.booking_number }}"
+                                           style="color: var(--navy);">
+                                            {{ booking.booking_number|truncatechars:6 }}
+                                        </a>
+                                    </td>
+                                    <td>{{ booking.date|date:"d M Y" }}</td>
+                                    <td>
+                                        <ul class="list-unstyled mb-0">
+                                            {% for item in booking.lineitems.all %}
+                                            <li class="small">
+                                                {% if item.size %}{{ item.size|upper }} - {% endif %}
+                                                {{ item.product.name }} x{{ item.quantity }}
+                                            </li>
+                                            {% endfor %}
+                                        </ul>
+                                    </td>
+                                    <td>SEK {{ booking.grand_total }}</td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                    {% else %}
                     <p style="color: var(--navy-dark);">
-                        Your booking history will appear here once you have made a booking.
+                        You have no bookings yet.
+                        <a href="{% url 'products' %}" style="color: var(--navy);">Browse products</a>
                     </p>
+                    {% endif %}
                 </div>
             </div>
         </div>
-
+ 
     </div>
 </div>
 {% endblock %}

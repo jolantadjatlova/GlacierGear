@@ -109,9 +109,15 @@
  
             <!-- Action Button -->
             <div class="text-center">
+                {% if from_profile %}
+                <a href="{% url 'profile' %}" class="btn btn-lg px-4 py-2 hero-btn text-uppercase">
+                    <i class="bi bi-arrow-left me-2"></i>Back to Profile
+                </a>
+                {% else %}
                 <a href="{% url 'products' %}" class="btn btn-lg px-4 py-2 hero-btn text-uppercase">
                     Browse More Products
                 </a>
+                {% endif %}
             </div>
  
         </div>
