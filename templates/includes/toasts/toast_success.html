@@ -9,7 +9,7 @@
                 {{ message }}
             </div>
         </div>
-        {% if product_count %}
+        {% if product_count and not on_profile_page %}
         <hr class="mt-2 mb-2">
         <p class="fw-bold mb-2">Your Booking Cart ({{ product_count }} item{{ product_count|pluralize }})</p>
         <div class="bag-notification-wrapper" style="max-height: 200px; overflow-y: auto;">
