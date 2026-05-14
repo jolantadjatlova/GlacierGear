@@ -1,21 +1,36 @@
-{% extends "account/base.html" %}
-
+{% extends "base.html" %}
 {% load i18n %}
-
-{% block head_title %}{% trans "Sign Out" %}{% endblock %}
-
+ 
+{% block extra_title %}Sign Out{% endblock %}
+ 
 {% block content %}
-<h1>{% trans "Sign Out" %}</h1>
-
-<p>{% trans 'Are you sure you want to sign out?' %}</p>
-
-<form method="post" action="{% url 'account_logout' %}">
-  {% csrf_token %}
-  {% if redirect_field_value %}
-  <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}"/>
-  {% endif %}
-  <button type="submit">{% trans 'Sign Out' %}</button>
-</form>
-
-
+<div class="overlay"></div>
+<div class="container" style="position: relative; z-index: 2;">
+    <div class="row justify-content-center mt-5">
+        <div class="col-12 col-md-6 col-lg-4">
+            <div class="card p-4">
+                <div class="card-body">
+                    <h2 class="card-title text-center mb-1">Sign Out</h2>
+                    <p class="text-center mb-4" style="color: var(--navy-dark); font-size: 0.9rem;">
+                        Are you sure you want to sign out?
+                    </p>
+                    <hr>
+                    <form method="post" action="{% url 'account_logout' %}">
+                        {% csrf_token %}
+                        {% if redirect_field_value %}
+                        <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}"/>
+                        {% endif %}
+                        <button class="btn btn-card w-100 mt-2" type="submit">Sign Out</button>
+                    </form>
+                    <hr>
+                    <p class="text-center mt-3 mb-0" style="color: var(--navy-dark); font-size: 0.9rem;">
+                        <a href="{% url 'home' %}" style="color: var(--navy);">
+                            <i class="bi bi-arrow-left me-1"></i>Back to Home
+                        </a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 {% endblock %}

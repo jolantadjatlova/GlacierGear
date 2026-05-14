@@ -1,12 +1,27 @@
-{% extends "account/base.html" %}
-
+{% extends "base.html" %}
 {% load i18n %}
-
-{% block head_title %}{% trans "Verify Your E-mail Address" %}{% endblock %}
-
+ 
+{% block extra_title %}Verify Your Email{% endblock %}
+ 
 {% block content %}
-    <h1>{% trans "Verify Your E-mail Address" %}</h1>
-
-    <p>{% blocktrans %}We have sent an e-mail to you for verification. Follow the link provided to finalize the signup process. If you do not see the verification e-mail in your main inbox, check your spam folder. Please contact us if you do not receive the verification e-mail within a few minutes.{% endblocktrans %}</p>
-
+<div class="overlay"></div>
+<div class="container" style="position: relative; z-index: 2;">
+    <div class="row justify-content-center mt-5">
+        <div class="col-12 col-md-6 col-lg-4">
+            <div class="card p-4">
+                <div class="card-body text-center">
+                    <i class="bi bi-envelope" style="font-size: 3rem; color: var(--navy-dark);"></i>
+                    <h2 class="card-title text-center mt-3 mb-1">Verify Your Email</h2>
+                    <p class="text-center mb-4" style="color: var(--navy-dark); font-size: 0.9rem;">
+                        We have sent a verification email to your address. Follow the link to complete your registration. Please check your spam folder if you don't see it.
+                    </p>
+                    <hr>
+                    <a href="{% url 'home' %}" class="btn btn-card w-100 mt-2">
+                        Back to Home
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 {% endblock %}
