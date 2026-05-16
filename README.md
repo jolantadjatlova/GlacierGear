@@ -140,3 +140,36 @@ Further visual decisions are detailed in the [Typography](#typography) and [Colo
  
 ---
 
+### User Goals
+ 
+#### Public Users
+- To browse and view rental products without needing to create an account.
+- To search and filter products to quickly find suitable equipment.
+#### Authenticated Users
+- To create an account and log in securely to access booking features.
+- To add products to a booking cart and complete a secure rental booking.
+- To view booking history and manage saved profile information.
+- To receive clear confirmation of bookings via email and on-screen notifications.
+#### Store Owners (Superusers)
+- To add, edit, and delete products through the frontend product management interface.
+### User Stories
+ 
+#### Public Users
+- As a public user, I want to browse all products so that I can see what equipment is available to rent.
+- As a public user, I want to filter products by category, size, and colour so that I can quickly find equipment that suits me.
+- As a public user, I want to search for products by keyword so that I can locate specific items quickly.
+- As a public user, I want to view product details including sizes and pricing so that I can make an informed decision.
+#### Authenticated Users
+- As an authenticated user, I want to create an account so that I can make bookings and view my booking history.
+- As an authenticated user, I want to add products to a booking cart and select rental dates so that I can plan my rental.
+- As an authenticated user, I want to complete a secure checkout using my card so that I can confirm my booking.
+- As an authenticated user, I want to receive a booking confirmation email so that I have a record of my rental.
+- As an authenticated user, I want to view my booking history on my profile page so that I can track past rentals.
+- As an authenticated user, I want to save my phone number to my profile so that future checkouts are faster.
+#### Store Owners
+- As a store owner, I want to add new products to the store so that customers can see the latest equipment.
+- As a store owner, I want to edit existing products so that I can update pricing, descriptions, and images.
+- As a store owner, I want to delete products so that I can remove discontinued equipment from the store.
+[Back to contents](#contents)
+ 
+---
