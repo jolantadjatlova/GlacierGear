@@ -134,6 +134,8 @@
                                 {{ size.size }}
                                 {% if size.stock == 0 %}
                                 <small class="d-block" style="font-size: 0.6rem;">Sold out</small>
+                                {% elif size.stock <= 2 %}
+                                <small class="d-block text-warning" style="font-size: 0.6rem;">Only {{ size.stock }} left!</small>
                                 {% endif %}
                             </label>
                         </div>
