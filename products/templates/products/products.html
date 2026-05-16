@@ -1,9 +1,9 @@
 {% extends "base.html" %}
 {% load static %}
-
+ 
 {% block content %}
 <div class="overlay"></div>
-
+ 
 <div class="container mt-4 products-page">
     <div class="row">
         <div class="col">
@@ -19,13 +19,13 @@
             <hr class="products-top-divider">
         </div>
     </div>
-
+ 
     <!-- Sort and Filter bar -->
     <div class="row align-items-center mb-4 g-2">
         <div class="col-12 col-md-auto">
             <small class="text-muted">{{ products|length }} Products</small>
         </div>
-
+ 
         <!-- Gender filter -->
         <div class="col-6 col-md-auto">
             <select class="form-select form-select-sm" id="gender-filter">
@@ -35,7 +35,7 @@
                 <option value="unisex" {% if 'unisex' in current_gender|default:'' %}selected{% endif %}>Unisex</option>
             </select>
         </div>
-
+ 
         <!-- Garment type filter -->
         <div class="col-6 col-md-auto">
             <select class="form-select form-select-sm" id="type-filter">
@@ -47,7 +47,7 @@
                 <option value="accessory" {% if 'accessory' in current_garment_type|default:'' %}selected{% endif %}>Accessory</option>
             </select>
         </div>
-
+ 
         <!-- Size filter -->
         <div class="col-6 col-md-auto">
             <select class="form-select form-select-sm" id="size-filter">
@@ -61,7 +61,7 @@
                 <option value="One Size" {% if current_size == 'One Size' %}selected{% endif %}>One Size</option>
             </select>
         </div>
-
+ 
         <!-- Colour multi-select dropdown -->
         <div class="col-6 col-md-auto position-relative">
             <div class="colour-dropdown">
@@ -153,7 +153,7 @@
                 </div>
             </div>
         </div>
-
+ 
         <!-- Sort dropdown -->
         <div class="col-6 col-md-auto ms-md-auto">
             <select class="form-select form-select-sm" id="sort-selector">
@@ -166,7 +166,7 @@
             </select>
         </div>
     </div>
-
+ 
     <div class="row">
         {% for product in products %}
         <div class="col-sm-6 col-md-4 col-lg-3 mb-4">
@@ -176,33 +176,46 @@
                     <img src="{{ product.image.url }}" class="product-image" alt="{{ product.name }}">
                 </a>
                 {% endif %}
-
+ 
                 <div class="product-info">
                     <p class="product-name">{{ product.name }}</p>
                     <p class="product-price">SEK {{ product.price_per_day }}/day</p>
                     <a href="{% url 'product_detail' product.id %}" class="btn btn-sm btn-card">View Details</a>
+                    {% if request.user.is_superuser %}
+                    <div class="mt-2">
+                        <a href="{% url 'edit_product' product.id %}"
+                           class="btn btn-sm btn-outline-dark me-1">
+                            <i class="bi bi-pencil"></i> Edit
+                        </a>
+                        <a href="{% url 'delete_product' product.id %}"
+                           class="btn btn-sm btn-outline-danger"
+                           onclick="return confirm('Delete {{ product.name }}?')">
+                            <i class="bi bi-trash"></i> Delete
+                        </a>
+                    </div>
+                    {% endif %}
                 </div>
             </div>
         </div>
-
+ 
         {% if forloop.counter|divisibleby:2 %}
             <div class="col-12 d-none d-sm-block d-md-none mb-4">
                 <hr class="product-row-divider">
             </div>
         {% endif %}
-
+ 
         {% if forloop.counter|divisibleby:3 %}
             <div class="col-12 d-none d-md-block d-lg-none mb-4">
                 <hr class="product-row-divider">
             </div>
         {% endif %}
-
+ 
         {% if forloop.counter|divisibleby:4 %}
             <div class="col-12 d-none d-lg-block mb-4">
                 <hr class="product-row-divider">
             </div>
         {% endif %}
-
+ 
         {% empty %}
         <div class="col">
             <p class="products-empty">No products found.</p>
@@ -211,7 +224,7 @@
     </div>
 </div>
 {% endblock %}
-
+ 
 {% block postloadjs %}
 {{ block.super }}
 <script>
@@ -230,7 +243,7 @@
         }
         window.location.replace(currentUrl);
     });
-
+ 
     // Gender filter
     document.getElementById('gender-filter').addEventListener('change', function() {
         var currentUrl = new URL(window.location);
@@ -242,7 +255,7 @@
         }
         window.location.replace(currentUrl);
     });
-
+ 
     // Garment type filter
     document.getElementById('type-filter').addEventListener('change', function() {
         var currentUrl = new URL(window.location);
@@ -254,7 +267,7 @@
         }
         window.location.replace(currentUrl);
     });
-
+ 
     // Size filter
     document.getElementById('size-filter').addEventListener('change', function() {
         var currentUrl = new URL(window.location);
@@ -266,22 +279,22 @@
         }
         window.location.replace(currentUrl);
     });
-
+ 
     // Colour multi-select dropdown
     var btn = document.getElementById('colourDropdownBtn');
     var menu = document.getElementById('colourDropdownMenu');
-
+ 
     btn.addEventListener('click', function(e) {
         e.stopPropagation();
         menu.classList.toggle('show');
     });
-
+ 
     document.addEventListener('click', function(e) {
         if (!menu.contains(e.target) && e.target !== btn) {
             menu.classList.remove('show');
         }
     });
-
+ 
     document.getElementById('applyColours').addEventListener('click', function() {
         var currentUrl = new URL(window.location);
         var checked = document.querySelectorAll('.colour-checkbox:checked');
@@ -291,7 +304,7 @@
         });
         window.location.replace(currentUrl);
     });
-
+ 
     document.getElementById('clearColours').addEventListener('click', function() {
         var currentUrl = new URL(window.location);
         currentUrl.searchParams.delete('color');
