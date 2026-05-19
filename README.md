@@ -713,4 +713,37 @@ JavaScript was tested using [JSHint](https://jshint.com/).
 [Back to contents](#contents)
  
 ---
+ ### User Story Testing
  
+#### Public Users
+ 
+| User Story | Result | Pass | Evidence |
+|-----------|--------|------|----------|
+| Browse all products without an account | Products page accessible without login | Yes | ![](docs/test_browse_products.png) |
+| Filter products by category, size, and colour | Filters apply correctly and update results | Yes | ![](docs/test_filters.png) |
+| Search for products by keyword | Search returns relevant results | Yes | ![](docs/test_search.png) |
+| View product details including sizes and pricing | Product detail page shows all info | Yes | ![](docs/test_product_detail.png) |
+ 
+#### Authenticated Users
+ 
+| User Story | Result | Pass | Evidence |
+|-----------|--------|------|----------|
+| Create an account | Registration form works correctly | Yes | ![](docs/test_register.png) |
+| Add products to booking cart with rental dates | Items added to cart with correct dates | Yes | ![](docs/test_add_to_cart.png) |
+| Complete a secure checkout | Stripe payment processes successfully | Yes | ![](docs/test_checkout.png) |
+| Receive a booking confirmation email | Email sent after successful payment | Yes | ![](docs/test_confirmation_email.png) |
+| View booking history on profile page | Past bookings listed on profile | Yes | ![](docs/test_booking_history.png) |
+| Save phone number to profile | Profile updates on checkout with save info checked | Yes | ![](docs/test_save_info.png) |
+ 
+#### Store Owners
+ 
+| User Story | Result | Pass | Evidence |
+|-----------|--------|------|----------|
+| Add new products via frontend | Add product form saves correctly | Yes | ![](docs/test_add_product.png) |
+| Edit existing products | Edit form pre-fills and saves updates | Yes | ![](docs/test_edit_product.png) |
+| Delete products | Delete removes product with confirmation | Yes | ![](docs/test_delete_product.png) |
+ 
+ 
+[Back to contents](#contents)
+ 
+---
