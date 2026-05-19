@@ -864,3 +864,14 @@ This project uses **PostgreSQL** (via Neon) for the production database.
    - your local `env.py` as `DATABASE_URL`
    - Heroku Config Vars as `DATABASE_URL`
 ---
+### Stripe Payments
+ 
+This project uses **Stripe** for secure payment processing.
+ 
+1. Create a Stripe account and get your public and secret keys.
+2. Add them to `env.py` and Heroku Config Vars.
+3. Create a webhook endpoint in the Stripe dashboard pointing to:
+   `https://glaciergear-7ce99fc7bac4.herokuapp.com/checkout/wh/`
+4. Select events: `payment_intent.succeeded` and `payment_intent.payment_failed`.
+5. Copy the webhook signing secret and add as `STRIPE_WH_SECRET`.
+---
