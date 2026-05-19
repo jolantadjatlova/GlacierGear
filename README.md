@@ -432,3 +432,112 @@ Custom error pages are implemented to maintain visual consistency when errors oc
 [Back to contents](#contents)
  
 ---
+## Data Model & Relationships
+ 
+The GlacierGear application uses a relational database structure. The main models are: User, UserProfile, Category, Product, ProductSize, Booking, and BookingLineItem.
+ 
+### Entity Relationship Diagram
+ 
+![Entity Relationship Diagram](docs/entity_relationship_diagram.png)
+ 
+### Database Models
+ 
+#### User (Django Authentication)
+The User model is provided by Django's built-in authentication system.
+ 
+**Fields:**
+- `id`: AutoField (Primary Key)
+- `username`: CharField — Unique username
+- `email`: EmailField — User's email address
+- `password`: CharField — Hashed password
+---
+ 
+#### UserProfile
+Stores default contact information and links to booking history.
+ 
+**Fields:**
+- `user`: OneToOneField(User) — Links to Django User
+- `default_phone_number`: CharField — Optional saved phone number
+---
+ 
+#### Category
+Organises products into rental categories.
+ 
+**Fields:**
+- `id`: AutoField (Primary Key)
+- `name`: CharField — Internal category name (e.g. `ski_outfit`)
+- `friendly_name`: CharField — Display name (e.g. `Ski Outfit`)
+---
+ 
+#### Product
+Stores all rental product information.
+ 
+**Fields:**
+- `category`: ForeignKey(Category)
+- `name`: CharField
+- `description`: TextField
+- `price_per_day`: DecimalField — Rental price per day in SEK
+- `image`: ImageField
+- `has_sizes`: BooleanField — Whether the product has size variants
+- `sport`: CharField — e.g. ski, snowboard
+- `garment_type`: CharField — e.g. jacket, trousers, full_set
+- `color`: CharField
+- `rating`: DecimalField
+---
+ 
+#### ProductSize
+Tracks size availability and stock for each product.
+ 
+**Fields:**
+- `product`: ForeignKey(Product)
+- `size`: CharField — e.g. XS, S, M, L, XL
+- `stock`: IntegerField — Number of units available
+---
+ 
+#### Booking
+Stores completed rental booking information.
+ 
+**Fields:**
+- `booking_number`: CharField — Unique auto-generated reference
+- `user_profile`: ForeignKey(UserProfile) — Links to user
+- `full_name`: CharField
+- `email`: EmailField
+- `phone_number`: CharField
+- `rental_start_date`: DateField
+- `rental_end_date`: DateField
+- `rental_days`: IntegerField
+- `date`: DateTimeField — When the booking was placed
+- `grand_total`: DecimalField
+- `original_bag`: TextField — JSON snapshot of the bag
+- `stripe_pid`: CharField — Stripe payment intent ID
+---
+ 
+#### BookingLineItem
+Stores individual items within a booking.
+ 
+**Fields:**
+- `booking`: ForeignKey(Booking)
+- `product`: ForeignKey(Product)
+- `size`: CharField
+- `quantity`: IntegerField
+- `lineitem_total`: DecimalField
+---
+ 
+### Database Relationships Summary
+ 
+1. **User → UserProfile (1:1)** — Auto-created on registration via signal
+2. **UserProfile → Booking (1:N)** — One profile can have many bookings
+3. **Category → Product (1:N)** — One category contains many products
+4. **Product → ProductSize (1:N)** — One product has many size variants
+5. **Booking → BookingLineItem (1:N)** — One booking contains many line items
+6. **Product → BookingLineItem (1:N)** — One product can appear in many line items
+### Database Implementation
+ 
+**Production Database:** PostgreSQL (Neon), connected via `DATABASE_URL` environment variable.
+ 
+**Local Development Database:** SQLite3 (Django default).
+ 
+ 
+[Back to contents](#contents)
+ 
+---
