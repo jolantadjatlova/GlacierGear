@@ -901,3 +901,12 @@ os.environ.setdefault("STRIPE_WH_SECRET", "your-stripe-wh-secret")
 [Back to contents](#contents)
  
 ---
+### To Fork the Project
+ 
+1. Log in to GitHub.
+2. Go to [https://github.com/jolantadjatlova/GlacierGear](https://github.com/jolantadjatlova/GlacierGear).
+3. Click the **Fork** button in the top right.
+4. A copy of the repository will be created in your GitHub account.
+[Back to contents](#contents)
+ 
+---
