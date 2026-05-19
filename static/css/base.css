@@ -161,7 +161,7 @@ header {
     display: flex;
     flex-direction: row;
     align-items: center;
-    background: rgba(255, 255, 255, 0.15);
+    background: rgba(255, 255, 255, 0.45);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 255, 255, 0.3);
@@ -191,8 +191,8 @@ header {
 }
 
 .btn-home-card {
-    background-color: rgba(3, 60, 124, 0.7);
-    border: 1px solid white;
+    background-color: var(--navy);
+    border: 1px solid var(--navy);
     color: white;
     font-weight: 500;
     font-size: 0.8rem;
@@ -471,8 +471,9 @@ header {
     }
 
     .home-card-image {
-        width: 80px;
-        height: 80px;
+        width: 60px;
+        height: 60px;
+        min-width: 60px;
     }
 }
 
