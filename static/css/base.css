@@ -26,9 +26,9 @@ body::before {
     content: '';
     position: fixed;
     inset: 0;
-    background-color: rgba(0, 0, 0, 0.22);
     z-index: 0;
     pointer-events: none;
+    text-shadow: 0 4px 20px rgba(0,0,0,0.35);
 }
 
 header {
@@ -116,16 +116,17 @@ header {
 }
 
 .hero-heading {
-    font-family: 'Permanent Marker', cursive;
-    font-size: clamp(2rem, 5vw, 3.5rem);
-    line-height: 1.1;
-    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6);
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(3rem, 8vw, 6rem);
+    line-height: 1.0;
+    color: white;
 }
 
 .hero-btn {
     background-color: rgba(3, 60, 124, 0.7) !important;
     border: 1px solid white !important;
     color: white !important;
+    width: fit-content;
 }
 
 .hero-btn:hover {
