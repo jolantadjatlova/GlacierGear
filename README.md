@@ -875,3 +875,29 @@ This project uses **Stripe** for secure payment processing.
 4. Select events: `payment_intent.succeeded` and `payment_intent.payment_failed`.
 5. Copy the webhook signing secret and add as `STRIPE_WH_SECRET`.
 ---
+### Local Development
+ 
+#### To Clone the Project
+ 
+1. Go to the [GitHub repository](https://github.com/jolantadjatlova/GlacierGear).
+2. Click **Code** and copy the HTTPS link.
+3. In your terminal, run: `git clone https://github.com/jolantadjatlova/GlacierGear.git`
+4. Install dependencies: `pip install -r requirements.txt`
+5. Create an `env.py` file in the project root:
+```python
+import os
+ 
+os.environ.setdefault("SECRET_KEY", "your-secret-key")
+os.environ.setdefault("DEVELOPMENT", "True")
+os.environ.setdefault("DATABASE_URL", "your-database-url")
+os.environ.setdefault("STRIPE_PUBLIC_KEY", "your-stripe-public-key")
+os.environ.setdefault("STRIPE_SECRET_KEY", "your-stripe-secret-key")
+os.environ.setdefault("STRIPE_WH_SECRET", "your-stripe-wh-secret")
+```
+ 
+6. Run migrations and start the development server:
+   - `python manage.py migrate`
+   - `python manage.py runserver`
+[Back to contents](#contents)
+ 
+---
