@@ -541,3 +541,22 @@ Stores individual items within a booking.
 [Back to contents](#contents)
  
 ---
+## CRUD Functionality
+ 
+| Operation | Feature | Access | Description |
+|-----------|---------|--------|-------------|
+| **Create** | Add Product | Superuser | Add new rental products with images via frontend form |
+| **Create** | Make Booking | Authenticated | Create a booking via cart and Stripe checkout |
+| **Read** | Browse Products | Public | View all products with filtering and sorting |
+| **Read** | Product Detail | Public | View full product details, sizes, and stock |
+| **Read** | Booking History | Authenticated | View past bookings on profile page |
+| **Update** | Edit Product | Superuser | Update product details, pricing, and images |
+| **Update** | Update Profile | Authenticated | Save default phone number to profile |
+| **Update** | Update Cart | Authenticated | Adjust quantities in booking cart |
+| **Delete** | Delete Product | Superuser | Remove products from the store |
+| **Delete** | Remove Cart Item | Authenticated | Remove items from the booking cart |
+ 
+ 
+[Back to contents](#contents)
+ 
+---
