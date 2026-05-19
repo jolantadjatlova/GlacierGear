@@ -260,3 +260,175 @@ The MoSCoW prioritisation method was used to classify tasks as Must Have, Should
 [Back to contents](#contents)
  
 ---
+## Features
+ 
+### Existing Features
+ 
+#### Navbar
+ 
+A single, responsive navigation bar is used across the entire site to provide consistent access to key areas of the application.
+ 
+The navbar displays the GlacierGear logo on the left, navigation links in the centre, and account/cart icons on the right. Navigation options update dynamically based on authentication status. Superusers see a Product Management link in their account dropdown.
+ 
+![Desktop navbar](docs/navbar_desktop.png)
+ 
+![Mobile navbar](docs/navbar_mobile.png)
+ 
+---
+ 
+#### Home Page
+ 
+The home page acts as a welcoming entry point with a full-width hero image, a live weather widget showing current conditions in Borlänge, and three product category cards.
+ 
+The page includes:
+- A live weather widget (temperature, description) powered by Open-Meteo API
+- A hero heading and call-to-action button
+- Category cards for Ski Outfits, Snowboard Outfits, and How It Works
+- A pickup location section with an interactive Leaflet map
+![Home page](docs/home_desktop.png)
+ 
+---
+ 
+#### Live Weather Widget
+ 
+The homepage displays live weather data for Borlänge, Sweden, fetched from the [Open-Meteo API](https://open-meteo.com/) on each page load. No API key is required.
+ 
+The widget shows:
+- Current temperature in °C
+- Weather description (e.g. Mainly Clear, Light Snow)
+If the API is unavailable, the widget gracefully shows "Weather unavailable" without breaking the page.
+ 
+![Weather widget](docs/weather_widget.png)
+ 
+---
+ 
+#### Product Listing Page
+ 
+Users can browse all available rental products with filtering and sorting options.
+ 
+Features include:
+- Filter by gender, garment type, size, and colour
+- Sort by price, name, and rating
+- Product count displayed
+- Edit/Delete links visible to superusers on each card
+![Products page](docs/products_desktop.png)
+ 
+---
+ 
+#### Product Detail Page
+ 
+Each product has a dedicated detail page showing full information and a booking form.
+ 
+Features include:
+- Product image, name, description, badges, and price per day
+- Size selection with sold out indicators and low stock warnings (≤2 remaining)
+- Rental date picker (start and end date)
+- Quantity selector
+- Superuser edit/delete buttons
+![Product detail page](docs/product_detail_desktop.png)
+ 
+---
+ 
+#### Booking Cart
+ 
+Users can review their selected items before checkout.
+ 
+Features include:
+- Product image, name, size, dates, quantity, and line total
+- Rental days summary
+- Update quantity and remove item options
+- Cart total and checkout button
+![Booking cart](docs/bag_desktop.png)
+ 
+---
+ 
+#### Checkout
+ 
+Users complete their booking through a secure Stripe-powered checkout.
+ 
+Features include:
+- Booking details form (name, email, phone, rental dates)
+- Pre-filled with saved profile information
+- Save info checkbox to update profile on checkout
+- Stripe card payment element
+- Loading overlay during payment processing
+![Checkout page](docs/checkout_desktop.png)
+ 
+---
+ 
+#### Checkout Success / Booking Confirmation
+ 
+After a successful payment, users see a booking confirmation page.
+ 
+Features include:
+- Booking reference number
+- Customer details and rental dates
+- Line items with sizes and totals
+- Pickup location and opening hours
+- Back to Profile button (if coming from booking history)
+A confirmation email is also sent automatically via Stripe webhooks.
+ 
+![Checkout success](docs/checkout_success_desktop.png)
+ 
+---
+ 
+#### User Profile
+ 
+Authenticated users have a profile page showing their account details, contact information, and full booking history.
+ 
+Features include:
+- Email and username display
+- Phone number update form
+- Booking history table with links to past confirmations
+![Profile page](docs/profile_desktop.png)
+ 
+---
+ 
+#### Product Management (Superusers)
+ 
+Superusers can add, edit, and delete products directly through the frontend.
+ 
+Features include:
+- Add Product page accessible from the account dropdown
+- Edit Product page pre-filled with existing product data
+- Delete confirmation on product cards and detail pages
+- Superuser-only buttons visible on product cards and detail pages
+![Add product page](docs/add_product_desktop.png)
+ 
+---
+ 
+#### Allauth Authentication Pages
+ 
+All authentication pages (login, signup, logout, password reset etc.) are fully styled to match the GlacierGear design with the navy card layout.
+ 
+![Login page](docs/login_desktop.png)
+ 
+---
+ 
+#### Toast Notifications
+ 
+Real-time feedback is provided via Bootstrap toast notifications for all key actions.
+ 
+Success toasts show bag contents (except on the profile page). Error, warning, and info toasts are also displayed where appropriate.
+ 
+![Toast notification](docs/toast_success.png)
+ 
+---
+ 
+#### 404 and 500 Error Pages
+ 
+Custom error pages are implemented to maintain visual consistency when errors occur.
+ 
+![404 page](docs/404_desktop.png)
+ 
+---
+ 
+### Future Enhancements
+ 
+- **Wishlist** — Allow users to save products to a wishlist for future reference.
+- **Product Reviews** — Allow authenticated users to leave reviews and ratings on products they have rented.
+- **Email notifications for low stock** — Automatically notify the store owner when a product size reaches zero stock.
+- **Discount codes** — Allow store owners to create promotional discount codes for checkout.
+[Back to contents](#contents)
+ 
+---
