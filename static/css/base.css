@@ -134,6 +134,8 @@ header {
     color: var(--navy) !important;
 }
 
+
+
 .weather-pill {
     align-items: center;
     gap: 0.4rem;
@@ -444,6 +446,7 @@ header {
     box-shadow: 0 4px 15px rgba(0,0,0,0.1);
 }
 
+
 /* MEDIA QUERIES */
 @media (min-width: 1200px) {
     .container {
@@ -500,3 +503,4 @@ header {
         height: 240px;
     }
 }
+
