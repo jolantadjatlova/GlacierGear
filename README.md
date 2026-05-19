@@ -210,3 +210,18 @@ The colour palette was designed to reflect the alpine ski theme of GlacierGear. 
 The hero background image and card images used on the GlacierGear homepage were sourced from free stock photography sites and optimised for web use. Product images were sourced from free stock photography and uploaded through the Django admin panel.
  
 All images include descriptive `alt` attributes to support accessibility.
+
+### Responsiveness
+ 
+The GlacierGear application is fully responsive and adapts to different screen sizes using **Bootstrap's responsive grid system**.
+ 
+The layout, typography, and interactive elements adjust to maintain usability across mobile, tablet, and desktop devices.
+ 
+- Navigation collapses into a mobile-friendly menu on smaller screens.
+- Product cards reflow from a 4-column to 2-column to 1-column grid on smaller screens.
+- Forms, buttons, and inputs remain accessible and easy to use on touch devices.
+Responsiveness was tested using browser developer tools and manual viewport resizing.
+Further details can be found in the **Responsiveness Test** section.
+ 
+ 
+[Back to contents](#contents)
