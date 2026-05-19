@@ -173,3 +173,40 @@ Further visual decisions are detailed in the [Typography](#typography) and [Colo
 [Back to contents](#contents)
  
 ---
+## Design Choices
+ 
+### Wireframes
+ 
+These wireframes were created using [Balsamiq](https://balsamiq.com/) during the Scope Plane part of the design and planning process for this project.
+ 
+- [Home Page](docs/wireframe_home.png)
+- [Products Page](docs/wireframe_products.png)
+- [Product Detail Page](docs/wireframe_product_detail.png)
+- [Booking Cart](docs/wireframe_bag.png)
+- [Checkout Page](docs/wireframe_checkout.png)
+- [Profile Page](docs/wireframe_profile.png)
+- [Sign In](docs/wireframe_login.png)
+- [Sign Up](docs/wireframe_signup.png)
+- [404 Page](docs/wireframe_404.png)
+### Typography
+ 
+- The **Bebas Neue** typeface is used for headings and hero text to create a bold, sporty aesthetic that reflects the ski and snowboard theme of the project.
+- **Open Sans** (via system fonts / Bootstrap defaults) is used for body text and navigation due to its clean, readable letterforms across different screen sizes.
+- Varying font weights are used to establish clear visual hierarchy between headings, navigation elements, and content text.
+- This typography pairing supports a modern and active interface while keeping the layout clear and easy to navigate.
+### Colour Scheme
+ 
+The colour palette was designed to reflect the alpine ski theme of GlacierGear. Navy blue and white form the core palette, evoking snow, sky, and mountain environments. Accent colours are used to highlight interactive elements while keeping the interface clean and professional.
+ 
+**Primary colours:**
+- Navy Dark: `#1a2744`
+- Navy: `#2d3f6b`
+- White: `#ffffff`
+![GlacierGear Colour Palette](docs/glaciergear_palette.png)
+ 
+ 
+### Images
+ 
+The hero background image and card images used on the GlacierGear homepage were sourced from free stock photography sites and optimised for web use. Product images were sourced from free stock photography and uploaded through the Django admin panel.
+ 
+All images include descriptive `alt` attributes to support accessibility.
