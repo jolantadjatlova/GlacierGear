@@ -855,3 +855,12 @@ To set up S3:
 9. Add `USE_AWS=True` to Heroku Config Vars.
 10. Run `python manage.py collectstatic` to upload static files.
 ---
+### PostgreSQL Database
+ 
+This project uses **PostgreSQL** (via Neon) for the production database.
+ 
+1. Create a PostgreSQL database on [Neon](https://neon.tech/) or another provider.
+2. Copy the database URL and add it to:
+   - your local `env.py` as `DATABASE_URL`
+   - Heroku Config Vars as `DATABASE_URL`
+---
