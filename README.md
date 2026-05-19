@@ -648,8 +648,24 @@ All tests were run using:
 | Stripe webhook creating duplicate orders | Fixed | Orders were being created twice when both the view and webhook ran. | Added `original_bag` and `stripe_pid` fields to `Booking` and matched on these in the webhook handler. |
 | Stock not decrementing on webhook-created orders | Fixed | If the checkout view failed and the webhook created the order, stock was not decremented. | Added `_decrement_stock()` method to the webhook handler called only when it creates the order. |
 | Static files not loading on Heroku | Fixed | After removing `DISABLE_COLLECTSTATIC`, the build failed due to missing `STATIC_ROOT`. | Added `STATIC_ROOT` to both the `USE_AWS` and non-AWS settings blocks. |
-| Allauth pages not styled | Fixed | Logout, password reset, and other allauth pages used default unstyled templates. | Created custom styled templates for all allauth account pages extending `base.html`. |
-| Weather widget showing hardcoded values | Fixed | The homepage weather pill displayed `-2°C Partly Cloudy` regardless of the API. | Updated `index.html` to use `{{ weather.temperature }}` and `{{ weather.description }}` from context. |
+
+[Back to contents](#contents)
+ 
+---
+### Responsiveness Test
+ 
+| **Page** | **Mobile** | **Tablet** | **Desktop** | **Notes** |
+|-----------|------------|------------|-------------|-----------|
+| **Home** | ![](docs/home_mobile.png) | ![](docs/home_tablet.png) | ![](docs/home_desktop.png) | Works as expected |
+| **Products** | ![](docs/products_mobile.png) | ![](docs/products_tablet.png) | ![](docs/products_desktop.png) | Works as expected |
+| **Product Detail** | ![](docs/product_detail_mobile.png) | ![](docs/product_detail_tablet.png) | ![](docs/product_detail_desktop.png) | Works as expected |
+| **Booking Cart** | ![](docs/bag_mobile.png) | ![](docs/bag_tablet.png) | ![](docs/bag_desktop.png) | Works as expected |
+| **Checkout** | ![](docs/checkout_mobile.png) | ![](docs/checkout_tablet.png) | ![](docs/checkout_desktop.png) | Works as expected |
+| **Checkout Success** | ![](docs/checkout_success_mobile.png) | ![](docs/checkout_success_tablet.png) | ![](docs/checkout_success_desktop.png) | Works as expected |
+| **Profile** | ![](docs/profile_mobile.png) | ![](docs/profile_tablet.png) | ![](docs/profile_desktop.png) | Works as expected |
+| **Login** | ![](docs/login_mobile.png) | ![](docs/login_tablet.png) | ![](docs/login_desktop.png) | Works as expected |
+| **Sign Up** | ![](docs/signup_mobile.png) | ![](docs/signup_tablet.png) | ![](docs/signup_desktop.png) | Works as expected |
+| **Add Product** | ![](docs/add_product_mobile.png) | ![](docs/add_product_tablet.png) | ![](docs/add_product_desktop.png) | Works as expected |
  
  
 [Back to contents](#contents)
