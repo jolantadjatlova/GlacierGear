@@ -560,3 +560,30 @@ Stores individual items within a booking.
 [Back to contents](#contents)
  
 ---
+## Security Features
+ 
+### Authentication & Authorisation
+- User authentication is implemented using **Django Allauth**.
+- Only authenticated users can access the booking cart, checkout, and profile pages.
+- Superuser checks are applied at view level for all product management views.
+### Access Control
+- Django's `@login_required` decorator is used to protect all private views.
+- Superuser access is verified using `request.user.is_superuser` in views.
+- Unauthorised access attempts redirect users to the home page with an error message.
+### Payment Security
+- Payments are processed entirely through **Stripe** — no card data touches the GlacierGear server.
+- Stripe webhooks verify payment completion independently of the checkout view.
+- A 5-attempt webhook retry loop ensures orders are created even if the checkout view fails.
+### Form Validation
+- Django ModelForms validate all user input.
+- Rental date validation ensures end date is after start date.
+- Stock checks prevent adding out-of-stock items to the cart.
+### CSRF Protection
+- Django's built-in CSRF protection is enabled on all forms.
+### Environment Variables
+- Sensitive data (SECRET_KEY, Stripe keys, AWS credentials, database URL) are stored in environment variables.
+- No sensitive information is committed to the repository.
+- `DEBUG` mode is disabled in production.
+[Back to contents](#contents)
+ 
+---
