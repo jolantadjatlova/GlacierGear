@@ -587,3 +587,39 @@ Stores individual items within a booking.
 [Back to contents](#contents)
  
 ---
+## Technologies Used
+ 
+| Technology | Purpose | Type |
+|-------------|----------|------|
+| [Git](https://git-scm.com/) | Version control throughout development | Tool |
+| [GitHub](https://github.com/) | Store the project repository | Tool |
+| [VS Code](https://code.visualstudio.com/) | Write and edit all project code | Tool |
+| [HTML](https://developer.mozilla.org/en-US/docs/Web/HTML) | Structure page content and templates | Language |
+| [CSS](https://developer.mozilla.org/en-US/docs/Web/CSS) | Style the user interface | Language |
+| [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript) | Frontend interactivity (Stripe, date picker, filters) | Language |
+| [Python](https://www.python.org/) | Backend logic, views, and data handling | Language |
+| [Django](https://www.djangoproject.com/) | Full-stack web framework | Framework |
+| [Django Allauth](https://django-allauth.readthedocs.io/) | User authentication and account management | Library |
+| [Bootstrap 5](https://getbootstrap.com/) | Responsive layout and UI components | Library |
+| [Bootstrap Icons](https://icons.getbootstrap.com/) | Icons throughout the interface | Library |
+| [Django Crispy Forms](https://django-crispy-forms.readthedocs.io/) | Form rendering with Bootstrap styling | Library |
+| [Stripe](https://stripe.com/) | Secure payment processing and webhooks | Service |
+| [Open-Meteo API](https://open-meteo.com/) | Live weather data for Borlänge homepage widget | API |
+| [Leaflet.js](https://leafletjs.com/) | Interactive map on homepage pickup location | Library |
+| [PostgreSQL](https://www.postgresql.org/) | Production database | Database |
+| [SQLite3](https://www.sqlite.org/) | Local development database | Database |
+| [Amazon S3](https://aws.amazon.com/s3/) | Static and media file storage in production | Cloud Service |
+| [Heroku](https://www.heroku.com/) | Deploy and host the live application | Platform |
+| [Neon](https://neon.tech/) | Managed PostgreSQL database provider | Service |
+| [Balsamiq](https://balsamiq.com/) | Wireframes for planning layout and user flow | Tool |
+| [Coolors](https://coolors.co/) | Colour palette generation | Tool |
+| [W3C HTML Validator](https://validator.w3.org/) | Validate HTML structure | Tool |
+| [W3C CSS Validator](https://jigsaw.w3.org/css-validator/) | Validate CSS syntax | Tool |
+| [Lighthouse](https://developer.chrome.com/docs/lighthouse/) | Performance and accessibility testing | Tool |
+| [WAVE](https://wave.webaim.org/) | Accessibility evaluation | Tool |
+| [ChatGPT](https://chat.openai.com/) | Content writing assistance and code guidance | AI |
+ 
+ 
+[Back to contents](#contents)
+ 
+---
