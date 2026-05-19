@@ -747,3 +747,19 @@ JavaScript was tested using [JSHint](https://jshint.com/).
 [Back to contents](#contents)
  
 ---
+### Accessibility Testing
+ 
+Accessibility best practices were applied throughout the site, including:
+ 
+- Semantic HTML structure
+- Clear and consistent navigation
+- Appropriate heading hierarchy
+- Sufficient colour contrast
+- Descriptive alt attributes on all images
+The **[WAVE Web Accessibility Evaluation Tool](https://wave.webaim.org/)** was used to evaluate accessibility on key pages.
+ 
+| Page | Result |
+|------|--------|
+| Home | ![](docs/wave_home.png) |
+| Products | ![](docs/wave_products.png) |
+| Login | ![](docs/wave_login.png) |
