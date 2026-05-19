@@ -800,3 +800,58 @@ GlacierGear was tested using **Chrome DevTools Lighthouse**.
 [Back to contents](#contents)
  
 ---
+## Deployment
+ 
+The live deployed application can be found here:
+[GlacierGear on Heroku](https://glaciergear-7ce99fc7bac4.herokuapp.com/)
+ 
+### Heroku Deployment
+ 
+This project uses **Heroku** to deploy and host the application.
+ 
+Deployment steps:
+ 
+1. From the Heroku Dashboard, select **New** → **Create new app**.
+2. Enter a unique app name, select a region, and click **Create app**.
+3. In the app **Settings**, click **Reveal Config Vars** and add the required environment variables.
+**Config Vars**
+ 
+| Key | Value |
+|---|---|
+| `SECRET_KEY` | your Django secret key |
+| `DATABASE_URL` | your PostgreSQL database URL |
+| `STRIPE_PUBLIC_KEY` | your Stripe public key |
+| `STRIPE_SECRET_KEY` | your Stripe secret key |
+| `STRIPE_WH_SECRET` | your Stripe webhook signing secret |
+| `AWS_ACCESS_KEY_ID` | your AWS IAM access key |
+| `AWS_SECRET_ACCESS_KEY` | your AWS IAM secret key |
+| `USE_AWS` | `True` |
+| `EMAIL_HOST_USER` | your Gmail address (for confirmation emails) |
+| `EMAIL_HOST_PASSWORD` | your Gmail app password |
+ 
+4. Ensure the following files exist:
+   - `requirements.txt`
+   - `Procfile` containing: `web: gunicorn glacier_gear.wsgi`
+   - `.python-version`
+5. Connect the Heroku app to the GitHub repository in the **Deploy** tab.
+6. Deploy from the `main` branch.
+7. Run migrations via Heroku console: `python manage.py migrate`
+8. Create a superuser: `python manage.py createsuperuser`
+---
+ 
+### AWS S3
+ 
+This project uses **Amazon S3** to store static files and media in production.
+ 
+To set up S3:
+1. Create an AWS account and navigate to S3.
+2. Create a bucket named to match your Heroku app (e.g. `glaciergear-7ce99fc7bac4`).
+3. Uncheck "Block all public access" and enable ACLs.
+4. Enable static website hosting with `index.html` and `error.html`.
+5. Add the CORS configuration and bucket policy (see deployment notes).
+6. Create an IAM user group (`glaciergear-staticfiles-group`) with `AmazonS3FullAccess`.
+7. Create an IAM user (`glaciergear-staticfiles-user`) and add to the group.
+8. Generate access keys and add to Heroku Config Vars as `AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY`.
+9. Add `USE_AWS=True` to Heroku Config Vars.
+10. Run `python manage.py collectstatic` to upload static files.
+---
