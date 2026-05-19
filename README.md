@@ -910,3 +910,38 @@ os.environ.setdefault("STRIPE_WH_SECRET", "your-stripe-wh-secret")
 [Back to contents](#contents)
  
 ---
+## Credits
+ 
+### Feedback, Advice and Support
+ 
+- Code Institute tutors — for guidance and feedback throughout the project
+- Peer support and discussion within the Code Institute Slack community
+[Back to contents](#contents)
+ 
+---
+ 
+### Learning Help and Resources
+ 
+- [Code Institute](https://codeinstitute.net/) — Full Stack Frameworks with Django course materials and Boutique Ado walkthrough project
+- [Django Documentation](https://docs.djangoproject.com/) — Django framework reference
+- [Django Allauth Documentation](https://django-allauth.readthedocs.io/) — Authentication and account management
+- [Stripe Documentation](https://stripe.com/docs) — Payment integration and webhooks
+- [Open-Meteo Documentation](https://open-meteo.com/en/docs) — Free weather API
+- [Leaflet.js Documentation](https://leafletjs.com/) — Interactive map integration
+- [AWS S3 Documentation](https://docs.aws.amazon.com/s3/) — Static file storage
+- [Real Python](https://realpython.com/) — Python and Django tutorials
+- [W3Schools](https://www.w3schools.com/) — Syntax reference
+- [Stack Overflow](https://stackoverflow.com/) — Community troubleshooting
+[Back to contents](#contents)
+ 
+---
+ 
+### Images
+ 
+- Hero background image sourced from free stock photography.
+- Product images sourced from free stock photography sites and uploaded via Django admin.
+- GlacierGear logo created for this project.
+- All images include descriptive `alt` attributes to support accessibility.
+[Back to contents](#contents)
+ 
+---
