@@ -671,3 +671,46 @@ All tests were run using:
 [Back to contents](#contents)
  
 ---
+### Code Validation
+ 
+#### HTML
+ 
+All major templates were tested using the [W3C HTML Validator](https://validator.w3.org/).
+ 
+| Page | Result |
+|------|--------|
+| Home | ![](docs/html_validation_home.png) |
+| Products | ![](docs/html_validation_products.png) |
+| Product Detail | ![](docs/html_validation_product_detail.png) |
+| Booking Cart | ![](docs/html_validation_bag.png) |
+| Checkout | ![](docs/html_validation_checkout.png) |
+| Profile | ![](docs/html_validation_profile.png) |
+| Login | ![](docs/html_validation_login.png) |
+| Sign Up | ![](docs/html_validation_signup.png) |
+ 
+[Back to contents](#contents)
+ 
+---
+ 
+#### CSS
+ 
+CSS was tested using the [W3C CSS Validator (Jigsaw)](https://jigsaw.w3.org/css-validator/).
+ 
+| File | Result |
+|------|--------|
+| base.css | ![](docs/css_validation.png) |
+ 
+#### JavaScript
+ 
+JavaScript was tested using [JSHint](https://jshint.com/).
+ 
+| File | Result |
+|------|--------|
+| stripe_elements.js | ![](docs/js_validation_stripe.png) |
+| bag.js (quantity/filter scripts) | ![](docs/js_validation_bag.png) |
+ 
+ 
+[Back to contents](#contents)
+ 
+---
+ 
