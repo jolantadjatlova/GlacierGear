@@ -623,3 +623,18 @@ Stores individual items within a booking.
 [Back to contents](#contents)
  
 ---
+## Testing
+ 
+### Automated Testing
+ 
+Automated testing was implemented using Django's built-in testing framework.
+ 
+Tests were written for:
+- Models (data integrity and field validation)
+- Forms (validation of required fields and date logic)
+- Views (page loading, authentication, permissions)
+All tests were run using:
+ 
+`python manage.py test --verbosity=2`
+ 
+![Automated tests passing](docs/automated_tests.png)
