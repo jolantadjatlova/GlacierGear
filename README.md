@@ -638,3 +638,20 @@ All tests were run using:
 `python manage.py test --verbosity=2`
  
 ![Automated tests passing](docs/automated_tests.png)
+
+### Bugs
+ 
+| **Bug** | **Status** | **Description** | **Steps to Resolve** |
+|--------|------------|-----------------|----------------------|
+| `lineitem_total` DecimalField overflow | Fixed | The `max_digits=6` caused errors for large rentals. | Increased `max_digits` to 10 on the `BookingLineItem` model. |
+| Checkout form not pre-filling dates | Fixed | Session rental dates were not passed to the checkout form. | Added `rental_start_date` and `rental_end_date` from session to the form initial data. |
+| Stripe webhook creating duplicate orders | Fixed | Orders were being created twice when both the view and webhook ran. | Added `original_bag` and `stripe_pid` fields to `Booking` and matched on these in the webhook handler. |
+| Stock not decrementing on webhook-created orders | Fixed | If the checkout view failed and the webhook created the order, stock was not decremented. | Added `_decrement_stock()` method to the webhook handler called only when it creates the order. |
+| Static files not loading on Heroku | Fixed | After removing `DISABLE_COLLECTSTATIC`, the build failed due to missing `STATIC_ROOT`. | Added `STATIC_ROOT` to both the `USE_AWS` and non-AWS settings blocks. |
+| Allauth pages not styled | Fixed | Logout, password reset, and other allauth pages used default unstyled templates. | Created custom styled templates for all allauth account pages extending `base.html`. |
+| Weather widget showing hardcoded values | Fixed | The homepage weather pill displayed `-2°C Partly Cloudy` regardless of the API. | Updated `index.html` to use `{{ weather.temperature }}` and `{{ weather.description }}` from context. |
+ 
+ 
+[Back to contents](#contents)
+ 
+---
