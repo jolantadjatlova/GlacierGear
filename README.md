@@ -225,3 +225,38 @@ Further details can be found in the **Responsiveness Test** section.
  
  
 [Back to contents](#contents)
+
+## Agile Development Process
+ 
+GlacierGear was developed using an iterative Agile approach, focusing on delivering a clear and user-friendly Minimum Viable Product (MVP). Development was carried out in small, manageable stages, allowing functionality to be built, tested, and refined incrementally.
+ 
+The workflow was managed using GitHub Projects (Kanban board) and GitHub Issues, where user stories and tasks were prioritised using the MoSCoW method. This ensured that core functionality such as product browsing, the booking cart, Stripe checkout, and user profiles was implemented first, followed by usability and design improvements.
+ 
+[Back to contents](#contents)
+ 
+---
+ 
+### Planning Tools & Workflow
+ 
+#### GitHub Projects (Kanban)
+A Kanban board was created using [GitHub Projects](https://github.com/jolantadjatlova/GlacierGear/projects) to visually manage tasks and track progress. Tasks were broken down into user stories and categorised by status:
+ 
+- To Do
+- In Progress
+- Done
+![GitHub Projects Board](docs/glaciergear_project_board.png)
+ 
+#### GitHub Issues
+ 
+GitHub Issues were used to record user stories, development tasks and potential features, with labels applied.
+ 
+![GitHub Issues](docs/glaciergear_github_issues.png)
+ 
+#### MoSCoW Prioritization
+ 
+The MoSCoW prioritisation method was used to classify tasks as Must Have, Should Have or Could Have. This helped ensure that essential functionality was delivered within the project timeframe.
+ 
+ 
+[Back to contents](#contents)
+ 
+---
