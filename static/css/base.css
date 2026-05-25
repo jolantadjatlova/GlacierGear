@@ -1,5 +1,4 @@
-Now that the mountain bar is inside the fixed header, remove all the position: sticky, top, width, and overflow from .mountain-bar and its media queries. Here's your updated base.css:
-css@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Bebas+Neue&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Bebas+Neue&display=swap');
 
 :root {
     --blue-light: #819BC1;
@@ -16,7 +15,7 @@ html {
 
 body {
     font-family: 'Inter', sans-serif;
-    padding-top: 155px;
+    padding-top: 110px;
     background: url('../images/hero_gg.webp') center 60% / cover no-repeat;
     min-height: 100vh;
     display: flex;
@@ -201,6 +200,14 @@ header {
 .home-card-image-icon {
     background: rgba(255, 255, 255, 0.1);
     border-radius: 8px;
+}
+
+/* HOME CARDS CONTAINER - overlaps bottom of hero */
+.home-cards-container {
+    transform: translateY(-60px);
+    margin-bottom: -60px;
+    position: relative;
+    z-index: 2;
 }
 
 /* CARD */
@@ -539,7 +546,15 @@ header {
 
 @media (max-width: 991px) {
     body {
-        padding-top: 135px;
+        padding-top: 125px;
+    }
+
+    .hero {
+        min-height: 45vh;
+    }
+
+    .home-cards-container {
+        margin-top: -40px;
     }
 
     .product-image-wrap {
@@ -588,6 +603,14 @@ header {
 @media (max-width: 575px) {
     body {
         padding-top: 125px;
+    }
+
+    .home-cards-container {
+        margin-top: -20px;
+    }
+
+    .hero {
+        min-height: 20vh;
     }
 
     .product-image-wrap {
