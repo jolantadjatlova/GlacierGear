@@ -3,15 +3,14 @@ import requests
  
  
 def index(request):
-    """ A view to return the index page with live weather for Borlänge """
+    """ A view to return the index page with mountain conditions for Romme Alpin """
     weather = None
     try:
         url = (
             "https://api.open-meteo.com/v1/forecast"
-            "?latitude=60.4858&longitude=15.4369"
-            "&current=temperature_2m,relative_humidity_2m,"
-            "weather_code,wind_speed_10m,wind_direction_10m"
-            "&daily=temperature_2m_max,temperature_2m_min"
+            "?latitude=60.4167&longitude=15.2833"
+            "&current=temperature_2m,weather_code,wind_speed_10m"
+            "&daily=snowfall_sum,snow_depth_max"
             "&timezone=Europe%2FStockholm&forecast_days=1"
         )
         response = requests.get(url, timeout=5)
@@ -20,7 +19,6 @@ def index(request):
             current = data.get('current', {})
             daily = data.get('daily', {})
  
-            # Map WMO weather codes to descriptions
             code = current.get('weather_code', 0)
             description = get_weather_description(code)
  
@@ -28,26 +26,23 @@ def index(request):
                 'temperature': round(current.get('temperature_2m', 0)),
                 'description': description,
                 'wind_speed': round(current.get('wind_speed_10m', 0)),
-                'humidity': current.get('relative_humidity_2m', 0),
-                'temp_min': round(daily.get('temperature_2m_min', [0])[0]),
-                'temp_max': round(daily.get('temperature_2m_max', [0])[0]),
+                'snowfall': round(daily.get('snowfall_sum', [0])[0], 1),
+                'snow_depth': round(daily.get('snow_depth_max', [0])[0] * 100),
             }
     except Exception:
-        # Graceful fallback if API fails
         weather = {
             'temperature': None,
-            'description': 'Weather unavailable',
+            'description': 'Conditions unavailable',
             'wind_speed': None,
-            'humidity': None,
-            'temp_min': None,
-            'temp_max': None,
+            'snowfall': None,
+            'snow_depth': None,
         }
  
     return render(request, 'home/index.html', {'weather': weather})
  
  
 def get_weather_description(code):
-    """Convert WMO weather code to human-readable description"""
+    """Convert WMO weather code to mountain-friendly description"""
     descriptions = {
         0: 'Clear Sky',
         1: 'Mainly Clear',
@@ -62,7 +57,7 @@ def get_weather_description(code):
         63: 'Rain',
         65: 'Heavy Rain',
         71: 'Light Snow',
-        73: 'Snow',
+        73: 'Snowfall',
         75: 'Heavy Snow',
         77: 'Snow Grains',
         80: 'Light Showers',
@@ -71,8 +66,8 @@ def get_weather_description(code):
         85: 'Snow Showers',
         86: 'Heavy Snow Showers',
         95: 'Thunderstorm',
-        96: 'Thunderstorm with Hail',
-        99: 'Thunderstorm with Heavy Hail',
+        96: 'Thunderstorm & Hail',
+        99: 'Heavy Thunderstorm',
     }
     return descriptions.get(code, 'Partly Cloudy')
  

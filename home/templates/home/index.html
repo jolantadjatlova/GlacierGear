@@ -7,20 +7,68 @@
  
 {% block content %}
  
+    <!-- Mountain Conditions Bar -->
+    <div class="mountain-bar">
+        <div class="mountain-bar-inner">
+            <span class="mountain-bar-resort">
+                <i class="bi bi-geo-alt-fill me-1"></i>Romme Alpin
+            </span>
+            <span class="mountain-bar-divider">|</span>
+            {% if weather.temperature is not None %}
+            <span class="mountain-bar-item">
+                <span class="mountain-bar-label">TEMP</span>
+                <span class="mountain-bar-value">{{ weather.temperature }}°C</span>
+            </span>
+            <span class="mountain-bar-divider">·</span>
+            <span class="mountain-bar-item">
+                <span class="mountain-bar-label">CONDITIONS</span>
+                <span class="mountain-bar-value">{{ weather.description }}</span>
+            </span>
+            <span class="mountain-bar-divider">·</span>
+            <span class="mountain-bar-item">
+                <span class="mountain-bar-label">WIND</span>
+                <span class="mountain-bar-value">{{ weather.wind_speed }} km/h</span>
+            </span>
+            {% if weather.snowfall > 0 %}
+            <span class="mountain-bar-divider">·</span>
+            <span class="mountain-bar-item">
+                <span class="mountain-bar-label">FRESH SNOW</span>
+                <span class="mountain-bar-value">{{ weather.snowfall }} cm</span>
+            </span>
+            {% endif %}
+            {% if weather.snow_depth > 0 %}
+            <span class="mountain-bar-divider">·</span>
+            <span class="mountain-bar-item">
+                <span class="mountain-bar-label">SNOW DEPTH</span>
+                <span class="mountain-bar-value">{{ weather.snow_depth }} cm</span>
+            </span>
+            {% endif %}
+            {% else %}
+            <span class="mountain-bar-item">
+                <span class="mountain-bar-value">Conditions unavailable</span>
+            </span>
+            {% endif %}
+            <span class="mountain-bar-divider d-none d-md-inline">|</span>
+            <a href="https://www.romme.se/vinter/" target="_blank" class="mountain-bar-link d-none d-md-inline">
+                Mountain Report <i class="bi bi-arrow-up-right ms-1"></i>
+            </a>
+        </div>
+        <!-- Mobile collapsed version -->
+        <div class="mountain-bar-mobile d-md-none">
+            {% if weather.temperature is not None %}
+            Romme Alpin &bull; {{ weather.temperature }}°C &bull; {{ weather.description }}
+            {% if weather.wind_speed %}&bull; Wind {{ weather.wind_speed }} km/h{% endif %}
+            {% else %}
+            Romme Alpin &bull; Conditions unavailable
+            {% endif %}
+        </div>
+    </div>
+ 
     <!-- Hero section -->
     <div class="hero">
         <div class="container">
             <div class="row justify-content-center justify-content-md-end">
                 <div class="col-11 col-md-5 col-lg-4 text-center text-md-start">
-                    
-                    <!-- Weather pill -->
-                    <div class="weather-pill d-inline-flex mb-3">
-                        <i class="bi bi-cloud-snow fs-5"></i>
-                        <span class="weather-pill-temp ms-2">
-                            {% if weather.temperature is not None %}{{ weather.temperature }}°C{% else %}N/A{% endif %}
-                        </span>
-                        <span class="weather-pill-desc ms-2">{{ weather.description }}</span>
-                    </div>
  
                     <!-- Heading -->
                     <h1 class="hero-heading">
@@ -90,7 +138,6 @@
         <div class="container">
             <div class="row align-items-center g-4">
  
-                <!--address details -->
                 <div class="col-12 col-lg-5">
                     <h2 class="pickup-title">
                         <i class="bi bi-geo-alt-fill me-2"></i>Pickup Location
@@ -120,13 +167,12 @@
                             <strong>Email:</strong> info@glaciergear.se
                         </li>
                     </ul>
-                    <a href="https://www.google.com/maps/dir/?api=1&destination=Borlänge,Sweden" 
+                    <a href="https://www.google.com/maps/dir/?api=1&destination=Borlänge,Sweden"
                        target="_blank" class="btn btn-pickup-directions">
                         <i class="bi bi-map me-2"></i>Get Directions
                     </a>
                 </div>
  
-                <!--map -->
                 <div class="col-12 col-lg-7">
                     <div id="map" class="pickup-map"></div>
                 </div>
