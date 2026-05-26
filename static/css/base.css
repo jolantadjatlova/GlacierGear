@@ -539,6 +539,10 @@ header {
 
 /* MEDIA QUERIES */
 @media (max-width: 1199px) {
+
+    .home-card {
+        padding: 1rem;
+    }
     .home-card-title {
         font-size: 0.95rem;
     }
@@ -563,6 +567,7 @@ header {
     .container {
         max-width: 80%;
     }
+
 }
 
 @media (max-width: 991px) {
