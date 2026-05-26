@@ -587,14 +587,8 @@ header {
 }
 
 @media (min-width: 992px) and (max-width: 1199px) {
-    .home-card {
-        padding: 0.75rem;
-    }
-
     .home-card-image {
-        width: 80px;
-        min-width: 80px;
-        height: 80px;
+        display: none;
     }
 }
 
