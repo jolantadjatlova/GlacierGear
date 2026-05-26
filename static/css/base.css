@@ -541,11 +541,38 @@ header {
 
 @media (min-width: 1200px) {
     .container {
-        max-width: 80%;
+        max-width: 1140px;
     }
 
+    .home-cards-container .container {
+        max-width: 1200px;
+    }
 }
 
+@media (min-width: 992px) and (max-width: 1280px) {
+
+    .home-card {
+        padding: 1.25rem;
+        min-height: 180px;
+        gap: 1rem;
+    }
+
+    .home-card-title {
+        font-size: 1rem;
+        line-height: 1.15;
+    }
+
+    .home-card-text {
+        font-size: 0.82rem;
+        line-height: 1.35;
+    }
+
+    .home-card-image {
+        width: 90px;
+        min-width: 90px;
+        height: 90px;
+    }
+}
 @media (max-width: 991px) {
     body {
         padding-top: 125px;
