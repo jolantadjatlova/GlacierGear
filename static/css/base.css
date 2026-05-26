@@ -538,30 +538,6 @@ header {
 }
 
 /* MEDIA QUERIES */
-@media (max-width: 1199px) {
-
-    .home-card {
-        padding: 1rem;
-    }
-    .home-card-title {
-        font-size: 0.95rem;
-    }
-
-    .home-card-text {
-        font-size: 0.8rem;
-    }
-
-    .btn-home-card {
-        font-size: 0.75rem;
-        padding: 0.25rem 0.6rem;
-    }
-
-    .home-card-image {
-        width: 90px;
-        min-width: 90px;
-        height: 90px;
-    }
-}
 
 @media (min-width: 1200px) {
     .container {
@@ -583,6 +559,12 @@ header {
         margin-top: -40px;
     }
 
+     .home-card {
+        padding: 0.75rem; 
+        flex-direction: column;
+        text-align: center;
+    }
+
     .product-image-wrap {
         height: 300px;
     }
@@ -601,6 +583,18 @@ header {
         width: 60px;
         height: 60px;
         min-width: 60px;
+    }
+}
+
+@media (min-width: 992px) and (max-width: 1199px) {
+    .home-card {
+        padding: 0.75rem;
+    }
+
+    .home-card-image {
+        width: 80px;
+        min-width: 80px;
+        height: 80px;
     }
 }
 
