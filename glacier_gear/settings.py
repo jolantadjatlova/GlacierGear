@@ -18,7 +18,9 @@ DEBUG = 'DEVELOPMENT' in os.environ
 ALLOWED_HOSTS = ['glaciergear-7ce99fc7bac4.herokuapp.com', 'localhost', '127.0.0.1']
 
 CSRF_TRUSTED_ORIGINS = ['https://glaciergear-7ce99fc7bac4.herokuapp.com']
- 
+
+X_FRAME_OPTIONS = 'ALLOWALL'
+
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
