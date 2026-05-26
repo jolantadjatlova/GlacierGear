@@ -144,7 +144,7 @@ header {
     -webkit-backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 255, 255, 0.3);
     border-radius: 8px;
-    padding: 1.5rem;
+    padding: 2rem;
     color: white;
     min-height: 160px;
 }
@@ -538,6 +538,27 @@ header {
 }
 
 /* MEDIA QUERIES */
+@media (max-width: 1199px) {
+    .home-card-title {
+        font-size: 0.95rem;
+    }
+
+    .home-card-text {
+        font-size: 0.8rem;
+    }
+
+    .btn-home-card {
+        font-size: 0.75rem;
+        padding: 0.25rem 0.6rem;
+    }
+
+    .home-card-image {
+        width: 90px;
+        min-width: 90px;
+        height: 90px;
+    }
+}
+
 @media (min-width: 1200px) {
     .container {
         max-width: 80%;
