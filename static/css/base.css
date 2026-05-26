@@ -535,7 +535,7 @@ header {
 
 @media (min-width: 1200px) {
     .container {
-        max-width: 85%;
+        max-width: 100%;
     }
 
     .home-card {
@@ -575,6 +575,10 @@ header {
 @media (max-width: 991px) {
     body {
         padding-top: 125px;
+    }
+
+    .container {
+        max-width:90%;
     }
 
     .hero {
