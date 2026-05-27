@@ -532,40 +532,23 @@ header {
 }
 
 /* MEDIA QUERIES */
-
 @media (min-width: 1200px) {
     .container {
-        max-width: 100%;
+        max-width: 80%;
     }
 
-    .home-card {
-        padding: 1rem;
-
-    }
-
-    .home-card-text {
-        font-size: 0.8rem;
-    }
-
-    .home-card-image {
-        width: 90px;
-        min-width: 90px;
-        height: 90px;
-    }
 }
 
-
 @media (min-width: 992px) and (max-width: 1199px) {
-
-    .container {
-        max-width: 100%; 
-    }
     .home-card {
-        padding: 0.75rem;
+        padding: 1rem;
     }
 
+    .home-card-title {
+        font-size: 0.85rem;
+    }
     .home-card-text {
-        font-size: 0.8rem;
+        font-size: 0.75rem;
     }
 
     .home-card-image {
@@ -573,45 +556,49 @@ header {
         min-width: 80px;
         height: 80px;
     }
+
+    .container {
+        max-width:100%;
+    }
 }
 
 @media (max-width: 991px) {
     body {
         padding-top: 125px;
     }
-
-    .container {
-        max-width:100%;
-    }
-
-    .home-card-text {
-        font-size: 0.8rem;
-    }
-
     .hero {
         min-height: 45vh;
     }
-
+    .home-cards-container {
+        margin-top: -40px;
+    }
     .product-image-wrap {
         height: 300px;
     }
-
     .home-card {
-
-        padding: 1rem;
         flex-direction: column;
         text-align: center;
+        padding: 1rem;
     }
-
     .home-card-body {
         padding-right: 0;
         padding-bottom: 1rem;
     }
-
     .home-card-image {
         width: 60px;
         height: 60px;
         min-width: 60px;
+    }
+
+    .home-card-title {
+        font-size: 0.95rem;
+    }
+    .home-card-text {
+        font-size: 0.8rem;
+    }
+
+    .container {
+        max-width:100%;
     }
 }
 
@@ -619,19 +606,15 @@ header {
     .product-image-wrap {
         height: 280px;
     }
-
     .product-name {
         font-size: 1rem;
     }
-
     .product-price {
         font-size: 0.95rem;
     }
-
     .mountain-bar-inner {
         display: none;
     }
-
     .mountain-bar-mobile {
         display: block;
     }
@@ -641,15 +624,12 @@ header {
     body {
         padding-top: 125px;
     }
-
     .home-cards-container {
         margin-top: -20px;
     }
-
     .hero {
         min-height: 20vh;
     }
-
     .product-image-wrap {
         height: 240px;
     }
