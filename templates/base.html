@@ -41,14 +41,14 @@
       <!-- Top row: logo | search | icons -->
       <div class="row navbar-top align-items-center py-2 px-3 d-none d-lg-flex">
         <div class="col-3">
-          <a href="/">
+          <a href="/" aria-label="GlacierGear home">
             <img src="{% static 'images/glaciergear_logo.png' %}" alt="GlacierGear" height="50" width="216" />
           </a>
         </div>
         <div class="col-6">
           <form class="d-flex" method="GET" action="{% url 'products' %}">
-            <input class="form-control me-2" type="search" name="q" placeholder="Search our site" />
-            <button class="btn btn-outline-light" type="submit">
+            <input class="form-control me-2" type="search" name="q" placeholder="Search our site" aria-label="Search our site" />
+            <button class="btn btn-outline-light" type="submit" aria-label="Search">
               <i class="bi bi-search"></i>
             </button>
           </form>
@@ -58,7 +58,7 @@
           <!-- Account dropdown - desktop -->
           <div class="dropdown d-inline me-3">
             <a class="text-white dropdown-toggle" href="#" id="accountDropdown"
-               data-bs-toggle="dropdown" aria-expanded="false">
+               data-bs-toggle="dropdown" aria-expanded="false" aria-label="My account">
               <i class="bi bi-person fs-5"></i>
             </a>
             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="accountDropdown">
@@ -76,7 +76,7 @@
           </div>
 
           <!-- Cart icon -->
-          <a class="text-white me-3 position-relative" href="{% url 'view_bag' %}">
+          <a class="text-white me-3 position-relative" href="{% url 'view_bag' %}" aria-label="View shopping cart">
             <i class="bi bi-cart3 fs-4"></i>
             {% if product_count %}
             <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
@@ -90,10 +90,10 @@
       </div>
 
       <!-- Bottom row: nav links -->
-      <nav class="navbar navbar-expand-lg navbar-dark main-nav px-3">
+      <nav class="navbar navbar-expand-lg navbar-dark main-nav px-3" aria-label="Main navigation">
 
         <!-- Mobile: logo + toggler -->
-        <a class="navbar-brand d-lg-none" href="/">
+        <a class="navbar-brand d-lg-none" href="/" aria-label="GlacierGear home">
           <img src="{% static 'images/glaciergear_logo.png' %}" alt="GlacierGear" height="45" width="195" />
         </a>
 
@@ -160,8 +160,8 @@
           <ul class="navbar-nav ms-auto d-lg-none">
             <li class="nav-item">
               <form class="d-flex my-2" method="GET" action="{% url 'products' %}">
-                <input class="form-control me-2" type="search" name="q" placeholder="Search..." />
-                <button class="btn btn-outline-light" type="submit">
+                <input class="form-control me-2" type="search" name="q" placeholder="Search..." aria-label="Search" />
+                <button class="btn btn-outline-light" type="submit" aria-label="Search">
                   <i class="bi bi-search"></i>
                 </button>
               </form>
@@ -188,7 +188,7 @@
             </li>
 
             <li class="nav-item">
-              <a class="nav-link text-white position-relative" href="{% url 'view_bag' %}">
+              <a class="nav-link text-white position-relative" href="{% url 'view_bag' %}" aria-label="View shopping cart">
                 <i class="bi bi-cart3 fs-5"></i> Cart
                 {% if product_count %}
                 <span class="badge bg-danger rounded-pill" style="font-size: 0.6rem">
@@ -226,8 +226,10 @@
     {% block page_header %}
     {% endblock %}
 
-    {% block content %}
-    {% endblock %}
+    <main>
+      {% block content %}
+      {% endblock %}
+    </main>
 
     <footer class="site-footer mt-auto">
   <div class="container py-0">
@@ -242,10 +244,10 @@
       <!-- Middle: Social icons -->
       <div class="col-12 col-md-4 mb-2 mb-md-0">
         <small class="text-white d-block mb-1">Follow Us</small>
-        <a href="https://instagram.com" target="_blank" class="text-white me-3">
+        <a href="https://instagram.com" target="_blank" class="text-white me-3" aria-label="Follow us on Instagram">
           <i class="bi bi-instagram fs-5"></i>
         </a>
-        <a href="https://facebook.com" target="_blank" class="text-white">
+        <a href="https://facebook.com" target="_blank" class="text-white" aria-label="Follow us on Facebook">
           <i class="bi bi-facebook fs-5"></i>
         </a>
       </div>
