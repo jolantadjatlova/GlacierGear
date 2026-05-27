@@ -539,8 +539,12 @@ header {
     }
 
     .home-card {
-        padding: 1.25rem;
+        padding: 1rem;
 
+    }
+
+    .home-card-text {
+        font-size: 0.8rem;
     }
 
     .home-card-image {
@@ -550,19 +554,18 @@ header {
     }
 }
 
-@media (min-width: 992px) {
-    .container {
-        max-width: 85%;
-    }
-}
 
 @media (min-width: 992px) and (max-width: 1199px) {
 
     .container {
-        max-width: 90%; 
+        max-width: 100%; 
     }
     .home-card {
-        padding: 1rem;
+        padding: 0.75rem;
+    }
+
+    .home-card-text {
+        font-size: 0.8rem;
     }
 
     .home-card-image {
@@ -578,7 +581,11 @@ header {
     }
 
     .container {
-        max-width:90%;
+        max-width:100%;
+    }
+
+    .home-card-text {
+        font-size: 0.8rem;
     }
 
     .hero {
@@ -590,6 +597,8 @@ header {
     }
 
     .home-card {
+
+        padding: 1rem;
         flex-direction: column;
         text-align: center;
     }
