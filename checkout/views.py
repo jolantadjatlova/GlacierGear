@@ -3,6 +3,8 @@ from django.views.decorators.http import require_POST
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from django.conf import settings
+from django.core.mail import send_mail
+from django.template.loader import render_to_string
  
 from .forms import BookingForm
 from .models import Booking, BookingLineItem
@@ -188,6 +190,15 @@ def checkout_success(request, booking_number):
                 product_size.save()
             except ProductSize.DoesNotExist:
                 pass
+ 
+    # Send confirmation email
+    subject = render_to_string(
+        'checkout/confirmation_emails/confirmation_email_subject.txt',
+        {'booking': booking})
+    body = render_to_string(
+        'checkout/confirmation_emails/confirmation_email_body.txt',
+        {'booking': booking, 'contact_email': settings.DEFAULT_FROM_EMAIL})
+    send_mail(subject, body, settings.DEFAULT_FROM_EMAIL, [booking.email])
  
     messages.success(request, f'Booking successfully processed! \
         Your booking number is {booking_number}. A confirmation \

@@ -70,9 +70,8 @@ class StripeWH_Handler:
  
         # Get billing details
         import stripe
-        charge = stripe.Charge.retrieve(intent.latest_charge)
-        billing_details = charge.billing_details
-        grand_total = round(charge.amount / 100, 2)
+        billing_details = intent.charges.data[0].billing_details if hasattr(intent, 'charges') and intent.charges.data else None
+        grand_total = round(intent.amount_received / 100, 2)
  
         # Update profile if authenticated
         profile = None

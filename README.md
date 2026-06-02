@@ -165,7 +165,6 @@ Further visual decisions are detailed in the [Typography](#typography) and [Colo
 - As an authenticated user, I want to complete a secure checkout using my card so that I can confirm my booking.
 - As an authenticated user, I want to receive a booking confirmation email so that I have a record of my rental.
 - As an authenticated user, I want to view my booking history on my profile page so that I can track past rentals.
-- As an authenticated user, I want to save my phone number to my profile so that future checkouts are faster.
 #### Store Owners
 - As a store owner, I want to add new products to the store so that customers can see the latest equipment.
 - As a store owner, I want to edit existing products so that I can update pricing, descriptions, and images.
@@ -740,7 +739,6 @@ JavaScript was tested using [JSHint](https://jshint.com/).
 | Complete a secure checkout | Stripe payment processes successfully | Yes | ![](docs/test_checkout.png) |
 | Receive a booking confirmation email | Email sent after successful payment | Yes | ![](docs/test_confirmation_email.png) |
 | View booking history on profile page | Past bookings listed on profile | Yes | ![](docs/test_booking_history.png) |
-| Save phone number to profile | Profile updates on checkout with save info checked | Yes | ![](docs/test_save_info.png) |
  
 #### Store Owners
  
