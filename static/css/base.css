@@ -182,6 +182,21 @@ header {
     background-color: white;
     color: var(--navy);
 }
+
+.btn-card {
+    background-color: var(--navy);
+    border: 1px solid var(--navy);
+    color: white;
+    font-weight: 500;
+    font-size: 0.8rem;
+    padding: 0.3rem 0.7rem;
+}
+
+.btn-card:hover {
+    background-color: white;
+    color: var(--navy);
+    border: 1px solid var(--navy);
+}
  
 .home-card-image {
     width: 120px;
@@ -377,6 +392,13 @@ header {
  
 .product-detail-page p.text-muted {
     font-size: 0.9rem;
+}
+
+/* SIZE BUTTONS */
+.size-btn {
+    width: 70px;
+    min-width: 70px;
+    text-align: center;
 }
  
 /* PICKUP LOCATION SECTION */

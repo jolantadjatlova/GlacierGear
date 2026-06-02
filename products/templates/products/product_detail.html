@@ -118,29 +118,15 @@
                 <!-- Size Selection -->
                 {% if product.has_sizes %}
                 <div class="mb-4">
-                    <label class="form-label fw-semibold">SELECT SIZE</label>
-                    <div class="d-flex flex-wrap gap-2">
+                    <label for="product_size" class="form-label fw-semibold">SELECT SIZE</label>
+                    <select class="form-select" id="product_size" name="product_size" required>
                         {% for size in product.sizes.all %}
-                        <div class="form-check form-check-inline m-0">
-                            <input class="btn-check"
-                                   type="radio"
-                                   name="product_size"
-                                   id="size_{{ size.size }}"
-                                   value="{{ size.size }}"
-                                   {% if size.stock == 0 %}disabled{% endif %}
-                                   {% if forloop.first and size.stock > 0 %}checked{% endif %}>
-                            <label class="btn btn-outline-dark btn-sm {% if size.stock == 0 %}disabled opacity-50{% endif %}"
-                                   for="size_{{ size.size }}">
-                                {{ size.size }}
-                                {% if size.stock == 0 %}
-                                <small class="d-block" style="font-size: 0.6rem;">Sold out</small>
-                                {% elif size.stock <= 2 %}
-                                <small class="d-block text-danger" style="font-size: 0.6rem;">Only {{ size.stock }} left!</small>
-                                {% endif %}
-                            </label>
-                        </div>
+                        <option value="{{ size.size }}"
+                            {% if size.stock == 0 %}disabled{% endif %}>
+                            {{ size.size }}{% if size.stock == 0 %} — Sold out{% elif size.stock <= 2 %} — Only {{ size.stock }} left!{% endif %}
+                        </option>
                         {% endfor %}
-                    </div>
+                    </select>
                 </div>
                 {% endif %}
  
