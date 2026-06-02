@@ -651,7 +651,7 @@ All tests were run using:
 | Static files not loading on Heroku | Fixed | After removing `DISABLE_COLLECTSTATIC`, the build failed due to missing `STATIC_ROOT`. | Added `STATIC_ROOT` to both the `USE_AWS` and non-AWS settings blocks. |
 | Allauth pages not styled | Fixed | Logout, password reset, and other allauth pages used default unstyled templates. | Created custom styled templates for all allauth account pages extending `base.html`. |
 | Weather widget showing hardcoded values | Fixed | The homepage weather pill displayed `-2°C Partly Cloudy` regardless of the API. | Updated `index.html` to use `{{ weather.temperature }}` and `{{ weather.description }}` from context. |
- 
+| Hero background image not covering cards on mobile | Fixed | The background image was set on `body`, staying fixed to the viewport. On mobile, stacked cards pushed below the visible image area. | Moved the background image from `body` to `.hero` so it scales naturally with the hero section as cards stack vertically. |
  
 [Back to contents](#contents)
  
