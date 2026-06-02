@@ -651,6 +651,8 @@ All tests were run using:
 | Allauth pages not styled | Fixed | Logout, password reset, and other allauth pages used default unstyled templates. | Created custom styled templates for all allauth account pages extending `base.html`. |
 | Weather widget showing hardcoded values | Fixed | The homepage weather pill displayed `-2°C Partly Cloudy` regardless of the API. | Updated `index.html` to use `{{ weather.temperature }}` and `{{ weather.description }}` from context. |
 | Hero background image not covering cards on mobile | Fixed | The background image was set on `body`, staying fixed to the viewport. On mobile, stacked cards pushed below the visible image area. | Moved the background image from `body` to `.hero` so it scales naturally with the hero section as cards stack vertically. |
+| Confirmation email not sending after checkout | Fixed | The `checkout_success` view wasn't calling `send_mail` after a successful booking, so no confirmation email was sent to the user. | Added `send_mail` call directly to the `checkout_success` view using the existing email templates. |
+| Stripe webhook returning 500 error | Fixed | `stripe.Charge.retrieve` was incompatible with the newer Stripe API version, causing the webhook handler to crash on every payment. | Updated webhook handler to use `intent.charges.data[0].billing_details` and `intent.amount_received` instead. |
  
 [Back to contents](#contents)
  
