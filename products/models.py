@@ -94,3 +94,4 @@ class ProductSize(models.Model):
 
     def __str__(self):
         return f"{self.product.name} - {self.size}"
+    

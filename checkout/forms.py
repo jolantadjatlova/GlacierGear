@@ -44,3 +44,4 @@ class BookingForm(forms.ModelForm):
                 raise forms.ValidationError(
                     'End date must be after start date.')
         return cleaned_data
+    

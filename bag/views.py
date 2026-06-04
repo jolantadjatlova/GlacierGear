@@ -1,4 +1,6 @@
-from django.shortcuts import render, redirect, reverse, HttpResponse, get_object_or_404
+from django.shortcuts import (
+    render, redirect, reverse, HttpResponse, get_object_or_404
+)
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from products.models import Product, ProductSize
@@ -73,7 +75,8 @@ def add_to_bag(request, item_id):
                             f'Sorry, only {product_size.stock} of size '
                             f'{size.upper()} {product.name} available. '
                             f'You already have '
-                            f'{bag[item_id]["items_by_size"][size]} in your bag.'
+                            f'{bag[item_id]["items_by_size"][size]}'
+                            f'in your bag.'
                         )
                         return redirect(redirect_url)
                 except ProductSize.DoesNotExist:
