@@ -50,7 +50,9 @@ The application focuses on clean UX design, accessibility, and secure authentica
     - [HTML](#html)
     - [CSS](#css)
     - [JavaScript](#javascript)
+    - [Python](#python-pep8)
   - [User Story Testing](#user-story-testing)
+  - [Feature Testing](#feature-testing)
   - [Accessibility Testing](#accessibility-testing)
   - [Lighthouse Testing](#lighthouse-testing)
   - [Browser Testing](#browser-testing)
@@ -720,6 +722,49 @@ JavaScript was tested using [JSHint](https://jshint.com/).
 [Back to contents](#contents)
  
 ---
+### Python (PEP8)
+
+I have used the recommended [CI Python Linter](https://pep8ci.herokuapp.com) to validate all of my Python files.
+
+| Directory | File | URL | Screenshot |
+| --- | --- | --- | --- |
+| bag | contexts.py | [PEP8 CI Link](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/jolantadjatlova/GlacierGear/refs/heads/main/bag/contexts.py) | ![screenshot](docs/validation/py-bag-contexts.png) |
+| bag | urls.py | [PEP8 CI Link](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/jolantadjatlova/GlacierGear/refs/heads/main/bag/urls.py) | ![screenshot](docs/validation/py-bag-urls.png) |
+| bag | views.py | [PEP8 CI Link](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/jolantadjatlova/GlacierGear/refs/heads/main/bag/views.py) | ![screenshot](docs/validation/py-bag-views.png) |
+| bag/templatetags | bag_tools.py | [PEP8 CI Link](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/jolantadjatlova/GlacierGear/refs/heads/main/bag/templatetags/bag_tools.py) | ![screenshot](docs/validation/py-bag-tools.png) |
+| checkout | admin.py | [PEP8 CI Link](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/jolantadjatlova/GlacierGear/refs/heads/main/checkout/admin.py) | ![screenshot](docs/validation/py-checkout-admin.png) |
+| checkout | apps.py | [PEP8 CI Link](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/jolantadjatlova/GlacierGear/refs/heads/main/checkout/apps.py) | ![screenshot](docs/validation/py-checkout-apps.png) |
+| checkout | forms.py | [PEP8 CI Link](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/jolantadjatlova/GlacierGear/refs/heads/main/checkout/forms.py) | ![screenshot](docs/validation/py-checkout-forms.png) |
+| checkout | models.py | [PEP8 CI Link](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/jolantadjatlova/GlacierGear/refs/heads/main/checkout/models.py) | ![screenshot](docs/validation/py-checkout-models.png) |
+| checkout | signals.py | [PEP8 CI Link](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/jolantadjatlova/GlacierGear/refs/heads/main/checkout/signals.py) | ![screenshot](docs/validation/py-checkout-signals.png) |
+| checkout | tests.py | [PEP8 CI Link](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/jolantadjatlova/GlacierGear/refs/heads/main/checkout/tests.py) | ![screenshot](docs/validation/py-checkout-tests.png) |
+| checkout | urls.py | [PEP8 CI Link](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/jolantadjatlova/GlacierGear/refs/heads/main/checkout/urls.py) | ![screenshot](docs/validation/py-checkout-urls.png) |
+| checkout | views.py | [PEP8 CI Link](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/jolantadjatlova/GlacierGear/refs/heads/main/checkout/views.py) | ![screenshot](docs/validation/py-checkout-views.png) |
+| checkout | webhook_handler.py | [PEP8 CI Link](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/jolantadjatlova/GlacierGear/refs/heads/main/checkout/webhook_handler.py) | ![screenshot](docs/validation/py-checkout-webhook-handler.png) |
+| checkout | webhooks.py | [PEP8 CI Link](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/jolantadjatlova/GlacierGear/refs/heads/main/checkout/webhooks.py) | ![screenshot](docs/validation/py-checkout-webhooks.png) |
+| home | urls.py | [PEP8 CI Link](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/jolantadjatlova/GlacierGear/refs/heads/main/home/urls.py) | ![screenshot](docs/validation/py-home-urls.png) |
+| home | views.py | [PEP8 CI Link](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/jolantadjatlova/GlacierGear/refs/heads/main/home/views.py) | ![screenshot](docs/validation/py-home-views.png) |
+| products | admin.py | [PEP8 CI Link](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/jolantadjatlova/GlacierGear/refs/heads/main/products/admin.py) | ![screenshot](docs/validation/py-products-admin.png) |
+| products | apps.py | [PEP8 CI Link](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/jolantadjatlova/GlacierGear/refs/heads/main/products/apps.py) | ![screenshot](docs/validation/py-products-apps.png) |
+| products | forms.py | [PEP8 CI Link](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/jolantadjatlova/GlacierGear/refs/heads/main/products/forms.py) | ![screenshot](docs/validation/py-products-forms.png) |
+| products | models.py | [PEP8 CI Link](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/jolantadjatlova/GlacierGear/refs/heads/main/products/models.py) | ![screenshot](docs/validation/py-products-models.png) |
+| products | signals.py | [PEP8 CI Link](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/jolantadjatlova/GlacierGear/refs/heads/main/products/signals.py) | ![screenshot](docs/validation/py-products-signals.png) |
+| products | tests.py | [PEP8 CI Link](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/jolantadjatlova/GlacierGear/refs/heads/main/products/tests.py) | ![screenshot](docs/validation/py-products-tests.png) |
+| products | urls.py | [PEP8 CI Link](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/jolantadjatlova/GlacierGear/refs/heads/main/products/urls.py) | ![screenshot](docs/validation/py-products-urls.png) |
+| products | views.py | [PEP8 CI Link](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/jolantadjatlova/GlacierGear/refs/heads/main/products/views.py) | ![screenshot](docs/validation/py-products-views.png) |
+| profiles | admin.py | [PEP8 CI Link](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/jolantadjatlova/GlacierGear/refs/heads/main/profiles/admin.py) | ![screenshot](docs/validation/py-profiles-admin.png) |
+| profiles | apps.py | [PEP8 CI Link](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/jolantadjatlova/GlacierGear/refs/heads/main/profiles/apps.py) | ![screenshot](docs/validation/py-profiles-apps.png) |
+| profiles | forms.py | [PEP8 CI Link](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/jolantadjatlova/GlacierGear/refs/heads/main/profiles/forms.py) | ![screenshot](docs/validation/py-profiles-forms.png) |
+| profiles | models.py | [PEP8 CI Link](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/jolantadjatlova/GlacierGear/refs/heads/main/profiles/models.py) | ![screenshot](docs/validation/py-profiles-models.png) |
+| profiles | tests.py | [PEP8 CI Link](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/jolantadjatlova/GlacierGear/refs/heads/main/profiles/tests.py) | ![screenshot](docs/validation/py-profiles-tests.png) |
+| profiles | urls.py | [PEP8 CI Link](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/jolantadjatlova/GlacierGear/refs/heads/main/profiles/urls.py) | ![screenshot](docs/validation/py-profiles-urls.png) |
+| profiles | views.py | [PEP8 CI Link](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/jolantadjatlova/GlacierGear/refs/heads/main/profiles/views.py) | ![screenshot](docs/validation/py-profiles-views.png) |
+| glacier_gear | settings.py | [PEP8 CI Link](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/jolantadjatlova/GlacierGear/refs/heads/main/glacier_gear/settings.py) | ![screenshot](docs/validation/py-glacier-gear-settings.png) |
+| glacier_gear | urls.py | [PEP8 CI Link](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/jolantadjatlova/GlacierGear/refs/heads/main/glacier_gear/urls.py) | ![screenshot](docs/validation/py-glacier-gear-urls.png) |
+| | custom_storages.py | [PEP8 CI Link](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/jolantadjatlova/GlacierGear/refs/heads/main/custom_storages.py) | ![screenshot](docs/validation/py-custom-storages.png) |
+| | manage.py | [PEP8 CI Link](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/jolantadjatlova/GlacierGear/refs/heads/main/manage.py) | ![screenshot](docs/validation/py-manage.png) |
+
+---
  
 ### User Story Testing
  
@@ -753,6 +798,54 @@ JavaScript was tested using [JSHint](https://jshint.com/).
  
 [Back to contents](#contents)
  
+---
+### Feature Testing
+
+| Feature | Expected Outcome | Result | Pass/Fail |
+| --- | --- | --- | --- |
+| Navbar logo link | Clicking logo returns user to home page | Returns to home page | Pass |
+| Navbar product links | Ski Outfits, Snowboard Outfits, Accessories links load correct filtered pages | Correct pages load | Pass |
+| Navbar search bar | Searching a keyword returns relevant products | Relevant results displayed | Pass |
+| Navbar account dropdown (logged out) | Shows Register and Login links | Correct links shown | Pass |
+| Navbar account dropdown (logged in) | Shows My Profile, Product Management (superuser), Logout | Correct links shown | Pass |
+| Navbar booking cart icon | Clicking cart icon opens booking cart | Cart page loads | Pass |
+| Mobile navbar | Hamburger menu opens and closes correctly | Menu works on mobile | Pass |
+| Weather widget | Displays live temperature and description for Borlänge | Live weather shown | Pass |
+| Home page category cards | Ski Outfits, Snowboard Outfits, How It Works cards link correctly | Correct pages load | Pass |
+| Leaflet map | Interactive map displays pickup location | Map loads correctly | Pass |
+| Products page filter | Filtering by gender, garment type, size, colour updates results | Filtered results shown | Pass |
+| Products page sort | Sorting by price, name, rating updates order | Sorted results shown | Pass |
+| Product card | Image, name, price displayed correctly | All info shown | Pass |
+| Product card superuser buttons | Edit and Delete buttons visible to superuser only | Buttons shown to superuser only | Pass |
+| Product detail page | Image, description, price, sizes, stock shown correctly | All info displayed | Pass |
+| Size selection | Sold out sizes show indicator, low stock warning shown | Correct indicators shown | Pass |
+| Date picker | Start and end date can be selected | Dates selectable | Pass |
+| Add to cart (logged in) | Item added to cart with correct size and dates | Item added correctly | Pass |
+| Add to cart (logged out) | Redirects to login page | Redirect works | Pass |
+| Booking cart | Shows items, sizes, dates, quantities, totals | All details shown correctly | Pass |
+| Update quantity in cart | Quantity updates correctly and totals recalculate | Update works | Pass |
+| Remove item from cart | Item removed and cart updates | Removal works | Pass |
+| Checkout form | Pre-fills with saved profile info | Form pre-fills correctly | Pass |
+| Checkout save info | Checking save info updates profile on completion | Profile updated | Pass |
+| Stripe payment | Valid card processes payment successfully | Payment processes | Pass |
+| Stripe payment (invalid card) | Error message shown for invalid card | Error displayed | Pass |
+| Checkout success page | Booking reference, details, and line items shown | All details shown | Pass |
+| Confirmation email | Email received after successful booking | Email sent | Pass |
+| Profile page | Shows email, username, phone number form, booking history | All info displayed | Pass |
+| Booking history | Past bookings listed with links to confirmation | History shown correctly | Pass |
+| Add product (superuser) | New product saves and appears in store | Product added | Pass |
+| Edit product (superuser) | Form pre-fills with existing data and saves updates | Edit works correctly | Pass |
+| Delete product (superuser) | Product removed from store | Deletion works | Pass |
+| Login | Valid credentials log user in | Login works | Pass |
+| Login (invalid) | Error message shown for wrong credentials | Error shown | Pass |
+| Register | New account created successfully | Registration works | Pass |
+| Logout | User logged out and redirected | Logout works | Pass |
+| 404 page | Navigating to invalid URL shows custom 404 page | 404 page shown | Pass |
+| 500 page | Server error shows custom 500 page | 500 page shown | Pass |
+| Toast notifications | Success/error/info toasts appear for all key actions | Toasts display correctly | Pass |
+| CSRF protection | Forms protected against CSRF attacks | Protection active | Pass |
+
+
 ---
  
 ### Accessibility Testing
