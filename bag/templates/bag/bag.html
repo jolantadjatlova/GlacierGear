@@ -1,24 +1,24 @@
 {% extends "base.html" %}
 {% load static %}
 {% load bag_tools %}
-
+ 
 {% block extra_title %}| My Booking Cart{% endblock %}
-
+ 
 {% block content %}
 <div class="overlay"></div>
 <div class="container mb-2 booking-cart-page">
     <div class="row">
         <div class="col">
             <hr>
-            <h2 class="mb-4 products-title">My Booking Cart</h2>
+            <h1 class="mb-4 products-title">My Booking Cart</h1>
             <hr>
         </div>
     </div>
-
+ 
     <div class="row">
         <div class="col">
             {% if bag_items %}
-
+ 
             <!-- Desktop table view -->
             <div class="table-responsive rounded d-none d-md-block">
                 <table class="table table-sm table-borderless">
@@ -102,7 +102,7 @@
                         <!-- Remove -->
                         <td class="py-3">
                             <a class="remove-item text-danger"
-                               id="remove_{{ item.item_id }}"
+                               id="remove_desktop_{{ item.item_id }}"
                                data-product_size="{{ item.size }}"
                                style="cursor: pointer;">
                                 <i class="bi bi-trash"></i>
@@ -113,8 +113,8 @@
                     <!-- Order summary -->
                     <tr>
                         <td colspan="8" class="pt-4 text-end">
-                            <h6 class="text-muted">Rental Total: <strong>SEK {{ total }}</strong></h6>
-                            <h4 class="mt-2">Total: <strong>SEK {{ total }}</strong></h4>
+                            <p class="text-muted">Rental Total: <strong>SEK {{ total }}</strong></p>
+                            <h2 class="mt-2">Total: <strong>SEK {{ total }}</strong></h2>
                         </td>
                     </tr>
                     <tr>
@@ -129,12 +129,12 @@
                     </tr>
                 </table>
             </div>
-
+ 
             <!-- Mobile view -->
             <div class="d-block d-md-none">
                 <!-- Summary at top on mobile -->
                 <div class="text-end mb-3">
-                    <h6>Total: <strong>SEK {{ total }}</strong></h6>
+                    <p>Total: <strong>SEK {{ total }}</strong></p>
                     <a href="{% url 'checkout' %}" class="btn btn-dark btn-sm w-100 mb-2">
                         Proceed to Checkout <i class="bi bi-arrow-right ms-1"></i>
                     </a>
@@ -159,7 +159,7 @@
                         <p class="my-0 small">{{ rental_days }} days × SEK {{ item.product.price_per_day }}</p>
                         <p class="my-0 fw-bold">SEK {{ item.line_total }}</p>
                         <a class="remove-item text-danger small"
-                           id="remove_{{ item.item_id }}"
+                           id="remove_mobile_{{ item.item_id }}"
                            data-product_size="{{ item.size }}"
                            style="cursor: pointer;">
                             <i class="bi bi-trash me-1"></i>Remove
@@ -169,7 +169,7 @@
                 <hr>
                 {% endfor %}
             </div>
-
+ 
             {% else %}
             <!-- Empty cart -->
             <div class="text-center py-5">
@@ -184,7 +184,7 @@
     </div>
 </div>
 {% endblock %}
-
+ 
 {% block postloadjs %}
 {{ block.super }}
 <script>
@@ -195,18 +195,18 @@
             form.submit();
         });
     });
-
+ 
     // Remove item and reload on click
     document.querySelectorAll('.remove-item').forEach(function(btn) {
         btn.addEventListener('click', function(e) {
             var csrfToken = '{{ csrf_token }}';
-            var itemId = this.id.split('remove_')[1];
+            var itemId = this.id.replace('remove_desktop_', '').replace('remove_mobile_', '');
             var size = this.dataset.product_size;
             var url = '/bag/remove/' + itemId + '/';
             var data = new FormData();
             data.append('csrfmiddlewaretoken', csrfToken);
             data.append('product_size', size);
-
+ 
             fetch(url, {
                 method: 'POST',
                 body: data,
@@ -215,7 +215,7 @@
             });
         });
     });
-
+ 
     // Increment/decrement quantity buttons
     document.querySelectorAll('.increment-qty').forEach(function(btn) {
         btn.addEventListener('click', function() {
@@ -224,7 +224,7 @@
             if (parseInt(input.value) < 10) input.value = parseInt(input.value) + 1;
         });
     });
-
+ 
     document.querySelectorAll('.decrement-qty').forEach(function(btn) {
         btn.addEventListener('click', function() {
             var itemId = this.dataset.item_id;
