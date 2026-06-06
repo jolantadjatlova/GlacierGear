@@ -1,9 +1,9 @@
 {% extends "base.html" %}
 {% load i18n %}
 {% load crispy_forms_tags %}
-
+ 
 {% block extra_title %}Register{% endblock %}
-
+ 
 {% block content %}
 <div class="overlay"></div>
 <div class="container" style="position: relative; z-index: 2;">
@@ -11,7 +11,7 @@
         <div class="col-12 col-md-6 col-lg-4">
             <div class="card p-4">
                 <div class="card-body">
-                    <h2 class="card-title text-center mb-1">Create Account</h2>
+                    <h1 class="card-title text-center mb-1">Create Account</h1>
                     <p class="text-center mb-4" style="color: var(--navy-dark); font-size: 0.9rem;">
                         Join GlacierGear to start booking
                     </p>
@@ -20,7 +20,7 @@
                         {% csrf_token %}
                         {{ form|crispy }}
                         {% if redirect_field_value %}
-                        <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+                        <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}">
                         {% endif %}
                         <button class="btn btn-card w-100 mt-2" type="submit">Create Account</button>
                     </form>
