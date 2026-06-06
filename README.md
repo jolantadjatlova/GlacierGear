@@ -742,6 +742,7 @@ I have used the recommended [CI Python Linter](https://pep8ci.herokuapp.com) to 
 | checkout | views.py | [PEP8 CI Link](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/jolantadjatlova/GlacierGear/refs/heads/main/checkout/views.py) | ![screenshot](docs/py-checkout-views.png) |
 | checkout | webhook_handler.py | [PEP8 CI Link](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/jolantadjatlova/GlacierGear/refs/heads/main/checkout/webhook_handler.py) | ![screenshot](docs/py-checkout-webhook-handler.png) |
 | checkout | webhooks.py | [PEP8 CI Link](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/jolantadjatlova/GlacierGear/refs/heads/main/checkout/webhooks.py) | ![screenshot](docs/py-checkout-webhooks.png) |
+| home | tests.py | [PEP8 CI Link](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/jolantadjatlova/GlacierGear/refs/heads/main/home/tests.py) | ![screenshot](docs/py-home-tests.png) |
 | home | urls.py | [PEP8 CI Link](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/jolantadjatlova/GlacierGear/refs/heads/main/home/urls.py) | ![screenshot](docs/py-home-urls.png) |
 | home | views.py | [PEP8 CI Link](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/jolantadjatlova/GlacierGear/refs/heads/main/home/views.py) | ![screenshot](docs/py-home-views.png) |
 | products | admin.py | [PEP8 CI Link](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/jolantadjatlova/GlacierGear/refs/heads/main/products/admin.py) | ![screenshot](docs/py-products-admin.png) |
