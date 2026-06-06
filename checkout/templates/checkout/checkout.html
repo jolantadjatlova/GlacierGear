@@ -1,29 +1,29 @@
 {% extends "base.html" %}
 {% load static %}
 {% load bag_tools %}
-
+ 
 {% block extra_title %}Checkout{% endblock %}
-
+ 
 {% block extra_js %}
 <script src="https://js.stripe.com/v3/"></script>
 {% endblock %}
-
+ 
 {% block content %}
 <div class="overlay"></div>
 <div class="container mt-4" style="position: relative; z-index: 2;">
     <div class="row">
         <div class="col">
-            <h2 class="mb-4 products-title">Checkout</h2>
+            <h1 class="mb-4 products-title">Checkout</h1>
             <hr>
         </div>
     </div>
-
+ 
     <div class="row">
         <!-- Order Summary -->
         <div class="col-12 col-lg-6 order-lg-last mb-5">
             <div class="card p-3">
                 <div class="card-body">
-                    <h5 class="card-title">Order Summary ({{ product_count }} items)</h5>
+                    <h2 class="card-title">Order Summary ({{ product_count }} items)</h2>
                     <hr>
                     <div class="row mb-2">
                         <div class="col-7"><small class="text-muted">Item</small></div>
@@ -64,7 +64,7 @@
                 </div>
             </div>
         </div>
-
+ 
         <!-- Checkout Form -->
         <div class="col-12 col-lg-6">
             <div class="card p-3">
@@ -72,7 +72,7 @@
                     <p class="text-muted">Please fill out the form below to complete your booking.</p>
                     <form action="{% url 'checkout' %}" method="POST" id="payment-form">
                         {% csrf_token %}
-
+ 
                         <!-- Personal Details -->
                         <fieldset class="mb-3">
                             <legend class="fieldset-label small fw-bold mb-2">Your Details</legend>
@@ -80,7 +80,7 @@
                             {{ booking_form.email | as_crispy_field }}
                             {{ booking_form.phone_number | as_crispy_field }}
                         </fieldset>
-
+ 
                         <!-- Rental Dates - read only -->
                         <fieldset class="mb-3">
                             <legend class="fieldset-label small fw-bold mb-2">Rental Dates</legend>
@@ -107,7 +107,7 @@
                             </p>
                             {% endif %}
                         </fieldset>
-
+ 
                         <!-- Payment -->
                         <fieldset class="mb-3">
                             <legend class="fieldset-label small fw-bold mb-2">Payment</legend>
@@ -118,7 +118,7 @@
                             <!-- Pass client secret to view -->
                             <input type="hidden" value="{{ client_secret }}" name="client_secret">
                         </fieldset>
-
+ 
                         <!-- Submit -->
                         <div class="d-flex justify-content-between mt-3">
                             <a href="{% url 'view_bag' %}" class="btn btn-outline-secondary">
@@ -139,10 +139,11 @@
     </div>
 </div>
 {% endblock %}
-
+ 
 {% block postloadjs %}
 {{ block.super }}
 {{ stripe_public_key|json_script:"id_stripe_public_key" }}
 {{ client_secret|json_script:"id_client_secret" }}
 <script src="{% static 'checkout/js/stripe_elements.js' %}"></script>
 {% endblock %}
+ 
