@@ -7,7 +7,7 @@
 <div class="container mt-4 products-page">
     <div class="row">
         <div class="col">
-            <h2 class="mb-4 products-title">
+            <h1 class="mb-4 products-title">
                 {% if current_categories %}
                     {% for category in current_categories %}
                         {{ category.friendly_name }}
@@ -15,7 +15,7 @@
                 {% else %}
                     Products
                 {% endif %}
-            </h2>
+            </h1>
             <hr class="products-top-divider">
         </div>
     </div>
