@@ -1,60 +1,60 @@
 {% load static %}
-
+ 
 <!doctype html>
 <html lang="en">
   <head>
     {% block meta %}
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <meta name="description" content="GlacierGear — rent ski and snowboard equipment online in Borlänge, Sweden. Easy online booking, secure Stripe payment." />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="GlacierGear — rent ski and snowboard equipment online in Borlänge, Sweden. Easy online booking, secure Stripe payment.">
     {% endblock %}
-
+ 
     {% block extra_meta %}
     {% endblock %}
-
+ 
     {% block corecss %}
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css" />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Bebas+Neue&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="{% static 'css/base.css' %}" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Bebas+Neue&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
     <link rel="icon" type="image/png" href="{% static 'images/favicon.png' %}">
     {% endblock %}
-
+ 
     {% block extra_css %}
     {% endblock %}
-
+ 
     {% block corejs %}
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     {% endblock %}
-
+ 
     {% block extra_js %}
     {% endblock %}
-
+ 
     <title>GlacierGear {% block extra_title %}{% endblock %}</title>
   </head>
-
+ 
   <body>
     <header class="container-fluid fixed-top p-0">
-
+ 
       <!-- Top row: logo | search | icons -->
       <div class="row navbar-top align-items-center py-2 px-3 d-none d-lg-flex">
         <div class="col-3">
           <a href="/" aria-label="GlacierGear home">
-            <img src="{% static 'images/glaciergear_logo.png' %}" alt="GlacierGear" height="50" width="216" />
+            <img src="{% static 'images/glaciergear_logo.png' %}" alt="GlacierGear" height="50" width="216">
           </a>
         </div>
         <div class="col-6">
           <form class="d-flex" method="GET" action="{% url 'products' %}">
-            <input class="form-control me-2" type="search" name="q" placeholder="Search our site" aria-label="Search our site" />
+            <input class="form-control me-2" type="search" name="q" placeholder="Search our site" aria-label="Search our site">
             <button class="btn btn-outline-light" type="submit" aria-label="Search">
               <i class="bi bi-search"></i>
             </button>
           </form>
         </div>
         <div class="col-3 text-end">
-
+ 
           <!-- Account dropdown - desktop -->
           <div class="dropdown d-inline me-3">
             <a class="text-white dropdown-toggle" href="#" id="accountDropdown"
@@ -74,7 +74,7 @@
               {% endif %}
             </ul>
           </div>
-
+ 
           <!-- Cart icon -->
           <a class="text-white me-3 position-relative" href="{% url 'view_bag' %}" aria-label="View shopping cart">
             <i class="bi bi-cart3 fs-4"></i>
@@ -88,15 +88,15 @@
           <a class="btn btn-sm btn-outline-light" href="{% url 'products' %}">Book now</a>
         </div>
       </div>
-
+ 
       <!-- Bottom row: nav links -->
       <nav class="navbar navbar-expand-lg navbar-dark main-nav px-3" aria-label="Main navigation">
-
+ 
         <!-- Mobile: logo + toggler -->
         <a class="navbar-brand d-lg-none" href="/" aria-label="GlacierGear home">
-          <img src="{% static 'images/glaciergear_logo.png' %}" alt="GlacierGear" height="45" width="195" />
+          <img src="{% static 'images/glaciergear_logo.png' %}" alt="GlacierGear" height="45" width="195">
         </a>
-
+ 
         <button class="navbar-toggler border-0" type="button"
                 data-bs-toggle="collapse"
                 data-bs-target="#mainNav"
@@ -105,14 +105,14 @@
                 aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
-
+ 
         <div class="collapse navbar-collapse" id="mainNav">
           <ul class="navbar-nav mx-auto">
-
+ 
             <li class="nav-item">
               <a class="nav-link" href="/">Home</a>
             </li>
-
+ 
             <!-- Ski Outfits dropdown -->
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="skiDropdown"
@@ -128,7 +128,7 @@
                 <li><a class="dropdown-item" href="{% url 'products' %}?category=ski_outfit">All Ski</a></li>
               </ul>
             </li>
-
+ 
             <!-- Snowboard Outfits dropdown -->
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="snowboardDropdown"
@@ -143,30 +143,30 @@
                 <li><a class="dropdown-item" href="{% url 'products' %}?category=snowboard_outfit">All Snowboard</a></li>
               </ul>
             </li>
-
+ 
             <li class="nav-item">
               <a class="nav-link" href="{% url 'products' %}?category=accessories">Accessories</a>
             </li>
-
+ 
             {% if request.user.is_authenticated %}
             <li class="nav-item">
               <a class="nav-link" href="{% url 'profile' %}">My Bookings</a>
             </li>
             {% endif %}
-
+ 
           </ul>
-
+ 
           <!-- Mobile only icons inside collapse -->
           <ul class="navbar-nav ms-auto d-lg-none">
             <li class="nav-item">
               <form class="d-flex my-2" method="GET" action="{% url 'products' %}">
-                <input class="form-control me-2" type="search" name="q" placeholder="Search..." aria-label="Search" />
+                <input class="form-control me-2" type="search" name="q" placeholder="Search..." aria-label="Search">
                 <button class="btn btn-outline-light" type="submit" aria-label="Search">
                   <i class="bi bi-search"></i>
                 </button>
               </form>
             </li>
-
+ 
             <!-- Mobile account dropdown -->
             <li class="nav-item dropdown">
               <a class="nav-link text-white dropdown-toggle" href="#" id="mobileAccountDropdown"
@@ -186,7 +186,7 @@
                 {% endif %}
               </ul>
             </li>
-
+ 
             <li class="nav-item">
               <a class="nav-link text-white position-relative" href="{% url 'view_bag' %}" aria-label="View shopping cart">
                 <i class="bi bi-cart3 fs-5"></i> Cart
@@ -200,11 +200,11 @@
           </ul>
         </div>
       </nav>
-
+ 
     {% block mountain_bar %}{% endblock %}
-
+ 
     </header>
-
+ 
     {% if messages %}
     <div class="message-container position-fixed top-0 end-0 p-3" style="z-index: 9999; margin-top: 70px;">
       {% for message in messages %}
@@ -222,25 +222,25 @@
       {% endfor %}
     </div>
     {% endif %}
-
+ 
     {% block page_header %}
     {% endblock %}
-
+ 
     <main>
       {% block content %}
       {% endblock %}
     </main>
-
+ 
     <footer class="site-footer mt-auto">
   <div class="container py-0">
     <div class="row text-center align-items-center">
-
+ 
       <!-- Left: Contact -->
       <div class="col-12 col-md-4 mb-2 mb-md-0">
         <small class="text-white d-block">Contact Us</small>
         <small class="text-white">info@glaciergear.se</small>
       </div>
-
+ 
       <!-- Middle: Social icons -->
       <div class="col-12 col-md-4 mb-2 mb-md-0">
         <small class="text-white d-block mb-1">Follow Us</small>
@@ -251,17 +251,17 @@
           <i class="bi bi-facebook fs-5"></i>
         </a>
       </div>
-
+ 
       <!-- Right: T&C + Copyright -->
       <div class="col-12 col-md-4">
         <a href="{% url 'terms' %}" class="text-white small d-block">Terms & Conditions</a>
         <small class="text-white">&copy; 2026 GlacierGear. All rights reserved.</small>
       </div>
-
+ 
     </div>
   </div>
 </footer>
-
+ 
     {% block postloadjs %}
     <script>
       document.addEventListener("DOMContentLoaded", function () {
@@ -273,6 +273,6 @@
       });
     </script>
     {% endblock %}
-
+ 
   </body>
 </html>
