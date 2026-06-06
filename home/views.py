@@ -1,7 +1,7 @@
 from django.shortcuts import render
 import requests
- 
- 
+
+
 def index(request):
     """ A view to return the index page with mountain conditions for Romme Alpin """
     weather = None
@@ -18,10 +18,10 @@ def index(request):
             data = response.json()
             current = data.get('current', {})
             daily = data.get('daily', {})
- 
+
             code = current.get('weather_code', 0)
             description = get_weather_description(code)
- 
+
             weather = {
                 'temperature': round(current.get('temperature_2m', 0)),
                 'description': description,
@@ -37,10 +37,10 @@ def index(request):
             'snowfall': None,
             'snow_depth': None,
         }
- 
+
     return render(request, 'home/index.html', {'weather': weather})
- 
- 
+
+
 def get_weather_description(code):
     """Convert WMO weather code to mountain-friendly description"""
     descriptions = {
@@ -70,12 +70,12 @@ def get_weather_description(code):
         99: 'Heavy Thunderstorm',
     }
     return descriptions.get(code, 'Partly Cloudy')
- 
- 
+
+
 def how_it_works(request):
     """ A view to return the how it works page """
     return render(request, 'home/how_it_works.html')
- 
- 
+
+
 def terms(request):
     return render(request, 'home/terms.html')

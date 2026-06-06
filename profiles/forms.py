@@ -21,4 +21,3 @@ class UserProfileForm(forms.ModelForm):
             self.fields[field].widget.attrs['placeholder'] = placeholder
             self.fields[field].widget.attrs['class'] = 'form-control'
             self.fields[field].label = False
-            

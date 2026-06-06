@@ -3,9 +3,11 @@ from django.contrib import admin
 # Register your models here.
 from .models import Product, Category, ProductSize
 
+
 class ProductSizeInline(admin.TabularInline):
     model = ProductSize
     extra = 1
+
 
 class ProductAdmin(admin.ModelAdmin):
     list_display = (

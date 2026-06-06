@@ -5,6 +5,7 @@ from django.dispatch import receiver
 
 # Create your models here.
 
+
 class UserProfile(models.Model):
     """
     A user profile model for maintaining
@@ -26,4 +27,3 @@ def create_or_update_user_profile(sender, instance, created, **kwargs):
     if created:
         UserProfile.objects.create(user=instance)
     instance.userprofile.save()
-    
