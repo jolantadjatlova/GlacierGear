@@ -1,15 +1,15 @@
 {% extends "base.html" %}
 {% load static %}
 {% load crispy_forms_tags %}
- 
+
 {% block extra_title %}Edit {{ product.name }}{% endblock %}
- 
+
 {% block content %}
 <div class="overlay"></div>
 <div class="container py-5" style="position: relative; z-index: 2;">
     <div class="row">
         <div class="col">
-            <h2 class="mb-4 products-title">Product Management</h2>
+            <h1 class="mb-4 products-title">Product Management</h1>
             <hr>
         </div>
     </div>
@@ -17,7 +17,7 @@
         <div class="col-12 col-md-8 col-lg-6">
             <div class="card p-4">
                 <div class="card-body">
-                    <h5 class="card-title mb-1">Edit Product</h5>
+                    <h2 class="card-title mb-1">Edit Product</h2>
                     <p class="text-muted small mb-4">
                         You are editing <strong>{{ product.name }}</strong>
                     </p>
