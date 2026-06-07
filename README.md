@@ -179,16 +179,21 @@ Further visual decisions are detailed in the [Typography](#typography) and [Colo
 ### Wireframes
  
 These wireframes were created using [Balsamiq](https://balsamiq.com/) during the Scope Plane part of the design and planning process for this project.
- 
-- [Home Page](docs/wireframe_home.png)
-- [Products Page](docs/wireframe_products.png)
-- [Product Detail Page](docs/wireframe_product_detail.png)
-- [Booking Cart](docs/wireframe_bag.png)
-- [Checkout Page](docs/wireframe_checkout.png)
-- [Profile Page](docs/wireframe_profile.png)
-- [Sign In](docs/wireframe_login.png)
-- [Sign Up](docs/wireframe_signup.png)
-- [404 Page](docs/wireframe_404.png)
+
+Some design decisions evolved during development, resulting in minor differences between the wireframes and the final implementation.
+
+- [Home Page](docs/glaciergear_landing_wireframes.png)
+- [Products Page](docs/glaciergear_product_listing_wireframes.png)
+- [Product Detail Page](docs/glaciergear_product_detail_page_wireframes.png)
+- [Booking Cart](docs/glaciergear_cart_wireframes.png)
+- [Checkout Page](docs/glaciergear_checkout_wireframes.png)
+- [Checkout Success](docs/glaciergear_success_wireframes.png)
+- [My Bookings / Profile](docs/glaciergear_mybooking_wireframes.png)
+- [Sign In](docs/glaciergear_login_wireframes.png)
+- [Sign Up](docs/glaciergear_register.png)
+- [404 Page](docs/glaciergear_404_wireframes.png)
+- [500 Page](docs/glaciergear_500_wireframes.png)
+
 ### Typography
  
 - The **Bebas Neue** typeface is used for headings and hero text to create a bold, sporty aesthetic that reflects the ski and snowboard theme of the project.
