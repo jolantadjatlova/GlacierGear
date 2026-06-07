@@ -831,10 +831,10 @@ I have used the recommended [CI Python Linter](https://pep8ci.herokuapp.com) to 
  
 | User Story | Result | Pass | Evidence |
 |-----------|--------|------|----------|
-| Browse all products without an account | Products page accessible without login | Yes | ![](docs/test_browse_products.png) |
-| Filter products by category, size, and colour | Filters apply correctly and update results | Yes | ![](docs/test_filters.png) |
-| Search for products by keyword | Search returns relevant results | Yes | ![](docs/test_search.png) |
-| View product details including sizes and pricing | Product detail page shows all info | Yes | ![](docs/test_product_detail.png) |
+| Browse all products without an account | Products page accessible without login | Yes | ![](docs/products_desktop.png) |
+| Filter products by category, size, and colour | Filters apply correctly and update results | Yes | ![](docs/products_filters.png) |
+| Search for products by keyword | Search returns relevant results | Yes | ![](docs/search_results.png) |
+| View product details including sizes and pricing | Product detail page shows all info | Yes | ![](docs/product_detail_desktop.png) |
  
 #### Authenticated Users
  
@@ -850,9 +850,9 @@ I have used the recommended [CI Python Linter](https://pep8ci.herokuapp.com) to 
  
 | User Story | Result | Pass | Evidence |
 |-----------|--------|------|----------|
-| Add new products via frontend | Add product form saves correctly | Yes | ![](docs/test_add_product.png) |
-| Edit existing products | Edit form pre-fills and saves updates | Yes | ![](docs/test_edit_product.png) |
-| Delete products | Delete removes product with confirmation | Yes | ![](docs/test_delete_product.png) |
+| Add new products from the admin menu | Add product form saves correctly | Yes | ![](docs/add_product_form.png) |
+| Edit existing products | Edit form pre-fills and saves updates | Yes | ![](docs/edit_product_form.png) |
+| Delete products | Delete removes product with confirmation | Yes | ![](docs/superuser_buttons.png) |
  
  
 [Back to contents](#contents)
