@@ -112,6 +112,7 @@ header {
     justify-content: flex-end;
     padding-bottom: 3rem;
     background: url('../images/hero_gg.webp') center top / cover no-repeat;
+    background-color: #1a2744;
     min-height: 90vh;
 }
  
