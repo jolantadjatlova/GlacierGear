@@ -200,6 +200,7 @@ Some design decisions evolved during development, resulting in minor differences
 - **Open Sans** (via system fonts / Bootstrap defaults) is used for body text and navigation due to its clean, readable letterforms across different screen sizes.
 - Varying font weights are used to establish clear visual hierarchy between headings, navigation elements, and content text.
 - This typography pairing supports a modern and active interface while keeping the layout clear and easy to navigate.
+
 ### Colour Scheme
  
 The colour palette was designed to reflect the alpine ski theme of GlacierGear. Navy blue and white form the core palette, evoking snow, sky, and mountain environments. Accent colours are used to highlight interactive elements while keeping the interface clean and professional.
@@ -208,7 +209,11 @@ The colour palette was designed to reflect the alpine ski theme of GlacierGear. 
 - Navy Dark: `#1a2744`
 - Navy: `#2d3f6b`
 - White: `#ffffff`
-![GlacierGear Colour Palette](docs/glaciergear_palette.png)
+![GlacierGear Colour Palette](docs/glaciergear_colour_palette.png)
+
+A contrast grid was used to ensure that text and interactive elements meet accessibility guidelines for contrast and readability across all device types.
+
+![GlacierGear Contrast Grid](docs/glaciergear_contrast_grid.png)
  
  
 ### Images
