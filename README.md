@@ -853,21 +853,22 @@ I have used the recommended [CI Python Linter](https://pep8ci.herokuapp.com) to 
 ---
  
 ### Accessibility Testing
- 
+
 Accessibility best practices were applied throughout the site, including:
- 
+
 - Semantic HTML structure
 - Clear and consistent navigation
 - Appropriate heading hierarchy
 - Sufficient colour contrast
 - Descriptive alt attributes on all images
+
 The **[WAVE Web Accessibility Evaluation Tool](https://wave.webaim.org/)** was used to evaluate accessibility on key pages.
- 
-| Page | Result |
-|------|--------|
-| Home | ![](docs/wave_home.png) |
-| Products | ![](docs/wave_products.png) |
-| Login | ![](docs/wave_login.png) |
+
+| Page | Result | Notes |
+|------|--------|-------|
+| Home | ![](docs/wave_home.png) | 0 errors. 1 contrast error and 1 broken same-page link alert are caused by the third-party Leaflet.js map library and cannot be modified. |
+| Products | ![](docs/wave_products.png) | 0 errors. Redundant link and nearby image alerts are due to each product card having both an image link and a View Details button linking to the same product page. |
+| Login | ![](docs/wave_login.png) | 0 errors. |
  
 ### Lighthouse Testing
  
