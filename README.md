@@ -709,14 +709,17 @@ CSS was tested using the [W3C CSS Validator (Jigsaw)](https://jigsaw.w3.org/css-
 |------|--------|
 | base.css | ![](docs/css_validation.png) |
  
-#### JavaScript
- 
-JavaScript was tested using [JSHint](https://jshint.com/).
- 
-| File | Result |
-|------|--------|
-| stripe_elements.js | ![](docs/js_validation_stripe.png) |
-| bag.js (quantity/filter scripts) | ![](docs/js_validation_bag.png) |
+### JavaScript
+
+I have used the recommended [JSHint Validator](https://jshint.com) to validate all of my JavaScript files.
+
+| File | Screenshot | Notes |
+| --- | --- | --- |
+| stripe_elements.js | ![screenshot](docs/js_validation_stripe.png) | JSHint validation performed using ES11, jQuery and Stripe global configuration |
+| bag.html (embedded JS) | ![screenshot](docs/js_validation_bag.png) | JSHint validation performed using ES11 |
+| products.html (embedded JS) | ![screenshot](docs/js_validation_products.png) | JSHint validation performed using ES11 |
+| product_detail.html (embedded JS) | ![screenshot](docs/js_validation_product_detail.png) | JSHint validation performed using ES11 |
+| index.html (embedded JS) | ![screenshot](docs/js_validation_index.png) | JSHint validation performed using ES11, Leaflet global configuration |
  
  
 [Back to contents](#contents)
