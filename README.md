@@ -1105,7 +1105,7 @@ os.environ.setdefault("STRIPE_WH_SECRET", "your-stripe-wh-secret")
  
 ### Learning Help and Resources
  
-- [Code Institute](https://codeinstitute.net/) — Full Stack Frameworks with Django course materials and Boutique Ado walkthrough project
+- [Code Institute](https://codeinstitute.net/) — Full Stack Frameworks with Django course materials. The Boutique Ado walkthrough project provided the structural foundation for the e-commerce functionality including the bag, checkout, and Stripe integration. All code has been reviewed, understood, and adapted to fit GlacierGear's specific requirements, models, and rental-based business logic
 - [Django Documentation](https://docs.djangoproject.com/) — Django framework reference
 - [Django Allauth Documentation](https://django-allauth.readthedocs.io/) — Authentication and account management
 - [Stripe Documentation](https://stripe.com/docs) — Payment integration and webhooks
