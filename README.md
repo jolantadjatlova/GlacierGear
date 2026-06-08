@@ -34,6 +34,7 @@ The application focuses on clean UX design, accessibility, and secure authentica
 - [Features](#features)
   - [Existing Features](#existing-features)
   - [Future Enhancements](#future-enhancements)
+  - [Known Limitations](#known-limitations)
 - [Data Model & Relationships](#data-model--relationships)
   - [Entity Relationship Diagram](#entity-relationship-diagram)
   - [Database Models](#database-models)
@@ -495,6 +496,16 @@ Custom error pages are implemented to maintain visual consistency when errors oc
 - **Product Reviews** — Allow authenticated users to leave reviews and ratings on products they have rented.
 - **Email notifications for low stock** — Automatically notify the store owner when a product size reaches zero stock.
 - **Discount codes** — Allow store owners to create promotional discount codes for checkout.
+- **Date-based stock availability** — Currently stock is decremented on booking confirmation and does not automatically restore after the rental period ends. The store owner would need to manually update stock in the admin after items are returned. A future enhancement would be to implement date-based availability so stock automatically calculates availability based on rental dates, meaning the same item could be rented multiple times across different date ranges.
+
+[Back to contents](#contents)
+
+---
+
+### Known Limitations
+
+- **Stock management** — Stock is decremented on booking confirmation and does not automatically restore after the rental period ends. Store owners must manually restore stock via the admin panel when items are returned. This is a known limitation and is documented as a future enhancement.
+
 [Back to contents](#contents)
  
 ---
@@ -503,6 +514,8 @@ Custom error pages are implemented to maintain visual consistency when errors oc
 The GlacierGear application uses a relational database structure. The main models are: User, UserProfile, Category, Product, ProductSize, Booking, and BookingLineItem.
  
 ### Entity Relationship Diagram
+
+The ERD was created using [dbdiagram.io](https://dbdiagram.io/).
  
 ![Entity Relationship Diagram](docs/entity_relationship_diagram.png)
  
@@ -678,6 +691,7 @@ Stores individual items within a booking.
 | [Heroku](https://www.heroku.com/) | Deploy and host the live application | Platform |
 | [Neon](https://neon.tech/) | Managed PostgreSQL database provider | Service |
 | [Balsamiq](https://balsamiq.com/) | Wireframes for planning layout and user flow | Tool |
+| [dbdiagram.io](https://dbdiagram.io/) | Entity Relationship Diagram | Tool |
 | [Coolors](https://coolors.co/) | Colour palette generation | Tool |
 | [W3C HTML Validator](https://validator.w3.org/) | Validate HTML structure | Tool |
 | [W3C CSS Validator](https://jigsaw.w3.org/css-validator/) | Validate CSS syntax | Tool |
@@ -842,7 +856,7 @@ I have used the recommended [CI Python Linter](https://pep8ci.herokuapp.com) to 
 | User Story | Result | Pass | Evidence |
 |-----------|--------|------|----------|
 | Browse all products without an account | Products page accessible without login | Yes | ![](docs/products_desktop.png) |
-| Filter products by category, size, and colour | Filters apply correctly and update results | Yes | ![](docs/products_filters.png) |
+| Filter products by category, size, and colour | Filters apply correctly and update results | Yes | ![](docs/product_filters.png) |
 | Search for products by keyword | Search returns relevant results | Yes | ![](docs/search_results.png) |
 | View product details including sizes and pricing | Product detail page shows all info | Yes | ![](docs/product_detail_desktop.png) |
  
