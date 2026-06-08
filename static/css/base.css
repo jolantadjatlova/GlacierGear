@@ -69,6 +69,21 @@ header {
 .main-nav .form-control::placeholder {
     color: rgba(255, 255, 255, 0.6);
 }
+
+/* NAVBAR DROPDOWN */
+.dropdown-menu {
+    background-color: rgba(3, 60, 124, 0.95);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.dropdown-menu .dropdown-item {
+    color: #ffffff;
+}
+
+.dropdown-menu .dropdown-item:hover {
+    background-color: rgba(255, 255, 255, 0.15);
+    color: #ffffff;
+}
  
 .site-footer {
     background-color: rgba(3, 60, 124, 0.7);
