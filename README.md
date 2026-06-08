@@ -116,7 +116,7 @@ The application focuses on clean UX design, accessibility, and secure authentica
 The website follows a clear and intuitive user flow focused on product discovery and rental booking. Public users can browse, search, and filter products, while authenticated users can access the booking cart, checkout, and profile features. Clear UI feedback is provided throughout user interactions via toast notifications.
  
 ##### Information Architecture
-Content is organised into clear sections including the homepage with live weather widget, product listings with filtering and sorting, product detail pages with size and date selection, a booking cart, checkout, and user profile with booking history. Categories are used to group products and support easy navigation.
+Content is organised into clear sections including the homepage with live weather mountain conditions bar, product listings with filtering and sorting, product detail pages with size and date selection, a booking cart, checkout, and user profile with booking history. Categories are used to group products and support easy navigation.
  
 ##### Navigation Layout
 A persistent navigation bar provides access to key areas of the site, including Home, Ski Outfits, Snowboard Outfits, Accessories, My Bookings, and user account options. The navigation collapses into a mobile-friendly menu on smaller screens.
@@ -198,7 +198,7 @@ Some design decisions evolved during development, resulting in minor differences
 ### Typography
  
 - The **Bebas Neue** typeface is used for headings and hero text to create a bold, sporty aesthetic that reflects the ski and snowboard theme of the project.
-- **Open Sans** (via system fonts / Bootstrap defaults) is used for body text and navigation due to its clean, readable letterforms across different screen sizes.
+- **Inter** is used for body text and navigation due to its clean, readable letterforms across different screen sizes.
 - Varying font weights are used to establish clear visual hierarchy between headings, navigation elements, and content text.
 - This typography pairing supports a modern and active interface while keeping the layout clear and easy to navigate.
 
@@ -219,8 +219,8 @@ A contrast grid was used to ensure that text and interactive elements meet acces
  
 ### Images
  
-The hero background image and card images used on the GlacierGear homepage were sourced from free stock photography sites and optimised for web use. Product images were sourced from free stock photography and uploaded through the Django admin panel.
- 
+The hero background image, product images, and GlacierGear logo were all AI-generated using [ChatGPT](https://chat.openai.com/) and optimised for web use. Product images were uploaded through the Django admin panel.
+
 All images include descriptive `alt` attributes to support accessibility.
 
 ### Responsiveness
@@ -232,8 +232,9 @@ The layout, typography, and interactive elements adjust to maintain usability ac
 - Navigation collapses into a mobile-friendly menu on smaller screens.
 - Product cards reflow from a 4-column to 2-column to 1-column grid on smaller screens.
 - Forms, buttons, and inputs remain accessible and easy to use on touch devices.
-Responsiveness was tested using browser developer tools and manual viewport resizing.
-Further details can be found in the **Responsiveness Test** section.
+
+Responsiveness was tested using **Chrome DevTools** device toolbar and manual viewport resizing.
+Further details can be found in the [Responsiveness Test](#responsiveness-test) section.
  
  
 [Back to contents](#contents)
@@ -241,8 +242,8 @@ Further details can be found in the **Responsiveness Test** section.
 ## Agile Development Process
  
 GlacierGear was developed using an iterative Agile approach, focusing on delivering a clear and user-friendly Minimum Viable Product (MVP). Development was carried out in small, manageable stages, allowing functionality to be built, tested, and refined incrementally.
- 
-The workflow was managed using GitHub Projects (Kanban board) and GitHub Issues, where user stories and tasks were prioritised using the MoSCoW method. This ensured that core functionality such as product browsing, the booking cart, Stripe checkout, and user profiles was implemented first, followed by usability and design improvements.
+
+The workflow was managed using [GitHub Projects](https://github.com/jolantadjatlova/GlacierGear/projects) (Kanban board) and GitHub Issues, where user stories and tasks were prioritised using the MoSCoW method. This ensured that core functionality such as product browsing, the booking cart, Stripe checkout, and user profiles was implemented first, followed by usability and design improvements.
  
 [Back to contents](#contents)
  
@@ -252,21 +253,27 @@ The workflow was managed using GitHub Projects (Kanban board) and GitHub Issues,
  
 #### GitHub Projects (Kanban)
 A Kanban board was created using [GitHub Projects](https://github.com/jolantadjatlova/GlacierGear/projects) to visually manage tasks and track progress. Tasks were broken down into user stories and categorised by status:
- 
+
 - To Do
 - In Progress
 - Done
+
+This approach helped to:
+- Track development progress clearly
+- Maintain focus on achievable goals
+- Manage workload effectively throughout the project
+
 ![GitHub Projects Board](docs/glaciergear_project_board.png)
- 
+
 #### GitHub Issues
- 
-GitHub Issues were used to record user stories, development tasks and potential features, with labels applied.
- 
+
+GitHub Issues were used to record user stories, development tasks and potential features, with labels applied. Each issue included clear acceptance criteria and was linked to the relevant stage of development.
+
 ![GitHub Issues](docs/glaciergear_github_issues.png)
- 
+
 #### MoSCoW Prioritization
- 
-The MoSCoW prioritisation method was used to classify tasks as Must Have, Should Have or Could Have. This helped ensure that essential functionality was delivered within the project timeframe.
+
+The MoSCoW prioritisation method was used to classify tasks as Must Have, Should Have or Could Have. This helped ensure that essential functionality was delivered within the project timeframe while allowing flexibility for future enhancements. Could-have issues such as Wishlist and Product Reviews remain open to demonstrate ongoing prioritisation.
  
  
 [Back to contents](#contents)
@@ -339,6 +346,7 @@ Users can browse all available rental products with filtering and sorting option
 Features include:
 - Filter by gender, garment type, size, and colour
 - Sort by price, name, and rating
+- Search by keyword using the navbar search bar
 - Product count displayed
 - Edit/Delete links visible to superusers on each card
 
@@ -399,11 +407,11 @@ Features include:
 Users complete their booking through a secure checkout with Stripe payment processing.
 
 Features include:
+- Order summary showing items, sizes, dates and total
 - Booking details form (name, email, phone, rental dates)
 - Pre-filled with saved profile information
 - Save info checkbox to update profile on checkout
 - Stripe card payment element
-- Loading overlay during payment processing
 
 [Checkout page](docs/checkout_desktop.png "Checkout page")
 
@@ -729,11 +737,10 @@ All tests were run using:
 | Stripe webhook creating duplicate orders | Fixed | Orders were being created twice when both the view and webhook ran. | Added `original_bag` and `stripe_pid` fields to `Booking` and matched on these in the webhook handler. |
 | Stock not decrementing on webhook-created orders | Fixed | If the checkout view failed and the webhook created the order, stock was not decremented. | Added `_decrement_stock()` method to the webhook handler called only when it creates the order. |
 | Static files not loading on Heroku | Fixed | After removing `DISABLE_COLLECTSTATIC`, the build failed due to missing `STATIC_ROOT`. | Added `STATIC_ROOT` to both the `USE_AWS` and non-AWS settings blocks. |
-| Allauth pages not styled | Fixed | Logout, password reset, and other allauth pages used default unstyled templates. | Created custom styled templates for all allauth account pages extending `base.html`. |
-| Weather widget showing hardcoded values | Fixed | The homepage weather pill displayed `-2°C Partly Cloudy` regardless of the API. | Updated `index.html` to use `{{ weather.temperature }}` and `{{ weather.description }}` from context. |
 | Hero background image not covering cards on mobile | Fixed | The background image was set on `body`, staying fixed to the viewport. On mobile, stacked cards pushed below the visible image area. | Moved the background image from `body` to `.hero` so it scales naturally with the hero section as cards stack vertically. |
 | Confirmation email not sending after checkout | Fixed | The `checkout_success` view wasn't calling `send_mail` after a successful booking, so no confirmation email was sent to the user. | Added `send_mail` call directly to the `checkout_success` view using the existing email templates. |
 | Stripe webhook returning 500 error | Fixed | `stripe.Charge.retrieve` was incompatible with the newer Stripe API version, causing the webhook handler to crash on every payment. | Updated webhook handler to use `intent.charges.data[0].billing_details` and `intent.amount_received` instead. |
+| 500 error on registration | Fixed | Missing `EMAIL_HOST_USER` and `EMAIL_HOST_PASSWORD` config vars on Heroku caused a 500 error when users tried to register. | Added the email config vars to Heroku Config Vars. |
  
 [Back to contents](#contents)
  
@@ -831,7 +838,6 @@ I have used the recommended [CI Python Linter](https://pep8ci.herokuapp.com) to 
 | products | apps.py | [PEP8 CI Link](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/jolantadjatlova/GlacierGear/refs/heads/main/products/apps.py) | ![screenshot](docs/py-products-apps.png) |
 | products | forms.py | [PEP8 CI Link](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/jolantadjatlova/GlacierGear/refs/heads/main/products/forms.py) | ![screenshot](docs/py-products-forms.png) |
 | products | models.py | [PEP8 CI Link](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/jolantadjatlova/GlacierGear/refs/heads/main/products/models.py) | ![screenshot](docs/py-products-models.png) |
-| products | signals.py | [PEP8 CI Link](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/jolantadjatlova/GlacierGear/refs/heads/main/products/signals.py) | ![screenshot](docs/py-products-signals.png) |
 | products | tests.py | [PEP8 CI Link](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/jolantadjatlova/GlacierGear/refs/heads/main/products/tests.py) | ![screenshot](docs/py-products-tests.png) |
 | products | urls.py | [PEP8 CI Link](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/jolantadjatlova/GlacierGear/refs/heads/main/products/urls.py) | ![screenshot](docs/py-products-urls.png) |
 | products | views.py | [PEP8 CI Link](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/jolantadjatlova/GlacierGear/refs/heads/main/products/views.py) | ![screenshot](docs/py-products-views.png) |
@@ -1090,8 +1096,8 @@ os.environ.setdefault("STRIPE_WH_SECRET", "your-stripe-wh-secret")
 ## Credits
  
 ### Feedback, Advice and Support
- 
-- Code Institute tutors — for guidance and feedback throughout the project
+
+- A special thank you to [Richey Malhotra](https://github.com/richey-malhotra) for the support and guidance provided throughout this project. His help during the more challenging parts of development made a real difference and is greatly appreciated.
 - Peer support and discussion within the Code Institute Slack community
 [Back to contents](#contents)
  
@@ -1115,9 +1121,8 @@ os.environ.setdefault("STRIPE_WH_SECRET", "your-stripe-wh-secret")
  
 ### Images
  
-- Hero background image sourced from free stock photography.
-- Product images sourced from free stock photography sites and uploaded via Django admin.
-- GlacierGear logo created for this project.
+- The hero background image, product images, and GlacierGear logo were all AI-generated using [ChatGPT](https://chat.openai.com/) and optimised for web use.
+- Product images were uploaded through the Django admin panel.
 - All images include descriptive `alt` attributes to support accessibility.
 [Back to contents](#contents)
  
