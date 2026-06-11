@@ -429,7 +429,7 @@ Features include:
 - Pickup location and opening hours
 - Back to Profile button (if coming from booking history)
 
-A confirmation email is also sent automatically via Stripe webhooks.
+A confirmation email is also sent automatically after successful payment.
 
 [Booking confirmation](docs/checkout_success_desktop.png "Booking confirmation page")
 
@@ -1125,6 +1125,7 @@ os.environ.setdefault("STRIPE_WH_SECRET", "your-stripe-wh-secret")
 - The hero background image, product images, and GlacierGear logo were all AI-generated using [ChatGPT](https://chat.openai.com/) and optimised for web use.
 - Product images were uploaded through the Django admin panel.
 - All images include descriptive `alt` attributes to support accessibility.
+
 [Back to contents](#contents)
  
 ---
