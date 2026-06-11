@@ -172,6 +172,7 @@ Further visual decisions are detailed in the [Typography](#typography) and [Colo
 - As a store owner, I want to add new products to the store so that customers can see the latest equipment.
 - As a store owner, I want to edit existing products so that I can update pricing, descriptions, and images.
 - As a store owner, I want to delete products so that I can remove discontinued equipment from the store.
+
 [Back to contents](#contents)
  
 ---
